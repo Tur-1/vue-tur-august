@@ -1,9 +1,9 @@
 <script setup>
-import LargeBanners from "@/views/pages/HomePage/ui/desktop/components/LargeBanners.vue";
-import MediumBanners from "@/views/pages/HomePage/ui/desktop/components/MediumBanners.vue";
-import LatestProducts from "@/views/pages/HomePage/ui/desktop/components/LatestProducts.vue";
-import BannersSkeleton from "@/views/pages/HomePage/ui/desktop/components/BannersSkeleton.vue";
-import LatestProductsSkeleton from "@/views/pages/HomePage/ui/desktop/components/LatestProductsSkeleton.vue";
+import LargeBanners from "@/views/desktop/pages/HomePageDesktop/components/LargeBanners.vue";
+import MediumBanners from "@/views/desktop/pages/HomePageDesktop/components/MediumBanners.vue";
+import LatestProducts from "@/views/desktop/pages/HomePageDesktop/components/LatestProducts.vue";
+import BannersSkeleton from "@/views/desktop/pages/HomePageDesktop/components/BannersSkeleton.vue";
+import LatestProductsSkeleton from "@/views/desktop/pages/HomePageDesktop/components/LatestProductsSkeleton.vue";
 </script>
 <template>
   <section class="">

@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import HomePageDesktop from '@/views/desktop/pages/HomePageDesktop/index.vue'
 
 
 const mediaQueryWidth = window.matchMedia("(max-width: 756px)");
@@ -10,7 +11,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: () => mediaQueryWidth.matches ? import('@/views/pages/HomePage/ui/mobile/MobileHomePage.vue') : import('@/views/pages/HomePage/ui/desktop/DesktopHomePage.vue')
+      component: HomePageDesktop
     }
 
   ]
