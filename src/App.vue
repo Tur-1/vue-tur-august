@@ -1,6 +1,4 @@
 <script setup>
-import { RouterLink, RouterView } from "vue-router";
-
 import { ref } from "vue";
 import DesktopLayout from "@/views/desktop/layouts/DesktopLayout.vue";
 import MobileLayout from "@/views/mobile/layouts/MobileLayout.vue";
@@ -17,11 +15,7 @@ if (mediaQueryWidth.matches) {
 </script>
 
 <template>
-  <DesktopLayout v-if="isDesktop">
-    <RouterView />
-  </DesktopLayout>
+  <DesktopLayout v-if="isDesktop" />
 
-  <MobileLayout v-if="isMobile">
-    <RouterView />
-  </MobileLayout>
+  <MobileLayout v-if="isMobile" />
 </template>

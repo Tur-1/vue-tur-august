@@ -1,5 +1,8 @@
 <template>
-  <div class="col-xl-2 col-lg-2 col-md-4 col-5 mb-4 product-item">
+  <div
+    :class="props.class ?? 'col-xl-3 col-lg-4 col-md-4 col-6'"
+    class="product-item mb-4"
+  >
     <div class="card product-card">
       <a
         class="product-card-image"
@@ -40,9 +43,7 @@
     </div>
   </div>
 </template>
-<script setup>
-defineProps(["products"]);
-</script>
+
 <!-- <template>
     <transition-group name="fade" mode="out-in">
         <div
@@ -122,38 +123,41 @@ defineProps(["products"]);
         </div>
     </transition-group>
 </template>
-
+-->
 <script setup>
-import { useForm } from "@inertiajs/inertia-vue3";
-
 const props = defineProps({
-    customClass: String,
-    products: Object,
-    eagerLoading: {
-        type: String,
-        default: "false",
-    },
+  class: String,
 });
+//  import { useForm } from "@inertiajs/inertia-vue3";
 
-let form = useForm({
-    product_id: "",
-});
+// const props = defineProps({
+//     customClass: String,
+//     products: Object,
+//     eagerLoading: {
+//         type: String,
+//         default: "false",
+//     },
+// });
 
-const addToWishlist = (product_id) => {
-    form.product_id = product_id;
-    form.post(route("addToWishlist"), {
-        preserveScroll: true,
-        preserveState: true,
-    });
-};
+// let form = useForm({
+//     product_id: "",
+// });
+
+// const addToWishlist = (product_id) => {
+//     form.product_id = product_id;
+//     form.post(route("addToWishlist"), {
+//         preserveScroll: true,
+//         preserveState: true,
+//     });
+// };
 </script>
 <style>
 .fade-enter-active,
 .fade-leave-active {
-    transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
 }
 .fade-enter-from,
 .fade-leave-to {
-    opacity: 0;
+  opacity: 0;
 }
-</style> -->
+</style>

@@ -1,5 +1,5 @@
 <script setup>
-import { RouterLink, RouterView } from "vue-router";
+import { RouterView } from "vue-router";
 
 import { ref } from "vue";
 
@@ -15,14 +15,13 @@ if (mediaQueryWidth.matches) {
 </script>
 
 <template>
-  <header>
-    <h1>mobile header</h1>
-  </header>
-  <slot />
-  <footer>
-    <ul>
-      <li>mobile foter</li>
-      <li>mobile foter</li>
-    </ul>
-  </footer>
+  <router-view v-slot="{ Component }">
+    <main>
+      <Transition name="fade" mode="out-in">
+        <transition>
+          <component :is="Component" />
+        </transition>
+      </Transition>
+    </main>
+  </router-view>
 </template>
