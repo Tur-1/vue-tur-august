@@ -28,7 +28,10 @@
             <span><strong>534 SAR</strong></span>
           </li>
         </ul>
-        <Link to="/" class="btn btn-primary shooping-cart-details-button">
+        <Link
+          to="/checkout"
+          class="btn btn-primary shooping-cart-details-button"
+        >
           <i class="bi bi-credit-card me-2"></i>
           proceed to checkout
         </Link>
