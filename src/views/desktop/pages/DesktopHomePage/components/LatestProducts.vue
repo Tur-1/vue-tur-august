@@ -8,7 +8,7 @@
 </template>
 <script setup>
 import axios from "axios";
-import ProductCard from "@/views/desktop/components/ProductCard.vue";
+import ProductCard from "@/views/components/ProductCard/index.vue";
 
 const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
 const latestProducts = await res.data;

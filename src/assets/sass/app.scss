@@ -1,6 +1,18 @@
 @import "./global.scss";
+
+/******************  layouts   ********************/
 @import "@/views/desktop/layouts/sass/footer.scss";
 @import "@/views/desktop/layouts/sass/navbar.scss";
-@import "@/assets/sass/components/product-card.scss";
+
+/******************  components   ********************/
+
 @import "@/assets/sass/components/base-slider.scss";
-@import "@/views/desktop/pages/HomePageDesktop/sass/home-page.scss";
+@import "@/views/components/BaseInput/base-input.scss";
+@import "@/views/components/ProductCard/product-card.scss";
+@import "@/views/desktop/components/Breadcrumb/breadcrumb.scss";
+@import "@/views/components/BaseModal/base-modal.scss";
+@import "@/views/components/BaseSelect/base-select.scss";
+/******************  pages   ********************/
+@import "@/views/desktop/pages/DesktopHomePage/sass/desktop-home-page.scss";
+@import "@/views/desktop/pages/DesktopShoppingCartPage/sass/desktop-shopping-cart-page.scss";
+@import "@/views/desktop/pages/DesktopMyAccountPage/sass/desktop-my-account-page.scss";

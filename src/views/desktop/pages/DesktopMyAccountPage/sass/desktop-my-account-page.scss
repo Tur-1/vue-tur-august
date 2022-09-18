@@ -1,0 +1,84 @@
+.account-image-wrap {
+    height: 250px;
+    width: 100%;
+    background: linear-gradient(180deg, rgb(249, 249, 249) 50%, white 50%);
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.account-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+    -webkit-transform: translate(-50%, -50%) !important;
+    -moz-transform: translate(-50%, -50%) !important;
+    -ms-transform: translate(-50%, -50%) !important;
+    -o-transform: translate(-50%, -50%) !important;
+}
+
+.account-image-wrap .account-image {
+    width: 100px;
+}
+.account-image-wrap .account-image img {
+    width: 100%;
+}
+.account-image-wrap .account-user-name {
+    position: absolute;
+    bottom: 10%;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+.account-items {
+    padding: 2px 10px;
+}
+
+.account-items li {
+    padding-top: 10px;
+}
+
+.account-items li button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    background-color: transparent;
+}
+.account-items li button i {
+    font-size: 20px;
+}
+.account-item-title {
+    font-weight: 500;
+}
+
+.order-card .card .card-body h5 {
+    font-size: 14px !important;
+}
+
+.order-card div {
+    font-size: 13px !important;
+}
+.account-desktop-tabs-btns {
+    color: #444;
+    padding: 20px;
+    font-size: 17px;
+    font-weight: 500;
+}
+.account-desktop-tabs-btns.active {
+    color: #000 !important;
+    border-bottom: 3px solid #51c0a9 !important;
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
+}
+.account-desktop-tabs-btns .icon-circle {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    border-radius: 100%;
+    color: rgb(143 143 143);
+    margin-right: 7px;
+    font-size: 20px;
+    border: 1px solid #eee;
+}

@@ -30,21 +30,21 @@
           </ul>
 
           <div class="nav-icons-container">
-            <Link to="/" class="nav-icons">
+            <Link to="my-account" class="nav-icons">
               <img
                 class="svgInject"
                 alt="Evara"
                 src="@/assets/icons/account.svg"
               />
             </Link>
-            <Link class="nav-icons" to="/">
+            <Link class="nav-icons" to="/wishlist">
               <img
                 class="svgInject"
                 alt="Evara"
                 src="@/assets/icons/icon-heart.svg"
               />
             </Link>
-            <Link class="nav-icons" to="/">
+            <Link class="nav-icons" to="/cart">
               <img alt="Evara" src="@/assets/icons/icon-cart.svg" />
               <span class="badge badge-circle"> 3 </span>
             </Link>

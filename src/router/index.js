@@ -1,5 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomePageDesktop from '@/views/desktop/pages/HomePageDesktop/index.vue'
+import DesktopHomePage from '@/views/desktop/pages/DesktopHomePage/index.vue'
+import DesktopWishlistPage from '@/views/desktop/pages/DesktopWishlistPage/index.vue'
+import DesktopShoppingCartPage from '@/views/desktop/pages/DesktopShoppingCartPage/index.vue'
+import DesktopMyAccountPage from '@/views/desktop/pages/DesktopMyAccountPage/index.vue'
 
 
 const mediaQueryWidth = window.matchMedia("(max-width: 756px)");
@@ -11,9 +14,22 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomePageDesktop
-    }
-
+      component: DesktopHomePage
+    }, {
+      path: '/wishlist',
+      name: 'wishlist',
+      component: DesktopWishlistPage
+    },
+    {
+      path: '/cart',
+      name: 'cart',
+      component: DesktopShoppingCartPage
+    },
+    {
+      path: '/my-account',
+      name: 'myAccount',
+      component: DesktopMyAccountPage
+    },
   ]
 })
 
