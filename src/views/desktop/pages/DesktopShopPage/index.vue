@@ -3,6 +3,7 @@ import ShopPageHeader from "@/views/desktop/pages/DesktopShopPage/components/Sho
 import ShopPageSidebar from "@/views/desktop/pages/DesktopShopPage/components/ShopPageSidebar/index.vue";
 import ShopPageProductsSkeleton from "@/views/desktop/pages/DesktopShopPage/components/ShopPageProductsSkeleton.vue";
 import ShopPageProducts from "@/views/desktop/pages/DesktopShopPage/components/ShopPageProducts.vue";
+import NoProductsFound from "@/views/desktop/pages/DesktopShopPage/components/NoProductsFound.vue";
 </script>
 <template>
   <section class="container">
@@ -19,6 +20,7 @@ import ShopPageProducts from "@/views/desktop/pages/DesktopShopPage/components/S
           <ShopPageProductsSkeleton />
         </template>
       </Suspense>
+      <NoProductsFound :show="false" />
     </div>
   </section>
 </template>

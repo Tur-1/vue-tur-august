@@ -1,0 +1,29 @@
+@media only screen and (max-width: 700px) {
+    .base-right-offcanvas {
+        width: 100% !important;
+    }
+}
+@media screen and (display-mode: standalone) {
+    .right-offcanvas .right-offcanvas-header {
+        height: 50px !important;
+    }
+}
+
+.right-offcanvas {
+    border-left: none !important;
+}
+.right-offcanvas .right-offcanvas-header {
+    padding: 10px;
+    height: 45px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(204, 204, 204, 0.4588235294);
+    background-color: white;
+}
+
+.right-offcanvas-close-btn {
+    background-color: transparent !important;
+    font-size: 18px;
+}

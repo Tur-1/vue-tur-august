@@ -1,0 +1,11 @@
+@media only screen and (max-width: 767px) {
+    .home-medium-banners {
+        margin: 1rem 6px !important;
+    }
+    .home-medium-banners .placeholder-wave .placeholder {
+        min-height: 65px !important;
+    }
+    .home-large-banners .placeholder-wave .placeholder {
+        min-height: 155px !important;
+    }
+}

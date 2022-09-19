@@ -1,19 +1,19 @@
 <script setup>
 import { RouterView } from "vue-router";
-import DesktopLayoutFooter from "@/views/desktop/layouts/components/DesktopLayoutFooter.vue";
-import DesktopLayoutHeader from "@/views/desktop/layouts/components/DesktopLayoutHeader.vue";
+import Footer from "@/views/desktop/layouts/components/Footer.vue";
+import Header from "@/views/desktop/layouts/components/Header.vue";
 </script>
 
 <template>
   <router-view v-slot="{ Component }">
     <main>
-      <DesktopLayoutHeader />
+      <Header />
       <Transition name="fade" mode="out-in">
         <transition>
           <component :is="Component" />
         </transition>
       </Transition>
-      <DesktopLayoutFooter />
+      <Footer />
     </main>
   </router-view>
 </template>

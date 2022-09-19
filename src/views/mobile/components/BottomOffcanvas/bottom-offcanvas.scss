@@ -1,0 +1,85 @@
+// bottom offcanvas
+
+// .base-bottom-offcanvas {
+//     height: 90% !important;
+//     border-top-left-radius: 10px;
+//     border-top-right-radius: 10px;
+// }
+// .base-bottom-offcanvas .offcanvas-header {
+//     border: none !important;
+//     display: flex;
+//     justify-content: space-between;
+//     padding: 10px !important;
+// }
+// .base-bottom-offcanvas .offcanvas-header .base-bottom-offcanvas-header-title {
+//     font-weight: 600 !important;
+//     text-align: center !important;
+//     position: absolute;
+//     display: inline-block;
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+//     white-space: nowrap;
+//     width: 70%;
+//     left: 50%;
+//     transform: translateX(-50%);
+// }
+// .base-bottom-offcanvas .offcanvas-header .border-top {
+//     width: 10%;
+//     border-top-width: 3px !important;
+// }
+// .base-bottom-offcanvas .offcanvas-body {
+//     padding: 0 !important;
+// }
+.base-bottom-offcanvas {
+    height: 90% !important;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-clip: padding-box;
+    background-color: white;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    outline: 0;
+    transform: translateY(100%);
+    position: fixed;
+    transition: transform 0.3s ease-in-out;
+    visibility: visible;
+    z-index: 1045;
+}
+.base-bottom-offcanvas.show {
+    transform: none;
+}
+
+.base-bottom-offcanvas-header {
+    border: none !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 13px !important;
+}
+.base-bottom-offcanvas-header .title {
+    font-weight: 600 !important;
+    text-align: center !important;
+    position: absolute;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-transform: uppercase;
+    width: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.base-bottom-offcanvas .base-bottom-offcanvas-header .border-top {
+    width: 10%;
+    border-top-width: 3px !important;
+}
+.base-bottom-offcanvas .base-bottom-offcanvas-body {
+    padding: 0 !important;
+    flex-grow: 1;
+    overflow-y: auto;
+}

@@ -1,27 +1,21 @@
 <script setup>
 import { RouterView } from "vue-router";
-
-import { ref } from "vue";
-
-let isDesktop = ref(true);
-let isMobile = ref(false);
-
-const mediaQueryWidth = window.matchMedia("(max-width: 756px)");
-
-if (mediaQueryWidth.matches) {
-  isMobile.value = true;
-  isDesktop.value = false;
-}
+import Footer from "@/views/mobile/layouts/components/Footer.vue";
+import Header from "@/views/mobile/layouts/components/Header.vue";
+import BottomOffcanvas from "@/views/mobile/components/BottomOffcanvas/index.vue";
 </script>
 
 <template>
   <router-view v-slot="{ Component }">
+    <Header />
     <main>
       <Transition name="fade" mode="out-in">
         <transition>
           <component :is="Component" />
         </transition>
       </Transition>
+      <BottomOffcanvas title="AUGUST"> </BottomOffcanvas>
     </main>
+    <Footer />
   </router-view>
 </template>
