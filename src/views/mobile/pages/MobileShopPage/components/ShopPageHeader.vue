@@ -1,23 +1,8 @@
 <template>
   <div class="mobile-shop-page-header">
-    <div class="col">
-      <button class="sort-filter-btns" type="button" @click="open = true">
-        <span>sort</span>
-      </button>
-    </div>
+    <SortProducts />
 
-    <div class="col border-start">
-      <button
-        class="sort-filter-btns"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#mobile-offcanvas-filter"
-        aria-controls="mobile-offcanvas-filter"
-        type="button"
-        id="mobile-offcanvas-filter-btn"
-      >
-        <i class="bi bi-funnel-fill"></i><span>Filter</span>
-      </button>
-    </div>
+    <ShopPageFilter />
   </div>
 
   <div class="mobile-header-categories-warp">
@@ -38,23 +23,9 @@
       </div>
     </div>
   </div>
-
-  <swipe-modal v-model="open" contents-height="65vh" border-top-radius="14px">
-    <button @click="otherOpen = true">contents</button>
-  </swipe-modal>
-  <swipe-modal
-    v-model="otherOpen"
-    contents-height="65vh"
-    border-top-radius="14px"
-  >
-    <p>otherOpen contents</p>
-  </swipe-modal>
 </template>
 
 <script setup>
-import { ref } from "vue";
-import swipeModal from "@takuma-ru/vue-swipe-modal";
-let open = ref(false);
-
-let otherOpen = ref(false);
+import SortProducts from "@/views/mobile/pages/MobileShopPage/components/SortProducts.vue";
+import ShopPageFilter from "@/views/mobile/pages/MobileShopPage/components/ShopPageFilter/index.vue";
 </script>

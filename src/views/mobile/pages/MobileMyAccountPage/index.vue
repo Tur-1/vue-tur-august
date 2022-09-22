@@ -4,8 +4,6 @@ import MyAccountSettings from "@/views/mobile/pages/MobileMyAccountPage/componen
 import Logout from "@/views/mobile/pages/MobileMyAccountPage/components/Logout.vue";
 import MyAddressBook from "@/views/mobile/pages/MobileMyAccountPage/components/MyAddressBook/index.vue";
 import RightOffcanvas from "@/views/mobile/components/RightOffcanvas/index.vue";
-import BottomOffcanvas from "@/views/mobile/components/BottomOffcanvas/index.vue";
-import { ref } from "vue";
 </script>
 <template>
   <section>

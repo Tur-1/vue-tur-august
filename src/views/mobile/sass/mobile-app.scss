@@ -1,0 +1,12 @@
+@import "@/views/mobile/layouts/sass/mobile-layout.scss";
+
+/******************  components   ********************/
+
+@import "@/views/mobile/components/Pagination/mobile-pagination.scss";
+@import "@/views/mobile/components/RightOffcanvas/right-offcanvas.scss";
+@import "@/views/mobile/components/BottomSheet/bottom-sheet.scss";
+
+/******************  pages   ********************/
+@import "@/views/mobile/pages/MobileHomePage/sass/mobile-home-page.scss";
+@import "@/views/mobile/pages/MobileMyAccountPage/sass/mobile-my-account-page.scss";
+@import "@/views/mobile/pages/MobileShopPage/sass/mobile-shop-page.scss";

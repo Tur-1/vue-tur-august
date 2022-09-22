@@ -1,0 +1,103 @@
+.mobile-filter-products .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px 10px !important;
+    border-bottom: 1px solid #dee2e661 !important;
+}
+
+.mobile-filter-products .header .title {
+    font-weight: 600;
+    font-size: 18px;
+}
+.mobile-filter-products .header .clear-filtered-items-btn {
+    background-color: transparent;
+    color: #787878;
+    font-family: Lato;
+    font-size: 13px;
+}
+.mobile-filter-products .body {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.mobile-filter-products .body .filter-item {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid rgba(145, 145, 145, 0.37);
+    padding: 6px 0;
+}
+.mobile-filter-products .body .filter-item .filter-item-name {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    color: #4d4d4d;
+    background-color: transparent !important;
+    padding: 4px 10px;
+}
+.mobile-filter-products .body .filter-item .filtered-items {
+    margin-top: 6px;
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+}
+.mobile-filter-products .body .filter-item .filtered-items .filtered-items-card:first-child {
+    margin-left: 10px;
+}
+.mobile-filter-products .body .filter-item .filtered-items .filtered-items-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0px 5px;
+    font-family: Lato;
+    background-color: rgba(230, 230, 230, 0.7215686275);
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+.mobile-filter-products .body .filter-item .filtered-items .filtered-items-card .name {
+    margin-right: 5px;
+}
+.mobile-filter-products .body .filtered-items .filtered-items-card span,
+.mobile-filter-products .body .filtered-items .filtered-items-card i {
+    color: #939393;
+}
+
+.filter-item-offcanvas-header.offcanvas-header {
+    justify-content: unset !important;
+    border-bottom: 1px solid #e8e8e86e;
+    padding: 1rem 10px 10px 10px !important;
+}
+.filter-item-offcanvas-header.offcanvas-header .offcanvas-title {
+    font-weight: 600;
+    margin-left: 8px;
+}
+.filter-item-offcanvas-body {
+    padding: 0 !important;
+}
+.filter-item-offcanvas-body .list-group label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid rgba(127, 127, 127, 0.282);
+}
+.form-check-input-warp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+    border: 1px solid rgba(127, 127, 127, 0.69);
+    border-radius: 100% !important;
+}
+.form-check-input-warp input {
+    border-radius: 100% !important;
+    margin-top: 0 !important;
+    border: none !important;
+    width: 14px !important;
+    height: 14px !important;
+    vertical-align: baseline !important;
+}

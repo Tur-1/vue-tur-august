@@ -2,7 +2,6 @@
 import { RouterView } from "vue-router";
 import Footer from "@/views/mobile/layouts/components/Footer.vue";
 import Header from "@/views/mobile/layouts/components/Header.vue";
-import BottomOffcanvas from "@/views/mobile/components/BottomOffcanvas/index.vue";
 </script>
 
 <template>
@@ -14,7 +13,6 @@ import BottomOffcanvas from "@/views/mobile/components/BottomOffcanvas/index.vue
           <component :is="Component" />
         </transition>
       </Transition>
-      <BottomOffcanvas title="AUGUST"> </BottomOffcanvas>
     </main>
     <Footer />
   </router-view>

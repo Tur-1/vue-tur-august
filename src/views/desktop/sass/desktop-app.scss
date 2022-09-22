@@ -1,0 +1,18 @@
+@import "@/views/desktop/layouts/sass/desktop-layout.scss";
+
+/******************  components   ********************/
+@import "@/views/desktop/components/Breadcrumb/breadcrumb.scss";
+
+/******************  pages   ********************/
+
+@import "@/views/desktop/pages/DesktopHomePage/sass/desktop-home-page.scss";
+
+@import "@/views/desktop/pages/DesktopShoppingCartPage/sass/desktop-shopping-cart-page.scss";
+
+@import "@/views/desktop/pages/DesktopMyAccountPage/sass/desktop-my-account-page.scss";
+
+@import "@/views/desktop/pages/DesktopShopPage/sass/desktop-shop-page.scss";
+
+@import "@/views/desktop/pages/DesktopCheckoutPage/sass/desktop-checkout-page.scss";
+
+@import "@/views/desktop/pages/DesktopProductDetailPage/sass/desktop-product-detail-page.scss";

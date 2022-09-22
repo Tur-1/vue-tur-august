@@ -1,68 +1,49 @@
 <template>
-  <!-- <div class="sort-by-area">
-    <div @click="showSortDropdown" class="sort-by-wrap">
-      <div class="sort-by">
-        <span>
-          <i class="bi bi-funnel"></i>
-          Sort by:
-        </span>
-      </div>
-      <div class="sort-by">
-        <span>
-          {{ $page.props.sortProducts.filter((item) => item.active)[0].name }}
-          <i class="bi bi-chevron-down"></i>
-        </span>
-      </div>
-    </div>
-
-    <ul class="sort-by-dropdown">
-      <li v-for="(sort, index) in $page.props.sortProducts" :key="index">
-        <Link :href="sort.url" :class="{ active: sort.active }">
-          <i :class="sort.icon"></i>
-          {{ sort.name }}
-        </Link>
-      </li>
-    </ul>
-  </div> -->
-  <div class="sort-by-area">
-    <div class="sort-by-wrap" @click="showSortDropdown">
-      <div class="sort-by">
-        <span><i class="bi bi-funnel"></i> Sort by: </span>
-      </div>
-      <div class="sort-by">
-        <span>Suggested <i class="bi bi-chevron-down"></i></span>
-      </div>
-    </div>
-    <ul class="sort-by-dropdown">
-      <li>
-        <a class="active" href="https://tur-august.herokuapp.com/shop/women"
-          ><i class="bi bi-card-list me-2"></i> Suggested</a
-        >
-      </li>
-      <li>
-        <a class="" href="https://tur-august.herokuapp.com/shop/women?sort=new"
-          ><i class="bi bi-fire me-2"></i> new</a
-        >
-      </li>
-      <li>
-        <a
-          class=""
-          href="https://tur-august.herokuapp.com/shop/women?sort=price-high-to-low"
-          ><i class="bi bi-sort-up me-2"></i> Price: High to Low</a
-        >
-      </li>
-      <li>
-        <a
-          class=""
-          href="https://tur-august.herokuapp.com/shop/women?sort=price-low-to-high"
-          ><i class="bi bi-sort-down-alt me-2"></i> Price: Low to High</a
-        >
-      </li>
-    </ul>
+  <div class="col">
+    <button class="sort-filter-btns" type="button" @click="isOpen = true">
+      <span>sort</span>
+    </button>
   </div>
+
+  <swipe-modal v-model="isOpen" contents-height="34vh" border-top-radius="14px">
+    <div class="mobile-sort-products">
+      <div class="header">
+        <span class="title">Sort</span>
+      </div>
+      <div class="body">
+        <div class="list-group">
+          <a
+            class="text-dark list-group-item"
+            href="https://tur-august.herokuapp.com/shop/women-clothing"
+            ><div><i class="bi bi-card-list me-2"></i> Suggested</div>
+            <div class="circle-wrap"><span class="active-sort"></span></div></a
+          ><a
+            class="text-dark list-group-item"
+            href="https://tur-august.herokuapp.com/shop/women-clothing?sort=new"
+            ><div><i class="bi bi-fire me-2"></i> new</div>
+            <div class="circle-wrap"><span class=""></span></div></a
+          ><a
+            class="text-dark list-group-item"
+            href="https://tur-august.herokuapp.com/shop/women-clothing?sort=price-high-to-low"
+            ><div><i class="bi bi-sort-up me-2"></i> Price: High to Low</div>
+            <div class="circle-wrap"><span class=""></span></div></a
+          ><a
+            class="text-dark list-group-item"
+            href="https://tur-august.herokuapp.com/shop/women-clothing?sort=price-low-to-high"
+            ><div>
+              <i class="bi bi-sort-down-alt me-2"></i> Price: Low to High
+            </div>
+            <div class="circle-wrap"><span class=""></span></div
+          ></a>
+        </div>
+      </div>
+    </div>
+  </swipe-modal>
 </template>
 <script setup>
-const showSortDropdown = () => {
-  $(".sort-by-dropdown").slideToggle();
-};
+import swipeModal from "@takuma-ru/vue-swipe-modal";
+
+import { ref } from "vue";
+
+let isOpen = ref(false);
 </script>
