@@ -63,6 +63,10 @@
 .mobile-filter-products .body .filtered-items .filtered-items-card i {
     color: #939393;
 }
+.offcanvas-end:has(.filter-item-offcanvas-header) {
+    width: 100% !important;
+    height: 55vh !important;
+}
 
 .filter-item-offcanvas-header.offcanvas-header {
     justify-content: unset !important;

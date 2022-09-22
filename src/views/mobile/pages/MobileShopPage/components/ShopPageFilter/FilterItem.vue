@@ -20,7 +20,6 @@
   <COffcanvas
     placement="end"
     :visible="visibleEnd"
-    style="height: 55vh"
     @hide="
       () => {
         visibleEnd = !visibleEnd;
