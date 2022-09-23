@@ -42,25 +42,27 @@ const closeAccountModal = () => {
     @closeModal="closeAccountModal"
     @submit=""
   >
-    <BaseInput
-      label="Name *"
-      type="text"
-      placeholder="name"
-      id="accountName"
-      class="is-invalid"
-      error="is-invalid"
-    />
-    <BaseInput
-      label="Email *"
-      type="email"
-      placeholder="email"
-      id="accountEmail"
-      class="is-invalid"
-    />
-    <BaseSelect
-      label="Gender *"
-      id="accountGender"
-      :options="['male', 'female']"
-    />
+    <template #form>
+      <BaseInput
+        label="Name *"
+        type="text"
+        placeholder="name"
+        id="accountName"
+        class="is-invalid"
+        error="is-invalid"
+      />
+      <BaseInput
+        label="Email *"
+        type="email"
+        placeholder="email"
+        id="accountEmail"
+        class="is-invalid"
+      />
+      <BaseSelect
+        label="Gender *"
+        id="accountGender"
+        :options="['male', 'female']"
+      />
+    </template>
   </BaseModal>
 </template>

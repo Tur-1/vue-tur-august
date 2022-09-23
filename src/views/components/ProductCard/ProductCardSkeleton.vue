@@ -1,6 +1,7 @@
 <template>
   <div
-    class="col-xl-2 col-lg-2 col-md-4 col-5 mb-4 product-item product-item-skeleton"
+    v-for="n in 10"
+    class="col-xl-3 col-lg-3 col-md-4 col-6 mb-4 product-item product-item-skeleton"
   >
     <div class="card product-card placeholder-wave" aria-hidden="true">
       <div class="product-card-image">
@@ -18,5 +19,3 @@
     </div>
   </div>
 </template>
-
-<script setup></script>

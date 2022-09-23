@@ -6,4 +6,9 @@
 
 <script setup>
 import ProductCard from "@/views/components/ProductCard/index.vue";
+
+import axios from "axios";
+
+const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
+const products = await res.data;
 </script>

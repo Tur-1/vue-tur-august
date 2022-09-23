@@ -45,16 +45,22 @@ const closeAccountPasswordModal = () => {
     @closeModal="closeAccountPasswordModal"
     @submit=""
   >
-    <BaseInput
-      label="current password *"
-      type="password"
-      id="accountCurrentPassword"
-    />
-    <BaseInput label="new password *" type="password" id="accountNewPassword" />
-    <BaseInput
-      label="confirm new password *"
-      type="password"
-      id="accountNewPasswordConfirmation"
-    />
+    <template #form>
+      <BaseInput
+        label="current password *"
+        type="password"
+        id="accountCurrentPassword"
+      />
+      <BaseInput
+        label="new password *"
+        type="password"
+        id="accountNewPassword"
+      />
+      <BaseInput
+        label="confirm new password *"
+        type="password"
+        id="accountNewPasswordConfirmation"
+      />
+    </template>
   </BaseModal>
 </template>

@@ -48,9 +48,6 @@ body {
     #toast-alert {
         top: 52px !important;
     }
-    #nprogress .bar {
-        top: 45px !important;
-    }
 }
 
 main {
@@ -82,7 +79,7 @@ section {
 #toast-alert {
     position: fixed !important;
     top: 55px;
-    z-index: 99999999999999999999999999999999999999999999999999999999999999999999999999999 !important;
+    z-index: 99999999999999999999999999 !important;
     right: 15px;
     color: white;
     width: 350px;
@@ -99,22 +96,6 @@ section {
     -moz-border-radius: 0.25rem;
     -ms-border-radius: 0.25rem;
     -o-border-radius: 0.25rem;
-}
-
-#nprogress .bar {
-    z-index: 9999999999999999999999999999999999999999999999999999999;
-    height: 3px !important;
-}
-
-#nprogress .peg {
-    box-shadow: none !important;
-}
-#nprogress .spinner {
-    top: 50% !important;
-    left: 50% !important;
-    right: unset !important;
-    transform: translate(-50%, -50%) !important;
-    z-index: 9999999999999999999999999999999999999999999999999999999;
 }
 
 input:focus,
@@ -208,14 +189,4 @@ ul {
     .section-title {
         font-size: 14px !important;
     }
-}
-.mobile-pagination {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 13px 10px;
-    border-radius: 3px;
-    background-color: #ffffff !important;
-    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%) !important;
-    width: 100%;
 }

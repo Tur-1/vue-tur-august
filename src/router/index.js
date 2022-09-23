@@ -12,6 +12,8 @@ import DesktopShoppingCartPage from '@/views/desktop/pages/DesktopShoppingCartPa
 import MobileMyAccountPage from '@/views/mobile/pages/MobileMyAccountPage/index.vue'
 import DesktopMyAccountPage from '@/views/desktop/pages/DesktopMyAccountPage/index.vue'
 
+import MobileCategoriesPage from '@/views/mobile/pages/MobileCategoriesPage/index.vue'
+
 import MobileShopPage from '@/views/mobile/pages/MobileShopPage/index.vue'
 import DesktopShopPage from '@/views/desktop/pages/DesktopShopPage/index.vue'
 
@@ -41,7 +43,10 @@ const router = createRouter({
     {
       path: '/cart',
       name: 'shopping cart',
-      component: isMobile ? MobileShoppingCartPage : DesktopShoppingCartPage
+      component: isMobile ? MobileShoppingCartPage : DesktopShoppingCartPage,
+      meta: {
+        backgroundColor: '#f9f9f9'
+      }
     },
     {
       path: '/my-account',
@@ -51,12 +56,29 @@ const router = createRouter({
     {
       path: '/shop',
       name: 'shop',
-      component: isMobile ? MobileShopPage : DesktopShopPage
+      component: isMobile ? MobileShopPage : DesktopShopPage,
+      meta: {
+        previousPage: '/categories',
+        hidePageTitle: true
+      }
+    },
+    {
+      path: '/categories',
+      name: 'categories',
+      component: MobileCategoriesPage,
+      meta: {
+        backgroundColor: '#f9f9f9',
+        hidePageTitle: true
+      }
     },
     {
       path: '/checkout',
       name: 'checkout',
-      component: isMobile ? MobileCheckoutPage : DesktopCheckoutPage
+      component: isMobile ? MobileCheckoutPage : DesktopCheckoutPage,
+      meta: {
+        backgroundColor: '#f9f9f9',
+        previousPage: '/cart'
+      }
     },
     {
       path: '/product-detail/:slug',
@@ -70,6 +92,7 @@ router.beforeEach((to, from, next) =>
 
   let title = to.name == 'home' ? '' : ` - ${ to.params.title ?? to.name }`.toString().toUpperCase();
   document.title = import.meta.env.VITE_APP_NAME + title;
+  document.body.style.backgroundColor = to.meta.backgroundColor;
 
   next();
 

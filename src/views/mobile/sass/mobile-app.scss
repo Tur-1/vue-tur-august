@@ -1,4 +1,6 @@
-@import "@/views/mobile/layouts/sass/mobile-layout.scss";
+@import "@/views/mobile/layouts/sass/footer.scss";
+@import "@/views/mobile/layouts/sass/header.scss";
+@import "@/views/mobile/layouts/sass/search-box.scss";
 
 /******************  components   ********************/
 
@@ -10,3 +12,4 @@
 @import "@/views/mobile/pages/MobileHomePage/sass/mobile-home-page.scss";
 @import "@/views/mobile/pages/MobileMyAccountPage/sass/mobile-my-account-page.scss";
 @import "@/views/mobile/pages/MobileShopPage/sass/mobile-shop-page.scss";
+@import "@/views/mobile/pages/MobileCategoriesPage/sass/categories-page.scss";

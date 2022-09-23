@@ -10,8 +10,9 @@
             @closeModal="$emit('closeModal')"
             @submit="$emit('submit')"
           >
-            <slot />
+            <slot name="form"> </slot>
           </ModalForm>
+          <slot v-if="!withForm" />
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@ import LargeBanners from "@/views/desktop/pages/DesktopHomePage/components/Large
 import MediumBanners from "@/views/desktop/pages/DesktopHomePage/components/MediumBanners.vue";
 import LatestProducts from "@/views/desktop/pages/DesktopHomePage/components/LatestProducts.vue";
 import BannersSkeleton from "@/views/desktop/pages/DesktopHomePage/components/BannersSkeleton.vue";
-import LatestProductsSkeleton from "@/views/desktop/pages/DesktopHomePage/components/LatestProductsSkeleton.vue";
+import ProductCardSkeleton from "@/views/components/ProductCard/ProductCardSkeleton.vue";
 </script>
 <template>
   <section>
@@ -41,7 +41,12 @@ import LatestProductsSkeleton from "@/views/desktop/pages/DesktopHomePage/compon
         </template>
 
         <template #fallback>
-          <LatestProductsSkeleton />
+          <div class="row mt-3">
+            <h5 class="section-title"><span>New</span> Arrivals</h5>
+            <div class="base-slider">
+              <ProductCardSkeleton />
+            </div>
+          </div>
         </template>
       </Suspense>
     </div>

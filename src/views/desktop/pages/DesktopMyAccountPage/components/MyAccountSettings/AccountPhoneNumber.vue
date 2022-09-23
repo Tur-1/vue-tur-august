@@ -43,28 +43,32 @@ const closeAccountPhoneNumberModal = () => {
     @closeModal="closeAccountPhoneNumberModal"
     @submit=""
   >
-    <div class="mb-3">
-      <div class="input-group input-group-sm">
-        <span
-          class="input-group-text d-flex justify-content-between"
-          id="basic-addon1"
-        >
-          <img
-            src="https://flagcdn.com/w20/sa.png"
-            srcset="https://flagcdn.com/w40/sa.png 2x"
-            width="25"
-            alt="Saudi Arabia"
+    <template #form>
+      <div class="mb-3">
+        <div class="input-group input-group-sm">
+          <span
+            class="input-group-text d-flex justify-content-between"
+            id="basic-addon1"
+          >
+            <img
+              src="https://flagcdn.com/w20/sa.png"
+              srcset="https://flagcdn.com/w40/sa.png 2x"
+              width="25"
+              alt="Saudi Arabia"
+            />
+            <span>+966</span>
+          </span>
+          <input
+            class="form-control form-control-sm"
+            id="phone_number"
+            type="tel"
+            placeholder="51 234 5678"
           />
-          <span>+966</span>
+        </div>
+        <span class="text-danger mt-1 ms-2" style="font-size: 12px">
+          invil
         </span>
-        <input
-          class="form-control form-control-sm"
-          id="phone_number"
-          type="tel"
-          placeholder="51 234 5678"
-        />
       </div>
-      <span class="text-danger mt-1 ms-2" style="font-size: 12px"> invil </span>
-    </div>
+    </template>
   </BaseModal>
 </template>
