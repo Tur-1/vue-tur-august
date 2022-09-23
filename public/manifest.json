@@ -1,0 +1,37 @@
+ 
+{
+    "display": "standalone",
+    "name": "AUGUST",
+    "short_name": "AUGUST",
+    "start_url":"/",
+    "theme_color" : "#fff", 
+    "background_color": "#fff",
+    "orientation" : "portrait", 
+    "icons":[
+      {
+        "src": "/src/assets/images/logo/manifest-icon-192.maskable.png",
+        "sizes": "192x192",
+        "type": "image/png",
+        "purpose": "any"
+      },
+      {
+        "src": "/src/assets/images/logo/manifest-icon-192.maskable.png",
+        "sizes": "192x192",
+        "type": "image/png",
+        "purpose": "maskable"
+      },
+      {
+        "src": "/src/assets/images/logo/manifest-icon-512.maskable.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "any"
+      },
+      {
+        "src": "/src/assets/images/logo/manifest-icon-512.maskable.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "maskable"
+      }
+    ]
+
+}
