@@ -12,7 +12,7 @@
           >
             <slot name="form"> </slot>
           </ModalForm>
-          <slot v-if="!withForm" />
+          <slot v-if="withoutForm"> </slot>
         </div>
       </div>
     </div>
@@ -21,7 +21,7 @@
 <script setup>
 import ModalHeader from "@/views/components/BaseModal/ModalHeader.vue";
 import ModalForm from "@/views/components/BaseModal/ModalForm.vue";
-defineProps(["withForm", "id", "title", "isOpen"]);
+defineProps(["withForm", "id", "title", "isOpen", "withoutForm"]);
 defineEmits(["closeModal", "submit"]);
 </script>
 

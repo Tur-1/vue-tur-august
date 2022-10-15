@@ -1,31 +1,25 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import DesktopHomePage from '@/views/desktop/pages/DesktopHomePage/index.vue'
-import MobileHomePage from '@/views/mobile/pages/MobileHomePage/index.vue'
+import HomePage from '@/views/pages/HomePage/index.vue'
 
-import MobileWishlistPage from '@/views/mobile/pages/MobileWishlistPage/index.vue'
-import DesktopWishlistPage from '@/views/desktop/pages/DesktopWishlistPage/index.vue'
+import WishlistPage from '@/views/pages/WishlistPage/index.vue'
 
-import MobileShoppingCartPage from '@/views/mobile/pages/MobileShoppingCartPage/index.vue'
-import DesktopShoppingCartPage from '@/views/desktop/pages/DesktopShoppingCartPage/index.vue'
+import ShoppingCartPage from '@/views/pages/ShoppingCartPage/index.vue'
 
-import MobileMyAccountPage from '@/views/mobile/pages/MobileMyAccountPage/index.vue'
-import DesktopMyAccountPage from '@/views/desktop/pages/DesktopMyAccountPage/index.vue'
+import MyAccountPage from '@/views/pages/MyAccountPage/index.vue'
 
-import MobileCategoriesPage from '@/views/mobile/pages/MobileCategoriesPage/index.vue'
+import CategoriesPage from '@/views/pages/CategoriesPage/index.vue'
 
-import MobileShopPage from '@/views/mobile/pages/MobileShopPage/index.vue'
-import DesktopShopPage from '@/views/desktop/pages/DesktopShopPage/index.vue'
+import ShopPage from '@/views/pages/ShopPage/index.vue'
 
-import MobileCheckoutPage from '@/views/mobile/pages/MobileCheckoutPage/index.vue'
-import DesktopCheckoutPage from '@/views/desktop/pages/DesktopCheckoutPage/index.vue'
+import CheckoutPage from '@/views/pages/CheckoutPage/index.vue'
 
-import MobileProductDetailPage from '@/views/mobile/pages/MobileProductDetailPage/index.vue'
-import DesktopProductDetailPage from '@/views/desktop/pages/DesktopProductDetailPage/index.vue'
+import ProductDetailPage from '@/views/pages/ProductDetailPage/index.vue'
 
+import authModal from "@/views/Auth/store/authModal";
 
-const isMobile = window.matchMedia("(max-width: 756px)").matches;
-
+import useAuthApi from '@/views/Auth/services/useAuthApi';
+import authState from '@/views/Auth/store/authState'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,68 +27,105 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: isMobile ? MobileHomePage : DesktopHomePage
+      component: HomePage, meta: {
+        requiresAuth: false,
+      }
 
     }, {
       path: '/wishlist',
       name: 'wishlist',
-      component: isMobile ? MobileWishlistPage : DesktopWishlistPage
+      component: WishlistPage,
+      meta: {
+        requiresAuth: true,
+      }
     },
     {
       path: '/cart',
       name: 'shopping cart',
-      component: isMobile ? MobileShoppingCartPage : DesktopShoppingCartPage,
+      component: ShoppingCartPage,
       meta: {
-        backgroundColor: '#f9f9f9'
+        backgroundColor: '#f9f9f9',
+        requiresAuth: true,
       }
     },
     {
       path: '/my-account',
       name: 'My Account',
-      component: isMobile ? MobileMyAccountPage : DesktopMyAccountPage
+      component: MyAccountPage,
+      meta: {
+        requiresAuth: true,
+      }
     },
     {
       path: '/shop',
       name: 'shop',
-      component: isMobile ? MobileShopPage : DesktopShopPage,
+      component: ShopPage,
       meta: {
         previousPage: '/categories',
-        hidePageTitle: true
+        hidePageTitle: true,
+        requiresAuth: false,
       }
     },
     {
       path: '/categories',
       name: 'categories',
-      component: MobileCategoriesPage,
+      component: CategoriesPage,
       meta: {
         backgroundColor: '#f9f9f9',
-        hidePageTitle: true
+        hidePageTitle: true,
+        requiresAuth: false,
       }
     },
     {
       path: '/checkout',
       name: 'checkout',
-      component: isMobile ? MobileCheckoutPage : DesktopCheckoutPage,
+      component: CheckoutPage,
       meta: {
         backgroundColor: '#f9f9f9',
-        previousPage: '/cart'
+        previousPage: '/cart',
+        requiresAuth: true,
       }
     },
     {
       path: '/product-detail/:slug',
       name: 'Product Detail',
-      component: isMobile ? MobileProductDetailPage : DesktopProductDetailPage
+      component: ProductDetailPage,
+      meta: {
+        requiresAuth: false,
+      }
     },
+    {
+      path: '/login',
+      name: 'login',
+      component: import('@/views/components/MobileAuth/index.vue')
+    },
+
   ]
 })
-router.beforeEach((to, from, next) =>
+router.beforeEach(async (to, from, next) =>
 {
+
+
+  if (to.meta.requiresAuth)
+  {
+
+    if (await useAuthApi.isNotAuthenticated())
+    {
+      authModal.setIntendedPath(to.fullPath);
+      authModal.openModal();
+      return next(false);
+    }
+
+  }
 
   let title = to.name == 'home' ? '' : ` - ${ to.params.title ?? to.name }`.toString().toUpperCase();
   document.title = import.meta.env.VITE_APP_NAME + title;
   document.body.style.backgroundColor = to.meta.backgroundColor;
 
+
   next();
 
 })
+
+
 export default router

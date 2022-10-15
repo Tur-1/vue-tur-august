@@ -1,0 +1,24 @@
+.shop-sidebar {
+    font-size: 12px !important;
+    color: $text-primary-color !important;
+}
+
+.shop-sidebar * a {
+    color: $text-primary-color !important;
+}
+
+.shop-sidebar .sidebar-border-top {
+    width: 100%;
+    border-top: 1px solid #dee2e6d1;
+    padding-top: 7px;
+}
+
+ul.shop-sidebar-categories {
+    margin-bottom: 10px;
+    padding: 0;
+    list-style: none;
+}
+
+.shop-sidebar-categories .shop-sidebar-category-item a {
+    font-family: sans-serif;
+}

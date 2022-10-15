@@ -1,14 +1,47 @@
 @import "./global.scss";
 
-@import "@/views/mobile/sass/mobile-app.scss";
-@import "@/views/desktop/sass/desktop-app.scss";
-@import "@/views/Auth/sass/auth-page.scss";
+@import "@/views/layouts/mobile/sass/footer.scss";
+@import "@/views/layouts/mobile/sass/header.scss";
+@import "@/views/layouts/mobile/sass/search-box.scss";
+
+@import "@/views/layouts/desktop/sass/footer.scss";
+@import "@/views/layouts/desktop/sass/navbar.scss";
+
 /******************  components   ********************/
 
 @import "@/assets/sass/components/base-slider.scss";
+
 @import "@/views/components/BaseInput/base-input.scss";
+
 @import "@/views/components/ProductCard/product-card.scss";
+
 @import "@/views/components/BaseModal/base-modal.scss";
+
 @import "@/views/components/BaseSelect/base-select.scss";
 
+@import "@/views/components/MobilePagination/mobile-pagination.scss";
+
+@import "@/views/components/RightOffcanvas/right-offcanvas.scss";
+
+@import "@/views/components/BottomSheet/bottom-sheet.scss";
+
+@import "@/views/components/Breadcrumb/breadcrumb.scss";
+
 /******************  pages   ********************/
+@import "@/views/Auth/sass/auth-page.scss";
+
+@import "@/views/pages/ShopPage/sass/shop-page.scss";
+
+@import "@/views/pages/HomePage/sass/home-page.scss";
+
+@import "@/views/pages/ShoppingCartPage/sass/shopping-cart-page.scss";
+
+@import "@/views/pages/WishlistPage/sass/wishlist-page.scss";
+
+@import "@/views/pages/CheckoutPage/sass/checkout-page.scss";
+
+@import "@/views/pages/CategoriesPage/sass/categories-page.scss";
+
+@import "@/views/pages/MyAccountPage/sass/my-account-page.scss";
+
+@import "@/views/pages/ProductDetailPage/sass/product-detail-page.scss";

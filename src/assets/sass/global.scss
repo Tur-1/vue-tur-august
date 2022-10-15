@@ -184,7 +184,9 @@ ul {
 .section-title span {
     color: #088178;
 }
-
+.swipe-modal-takumaru-vue-swipe-modal {
+    z-index: 9654565655 !important;
+}
 @media only screen and (max-width: 760px) {
     .section-title {
         font-size: 14px !important;
