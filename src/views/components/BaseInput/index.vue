@@ -8,6 +8,7 @@
       :class="class"
       @input="$emit('update:modelValue', $event.target.value)"
       :placeholder="placeholder"
+      :value="modelValue"
     />
 
     <span class="text-danger mt-1 ms-2" style="font-size: 12px" v-show="error">

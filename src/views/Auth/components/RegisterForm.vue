@@ -5,6 +5,7 @@ import Spinner from "@/views/Auth/components/Spinner.vue";
 import registerForm from "@/views/Auth/store/registerForm";
 import { useRouter } from "vue-router";
 import authModal from "@/views/Auth/store/authModal";
+import routerStore from "@/router/routerStore";
 
 const router = useRouter();
 const register = async () => {
@@ -14,9 +15,9 @@ const register = async () => {
     await useAuthApi.register();
 
     authModal.closeModal();
-    router.push(authModal.intendedPath);
+    router.push(routerStore.intendedPath);
   } catch (error) {
-    useAuthApi.getRegisterErrors(error.response.data.errors);
+    useAuthApi.getRegisterErrors(error.response);
   }
 
   registerForm.onProgress = false;

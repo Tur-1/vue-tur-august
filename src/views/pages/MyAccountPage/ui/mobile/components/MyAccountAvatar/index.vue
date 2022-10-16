@@ -1,3 +1,9 @@
+<script setup>
+const props = defineProps({
+  userName: String,
+});
+</script>
+
 <template>
   <div class="account-image-wrap">
     <div class="account-image">
@@ -7,7 +13,7 @@
       />
     </div>
     <div class="account-user-name">
-      <span>Hi,</span><span>TURKI ALHARBI</span>
+      <span>Hi,</span><span>{{ props.userName }}</span>
     </div>
   </div>
 </template>

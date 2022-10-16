@@ -19,7 +19,8 @@ import ProductDetailPage from '@/views/pages/ProductDetailPage/index.vue'
 import authModal from "@/views/Auth/store/authModal";
 
 import useAuthApi from '@/views/Auth/services/useAuthApi';
-import authState from '@/views/Auth/store/authState'
+import routerStore from '@/router/routerStore'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,10 +28,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomePage, meta: {
-        requiresAuth: false,
-      }
-
+      component: HomePage
     }, {
       path: '/wishlist',
       name: 'wishlist',
@@ -63,7 +61,7 @@ const router = createRouter({
       meta: {
         previousPage: '/categories',
         hidePageTitle: true,
-        requiresAuth: false,
+
       }
     },
     {
@@ -73,7 +71,7 @@ const router = createRouter({
       meta: {
         backgroundColor: '#f9f9f9',
         hidePageTitle: true,
-        requiresAuth: false,
+
       }
     },
     {
@@ -90,39 +88,27 @@ const router = createRouter({
       path: '/product-detail/:slug',
       name: 'Product Detail',
       component: ProductDetailPage,
-      meta: {
-        requiresAuth: false,
-      }
-    },
-    {
-      path: '/login',
-      name: 'login',
-      component: import('@/views/components/MobileAuth/index.vue')
-    },
+
+    }
 
   ]
 })
 router.beforeEach(async (to, from, next) =>
 {
 
-
   if (to.meta.requiresAuth)
   {
-
     if (await useAuthApi.isNotAuthenticated())
     {
-      authModal.setIntendedPath(to.fullPath);
+
+      routerStore.setIntendedPath(to.fullPath);
       authModal.openModal();
       return next(false);
     }
-
   }
 
-  let title = to.name == 'home' ? '' : ` - ${ to.params.title ?? to.name }`.toString().toUpperCase();
-  document.title = import.meta.env.VITE_APP_NAME + title;
-  document.body.style.backgroundColor = to.meta.backgroundColor;
-
-
+  routerStore.setPageTitle(to);
+  routerStore.setBackgroundColor(to.meta.backgroundColor);
   next();
 
 })

@@ -6,6 +6,7 @@ import Spinner from "@/views/Auth/components/Spinner.vue";
 import { useRouter } from "vue-router";
 
 import authModal from "@/views/Auth/store/authModal";
+import routerStore from "@/router/routerStore";
 
 const router = useRouter();
 
@@ -16,9 +17,9 @@ const login = async () => {
     await useAuthApi.login();
 
     authModal.closeModal();
-    router.push(authModal.intendedPath);
+    router.push(routerStore.intendedPath);
   } catch (error) {
-    useAuthApi.getLoginErrors(error.response.data.errors);
+    useAuthApi.getLoginErrors(error.response);
   }
 
   loginForm.onProgress = false;

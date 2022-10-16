@@ -5,7 +5,6 @@
     <select
       class="form-select base-form-select"
       :class="class"
-      :value="modelValue"
       @input="$emit('update:modelValue', $event.target.value)"
       :id="id"
     >
@@ -13,7 +12,7 @@
         v-for="(option, index) in options"
         :key="index"
         :value="option"
-        selected
+        :selected="option == modelValue ? true : false"
       >
         {{ option }}
       </option>

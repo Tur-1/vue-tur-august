@@ -3,7 +3,6 @@ import { ref } from "vue";
 
 const authModal = ref({
     isOpen: false,
-    intendedPath: '',
     openModal()
     {
         this.isOpen = true;
@@ -11,11 +10,7 @@ const authModal = ref({
     closeModal()
     {
         this.isOpen = false;
-    },
-    setIntendedPath(path)
-    {
-        this.intendedPath = path;
-    },
+    }
 
 });
 

@@ -50,44 +50,42 @@ const getAuthenticatedUser = () =>
 {
     return api().get("/user");
 }
-const getLoginErrors = errors =>
+const getLoginErrors = (response) =>
 {
-    if (errors)
+    if (response.status == 422)
     {
-
-
-        if (errors.email)
+        if (response.data.errors.email)
         {
-            loginForm.error.email = errors.email[0];
+            loginForm.error.email = response.data.errors.email[0];
         }
-        if (errors.password)
+        if (response.data.errors.password)
         {
-            loginForm.error.password = errors.password[0];
+            loginForm.error.password = response.data.errors.password[0];
         }
     }
 }
-const getRegisterErrors = (errors) =>
+const getRegisterErrors = (response) =>
 {
-    if (errors)
+    if (response.status == 422)
     {
-        if (errors.register_name)
+        if (response.data.errors.register_name)
         {
             registerForm.error.register_name =
-                errors.register_name[0];
+                response.data.errors.register_name[0];
         }
-        if (errors.register_email)
+        if (response.data.errors.register_email)
         {
             registerForm.error.register_email =
-                errors.register_email[0];
+                response.data.errors.register_email[0];
         }
         if (errors.register_password)
         {
             registerForm.error.register_password =
-                errors.register_password[0];
+                response.data.errors.register_password[0];
         }
-        if (errors.gender)
+        if (response.data.errors.gender)
         {
-            registerForm.error.gender = errors.gender[0];
+            registerForm.error.gender = response.data.errors.gender[0];
         }
     }
 }
