@@ -4,27 +4,24 @@ import MyAddressBook from "@/views/pages/MyAccountPage/ui/mobile/components/MyAd
 import MyAccountSettings from "@/views/pages/MyAccountPage/ui/mobile/components/MyAccountSettings/index.vue";
 import MyOrders from "@/views/pages/MyAccountPage/ui/mobile/components/MyOrders/index.vue";
 import Logout from "@/views/pages/MyAccountPage/ui/mobile/components/Logout/index.vue";
+import accountPageContent from "@/views/pages/MyAccountPage/store/accountPageContent";
+import useMyAccountPageApi from "@/views/pages/MyAccountPage/api/useMyAccountPageApi";
+import ConfirmModel from "@/views/components/ConfirmModel/index.vue";
 
-import useMyAccountPageApi from "@/views/pages/MyAccountPage/services/useMyAccountPageApi";
-import userStore from "@/views/pages/MyAccountPage/store/userStore";
+let user = await useMyAccountPageApi.getUserInformation();
+let userAddresses = await useMyAccountPageApi.getUserAddresses();
 
-const getUserInformation = async () => {
-  try {
-    return await (
-      await useMyAccountPageApi.getUserInformation()
-    ).data;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-userStore.information = await getUserInformation();
+accountPageContent.user = user.data.data;
+accountPageContent.userAddresses = userAddresses.data.data;
 </script>
 <template>
   <section>
-    <MyAccountAvatar :userName="userStore.information.name" />
+    <MyAccountAvatar :userName="accountPageContent.user.name" />
 
     <ul class="account-items">
+      <!-- <ConfirmModel :isOpen="true">
+        <span>are u sure</span>
+      </ConfirmModel> -->
       <MyOrders />
       <MyAccountSettings />
       <MyAddressBook />

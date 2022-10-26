@@ -6,9 +6,9 @@
       :id="id"
       class="form-input form-control"
       :class="class"
+      :value="modelValue"
       @input="$emit('update:modelValue', $event.target.value)"
       :placeholder="placeholder"
-      :value="modelValue"
     />
 
     <span class="text-danger mt-1 ms-2" style="font-size: 12px" v-show="error">

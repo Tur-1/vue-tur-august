@@ -1,13 +1,15 @@
 import { ref } from "vue";
 
 let registerForm = ref({
-    register_name: String,
-    register_email: String,
-    register_password: String,
-    password_confirmation: String,
-    gender: String,
+    fields: {
+        register_name: "",
+        register_email: "",
+        register_password: "",
+        password_confirmation: "",
+        gender: "Male",
+    },
     onProgress: false,
-    error: {
+    errors: {
         register_name: null,
         register_email: null,
         register_password: null,
@@ -16,10 +18,31 @@ let registerForm = ref({
 
     resetErrors()
     {
-        this.error.gender = null;
-        this.error.register_password = null;
-        this.error.register_email = null;
-        this.error.register_name = null;
+        let erorr;
+        for (erorr in this.errors)
+        {
+            this.errors[erorr] = null;
+        }
+    },
+    setErrors(response) 
+    {
+        if (response.status == 422)
+        {
+            let errors = response.data.errors;
+            let err;
+            let field;
+            for (err in errors)
+            {
+
+                for (field in this.errors)
+                {
+                    if (field == err)
+                    {
+                        this.errors[field] = errors[err][0];
+                    }
+                }
+            }
+        }
     }
 });
 

@@ -5,14 +5,15 @@
         <div class="base-modal-content">
           <ModalHeader :title="title" @closeModal="$emit('closeModal')" />
 
-          <ModalForm
+          <BaseForm
             v-if="withForm"
+            :onProgress="onProgress"
             @closeModal="$emit('closeModal')"
             @submit="$emit('submit')"
           >
-            <slot name="form"> </slot>
-          </ModalForm>
-          <slot v-if="withoutForm"> </slot>
+            <slot />
+          </BaseForm>
+          <slot v-if="!withForm"> </slot>
         </div>
       </div>
     </div>
@@ -20,9 +21,16 @@
 </template>
 <script setup>
 import ModalHeader from "@/views/components/BaseModal/ModalHeader.vue";
-import ModalForm from "@/views/components/BaseModal/ModalForm.vue";
-defineProps(["withForm", "id", "title", "isOpen", "withoutForm"]);
-defineEmits(["closeModal", "submit"]);
+import BaseForm from "@/views/components/BaseForm/index.vue";
+
+const props = defineProps({
+  isOpen: Boolean,
+  onProgress: Boolean,
+  withForm: Boolean,
+  id: String,
+  title: String,
+});
+const emits = defineEmits(["closeModal", "submit"]);
 </script>
 
 <style scoped>

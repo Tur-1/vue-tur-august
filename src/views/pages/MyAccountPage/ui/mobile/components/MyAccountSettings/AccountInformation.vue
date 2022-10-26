@@ -1,21 +1,16 @@
 <script setup>
-import { reactive, ref } from "vue";
 import BaseModal from "@/views/components/BaseModal/index.vue";
 import BaseInput from "@/views/components/BaseInput/index.vue";
 import BaseSelect from "@/views/components/BaseSelect/index.vue";
-import userStore from "@/views/pages/MyAccountPage/store/userStore";
+import accountPageContent from "@/views/pages/MyAccountPage/store/accountPageContent";
 
-let isModalOpen = ref(false);
-
-let userForm = reactive(userStore.information);
-let errors = ref({ name: null, email: null, gender: null });
-
-const openAccountModal = () => {
-  isModalOpen.value = true;
-};
-const closeAccountModal = () => {
-  isModalOpen.value = false;
-};
+import {
+  isModalOpen,
+  updateAccountInfo,
+  openModal,
+  closeModal,
+  userForm,
+} from "@/views/pages/MyAccountPage/services/AccountInformationService";
 </script>
 <template>
   <div class="row mb-1">
@@ -24,19 +19,22 @@ const closeAccountModal = () => {
         <header class="d-flex justify-content-between mb-2 align-items-center">
           <span class="card-title text-dark"
             ><strong>ACCOUNT INFO </strong></span
-          ><button class="bg-transparent border-0" @click="openAccountModal">
+          ><button class="bg-transparent border-0" @click="openModal">
             <i class="bi bi-pencil-square"></i>
           </button>
         </header>
         <div class="text-dark">
           <p>
-            <span class="me-1">Name: </span> {{ userStore.information.name }}
+            <span class="me-1">Name: </span>
+            {{ accountPageContent.user.name }}
           </p>
           <p>
-            <span class="me-1">Email: </span>{{ userStore.information.email }}
+            <span class="me-1">Email: </span>
+            {{ accountPageContent.user.email }}
           </p>
           <p>
-            <span class="me-1">Gender: </span>{{ userStore.information.gender }}
+            <span class="me-1">Gender: </span>
+            {{ accountPageContent.user.gender }}
           </p>
         </div>
       </div>
@@ -47,39 +45,39 @@ const closeAccountModal = () => {
 
   <BaseModal
     :withForm="true"
+    :onProgress="userForm.onProgress"
     :isOpen="isModalOpen"
     id="account-info-modal"
     title="update account information"
-    @closeModal="closeAccountModal"
+    @closeModal="closeModal"
+    @submit="updateAccountInfo()"
   >
-    <template #form>
-      <BaseInput
-        label="Name *"
-        type="text"
-        placeholder="name"
-        id="accountName"
-        v-model="userForm.name"
-        :class="{ 'is-invalid': errors.name }"
-        :error="errors.name"
-      />
+    <BaseInput
+      label="Name *"
+      type="text"
+      placeholder="name"
+      id="accountName"
+      v-model="userForm.fields.name"
+      :class="{ 'is-invalid': userForm.errors.name }"
+      :error="userForm.errors.name"
+    />
 
-      <BaseInput
-        label="Email *"
-        type="email"
-        placeholder="email"
-        v-model="userForm.email"
-        id="accountEmail"
-        :class="{ 'is-invalid': errors.email }"
-        :error="errors.email"
-      />
-      <BaseSelect
-        label="Gender *"
-        v-model="userForm.gender"
-        id="accountGender"
-        :class="{ 'is-invalid': errors.gender }"
-        :error="errors.gender"
-        :options="['male', 'female']"
-      />
-    </template>
+    <BaseInput
+      label="Email *"
+      type="email"
+      placeholder="email"
+      v-model="userForm.fields.email"
+      id="accountEmail"
+      :class="{ 'is-invalid': userForm.errors.email }"
+      :error="userForm.errors.email"
+    />
+    <BaseSelect
+      label="Gender *"
+      v-model="userForm.fields.gender"
+      id="accountGender"
+      :class="{ 'is-invalid': userForm.errors.gender }"
+      :error="userForm.errors.gender"
+      :options="['Male', 'Female']"
+    />
   </BaseModal>
 </template>

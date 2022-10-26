@@ -29,31 +29,7 @@
     font-size: 12px !important;
     font-weight: 500 !important;
 }
-.base-modal .base-modal-content form .base-form-body {
-    overflow-y: auto;
-    max-height: 70vh;
-}
 
-.base-modal .base-modal-content form .base-form-body::-webkit-scrollbar {
-    display: none !important;
-    width: 0 !important;
-}
-.base-form-footer {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    border-top: 1px solid #dee2e661;
-    padding: 4px;
-}
-.base-form-footer button {
-    background-color: transparent;
-}
-.base-form-footer .cancel-btn {
-    color: #444;
-    border-right: 1px solid rgb(123 123 123 / 27%);
-}
-.base-form-footer .submit-btn {
-    color: $bg-green;
-}
 .base-modal-bg {
     position: fixed;
     top: 0;
@@ -94,4 +70,13 @@
     top: -26px;
     right: -18px;
     font-size: 16px;
+}
+.base-modal .base-modal-content form .base-form-body {
+    overflow-y: auto;
+    max-height: 70vh;
+}
+
+.base-modal .base-modal-content form .base-form-body::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
 }

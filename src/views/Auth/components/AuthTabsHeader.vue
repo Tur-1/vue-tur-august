@@ -2,12 +2,12 @@
   <ul class="auth-tabs-header nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item auth-head-tab" role="presentation">
       <button
-        class="nav-link active"
+        class="nav-link"
+        :class="{ active: authTabs.Tab == 1 }"
         id="login-form-tab"
         type="button"
         role="tab"
-        data-bs-toggle="tab"
-        data-bs-target="#login-form"
+        @click="authTabs.openTab(1)"
         aria-controls="login-form"
         aria-selected="true"
       >
@@ -19,8 +19,8 @@
       <button
         class="nav-link"
         id="register-form-tab"
-        data-bs-toggle="tab"
-        data-bs-target="#register-form"
+        :class="{ active: authTabs.Tab == 2 }"
+        @click="authTabs.openTab(2)"
         type="button"
         role="tab"
         aria-controls="register-form"
@@ -31,3 +31,6 @@
     </li>
   </ul>
 </template>
+<script setup>
+import authTabs from "@/views/Auth/store/authTabs";
+</script>

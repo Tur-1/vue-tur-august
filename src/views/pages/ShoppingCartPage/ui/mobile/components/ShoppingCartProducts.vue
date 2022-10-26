@@ -2,14 +2,11 @@
   <div class="container-fluid">
     <div
       class="mobile-shopping-cart-product"
-      @touchstart="swipeActions('cart-item-1')"
       id="cart-item-1"
+      @touchstart="swipeActions('cart-item-1')"
     >
       <div class="cart-item">
-        <a
-          class="product-img"
-          href="https://tur-august.herokuapp.com/product-detail/logo-t-shirt"
-        >
+        <a class="product-img" href="">
           <img
             src="https://august-images.s3.amazonaws.com/images/products/product_58/1660377921-screenshot_2022_08_13_110434.webp"
             class="img-fluid"
@@ -66,14 +63,11 @@
     </div>
     <div
       class="mobile-shopping-cart-product"
-      @touchstart="swipeActions('cart-item-2')"
       id="cart-item-2"
+      @touchstart="swipeActions('cart-item-2')"
     >
       <div class="cart-item">
-        <a
-          class="product-img"
-          href="https://tur-august.herokuapp.com/product-detail/logo-t-shirt"
-        >
+        <a class="product-img" href="">
           <img
             src="https://august-images.s3.amazonaws.com/images/products/product_58/1660377921-screenshot_2022_08_13_110434.webp"
             class="img-fluid"
@@ -131,12 +125,6 @@
   </div>
 </template>
 <script setup>
-import axios from "axios";
-import ProductCard from "@/views/components/ProductCard/index.vue";
-
-const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
-const latestProducts = await res.data;
-
 const swipeActions = (itemId) => {
   let cartItems = [
     ...document.querySelectorAll(".mobile-shopping-cart-product"),

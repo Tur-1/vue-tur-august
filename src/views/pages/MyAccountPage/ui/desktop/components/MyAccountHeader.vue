@@ -1,6 +1,6 @@
 <script setup>
-import useAuthApi from "@/views/Auth/services/useAuthApi";
 import { useRouter } from "vue-router";
+import useAuthApi from "@/views/Auth/api/useAuthApi";
 
 const router = useRouter();
 

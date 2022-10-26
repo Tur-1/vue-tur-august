@@ -3,11 +3,11 @@ import { ref } from "vue";
 
 const authModal = ref({
     isOpen: false,
-    openModal()
+    open()
     {
         this.isOpen = true;
     },
-    closeModal()
+    close()
     {
         this.isOpen = false;
     }

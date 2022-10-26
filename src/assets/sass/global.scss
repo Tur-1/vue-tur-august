@@ -3,6 +3,7 @@ $bg-secondary: #f9f9f9;
 $text-primary-color: #222222;
 $text-secondary-color: #939393;
 $bg-green: #51c0a9;
+
 * {
     margin: 0;
     padding: 0;
@@ -75,27 +76,6 @@ section {
         width: 0 !important;
         opacity: 0 !important;
     }
-}
-#toast-alert {
-    position: fixed !important;
-    top: 55px;
-    z-index: 99999999999999999999999999 !important;
-    right: 15px;
-    color: white;
-    width: 350px;
-    max-width: 100%;
-    visibility: visible;
-    font-size: 0.875rem;
-    pointer-events: auto;
-    background-color: $bg-primary;
-    background-clip: padding-box;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
-    border-radius: 0.25rem;
-    -webkit-border-radius: 0.25rem;
-    -moz-border-radius: 0.25rem;
-    -ms-border-radius: 0.25rem;
-    -o-border-radius: 0.25rem;
 }
 
 input:focus,
@@ -193,5 +173,9 @@ ul {
     }
 }
 .placeholder {
-    background-color: #949494 !important;
+    background-color: #a0a0a0 !important;
+}
+button[type="submit"] span,
+.spinner-border {
+    transition: all 0.2s ease-in-out;
 }

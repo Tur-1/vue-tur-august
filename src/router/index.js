@@ -2,24 +2,10 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import HomePage from '@/views/pages/HomePage/index.vue'
 
-import WishlistPage from '@/views/pages/WishlistPage/index.vue'
 
-import ShoppingCartPage from '@/views/pages/ShoppingCartPage/index.vue'
 
-import MyAccountPage from '@/views/pages/MyAccountPage/index.vue'
-
-import CategoriesPage from '@/views/pages/CategoriesPage/index.vue'
-
-import ShopPage from '@/views/pages/ShopPage/index.vue'
-
-import CheckoutPage from '@/views/pages/CheckoutPage/index.vue'
-
-import ProductDetailPage from '@/views/pages/ProductDetailPage/index.vue'
-
-import authModal from "@/views/Auth/store/authModal";
-
-import useAuthApi from '@/views/Auth/services/useAuthApi';
-import routerStore from '@/router/routerStore'
+import useRouterService from '@/router/RouterService'
+import auth from '@/Middleware/auth'
 
 
 const router = createRouter({
@@ -32,7 +18,7 @@ const router = createRouter({
     }, {
       path: '/wishlist',
       name: 'wishlist',
-      component: WishlistPage,
+      component: () => import('@/views/pages/WishlistPage/index.vue'),
       meta: {
         requiresAuth: true,
       }
@@ -40,7 +26,7 @@ const router = createRouter({
     {
       path: '/cart',
       name: 'shopping cart',
-      component: ShoppingCartPage,
+      component: () => import('@/views/pages/ShoppingCartPage/index.vue'),
       meta: {
         backgroundColor: '#f9f9f9',
         requiresAuth: true,
@@ -49,7 +35,7 @@ const router = createRouter({
     {
       path: '/my-account',
       name: 'My Account',
-      component: MyAccountPage,
+      component: () => import('@/views/pages/MyAccountPage/index.vue'),
       meta: {
         requiresAuth: true,
       }
@@ -57,7 +43,7 @@ const router = createRouter({
     {
       path: '/shop',
       name: 'shop',
-      component: ShopPage,
+      component: () => import('@/views/pages/ShopPage/index.vue'),
       meta: {
         previousPage: '/categories',
         hidePageTitle: true,
@@ -67,7 +53,7 @@ const router = createRouter({
     {
       path: '/categories',
       name: 'categories',
-      component: CategoriesPage,
+      component: () => import('@/views/pages/CategoriesPage/index.vue'),
       meta: {
         backgroundColor: '#f9f9f9',
         hidePageTitle: true,
@@ -77,7 +63,7 @@ const router = createRouter({
     {
       path: '/checkout',
       name: 'checkout',
-      component: CheckoutPage,
+      component: () => import('@/views/pages/CheckoutPage/index.vue'),
       meta: {
         backgroundColor: '#f9f9f9',
         previousPage: '/cart',
@@ -85,30 +71,24 @@ const router = createRouter({
       }
     },
     {
-      path: '/product-detail/:slug',
+      path: '/product-detail',
       name: 'Product Detail',
-      component: ProductDetailPage,
+      component: () => import('@/views/pages/ProductDetailPage/index.vue'),
 
     }
 
   ]
 })
-router.beforeEach(async (to, from, next) =>
+router.beforeEach((to, from, next) =>
 {
 
   if (to.meta.requiresAuth)
   {
-    if (await useAuthApi.isNotAuthenticated())
-    {
-
-      routerStore.setIntendedPath(to.fullPath);
-      authModal.openModal();
-      return next(false);
-    }
+    return auth({ to, from, next });
   }
 
-  routerStore.setPageTitle(to);
-  routerStore.setBackgroundColor(to.meta.backgroundColor);
+  useRouterService.setPageTitle(to);
+  useRouterService.setPageBackgroundColor(to.meta.backgroundColor);
   next();
 
 })

@@ -1,17 +1,15 @@
 <script setup>
 import BaseModal from "@/views/components/BaseModal/index.vue";
-import BaseInput from "@/views/components/BaseInput/index.vue";
-import { ref } from "vue";
+import accountPageContent from "@/views/pages/MyAccountPage/store/accountPageContent";
 
-let isPhoneNumberModalOpen = ref(false);
-// methods
-const openAccountPhoneNumberModal = () => {
-  isPhoneNumberModalOpen.value = true;
-};
-
-const closeAccountPhoneNumberModal = () => {
-  isPhoneNumberModalOpen.value = false;
-};
+import ErrorMessage from "@/views/components/ErrorMessage/index.vue";
+import {
+  isModalOpen,
+  updateMyPhoneNumber,
+  openModal,
+  closeModal,
+  form,
+} from "@/views/pages/MyAccountPage/services/PhoneNumberService";
 </script>
 <template>
   <div class="row mb-3">
@@ -21,15 +19,16 @@ const closeAccountPhoneNumberModal = () => {
           <span class="card-title text-dark"
             ><strong>PHONE NUMBER </strong></span
           >
-          <button
-            class="bg-transparent border-0"
-            @click="openAccountPhoneNumberModal"
-          >
+          <button class="bg-transparent border-0" @click="openModal">
             <i class="bi bi-pencil-square"></i>
           </button>
         </header>
         <div class="w-100 text-dark">
-          <p>No phone number saved}</p>
+          <p>
+            {{
+              accountPageContent.user.phone_number ?? "No phone number saved"
+            }}
+          </p>
         </div>
       </div>
     </div>
@@ -37,38 +36,36 @@ const closeAccountPhoneNumberModal = () => {
 
   <BaseModal
     :withForm="true"
-    :isOpen="isPhoneNumberModalOpen"
+    :onProgress="form.onProgress"
+    :isOpen="isModalOpen"
     id="account-phone-number-modal"
     title="update phone number"
-    @closeModal="closeAccountPhoneNumberModal"
-    @submit=""
+    @closeModal="closeModal"
+    @submit="updateMyPhoneNumber()"
   >
-    <template #form>
-      <div class="mb-3">
-        <div class="input-group input-group-sm">
-          <span
-            class="input-group-text d-flex justify-content-between"
-            id="basic-addon1"
-          >
-            <img
-              src="https://flagcdn.com/w20/sa.png"
-              srcset="https://flagcdn.com/w40/sa.png 2x"
-              width="25"
-              alt="Saudi Arabia"
-            />
-            <span>+966</span>
-          </span>
-          <input
-            class="form-control form-control-sm"
-            id="phone_number"
-            type="tel"
-            placeholder="51 234 5678"
+    <div class="mb-3">
+      <div class="input-group input-group-sm">
+        <span
+          class="input-group-text d-flex justify-content-between"
+          id="basic-addon1"
+        >
+          <img
+            src="https://flagcdn.com/w20/sa.png"
+            srcset="https://flagcdn.com/w40/sa.png 2x"
+            width="25"
+            alt="Saudi Arabia"
           />
-        </div>
-        <span class="text-danger mt-1 ms-2" style="font-size: 12px">
-          invil
+          <span>+966</span>
         </span>
+        <input
+          class="form-control form-control-sm"
+          id="phone_number"
+          type="tel"
+          v-model="form.phone_number"
+          placeholder="51 234 5678"
+        />
       </div>
-    </template>
+      <ErrorMessage :message="form.error" />
+    </div>
   </BaseModal>
 </template>

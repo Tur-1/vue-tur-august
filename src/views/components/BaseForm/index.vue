@@ -9,14 +9,17 @@
       </button>
 
       <button type="submit" class="submit-btn">
-        save
-        <!-- <div class="spinner-border spinner-border-sm ms-2" role="status">
-          <span class="visually-hidden">Loading...</span>
-        </div> -->
+        <span :class="{ 'me-3': onProgress }">save</span>
+
+        <SubmitSpinner :onProgress="onProgress" />
       </button>
     </div>
   </form>
 </template>
 <script setup>
+import SubmitSpinner from "@/views/components/SubmitSpinner/index.vue";
 defineEmits(["submit", "closeModal"]);
+defineProps({
+  onProgress: Boolean,
+});
 </script>

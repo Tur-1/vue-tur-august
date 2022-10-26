@@ -1,7 +1,8 @@
+import config from "@/config/app";
 import axios from "axios";
 
 
-export default (url = import.meta.env.VITE_APP_API_URL) =>
+export default (url = config.APP_API_URL) =>
 {
     return axios.create({
         baseURL: url,

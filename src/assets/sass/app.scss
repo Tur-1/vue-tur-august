@@ -8,14 +8,21 @@
 @import "@/views/layouts/desktop/sass/navbar.scss";
 
 /******************  components   ********************/
+@import "@/views/components/PageSpinner/spinner.scss";
 
-@import "@/assets/sass/components/base-slider.scss";
+@import "@/views/components/ConfirmModel/confirm-modal.scss";
+
+@import "@/views/components/Slider/base-slider.scss";
+
+@import "@/views/components/Toast/toast.scss";
 
 @import "@/views/components/BaseInput/base-input.scss";
 
 @import "@/views/components/ProductCard/product-card.scss";
 
 @import "@/views/components/BaseModal/base-modal.scss";
+
+@import "@/views/components/BaseForm/base-form.scss";
 
 @import "@/views/components/BaseSelect/base-select.scss";
 
@@ -42,6 +49,7 @@
 
 @import "@/views/pages/CategoriesPage/sass/categories-page.scss";
 
-@import "@/views/pages/MyAccountPage/sass/my-account-page.scss";
+@import "@/views/pages/MyAccountPage/sass/desktop-my-account-page.scss";
+@import "@/views/pages/MyAccountPage/sass/mobile-my-account-page.scss";
 
 @import "@/views/pages/ProductDetailPage/sass/product-detail-page.scss";

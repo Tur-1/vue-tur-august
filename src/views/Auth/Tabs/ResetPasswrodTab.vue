@@ -1,5 +1,6 @@
 <template>
   <div
+    :class="{ 'show active': authTabs.Tab == 3 }"
     class="auth-form-content tab-pane fade"
     id="ResetPassword"
     role="tabpanel"
@@ -23,9 +24,12 @@
   </div>
 
   <div class="m-2 text-end">
-    <a href="#" role="button" class="text-dark"> Forgot password? </a>
+    <a href="#" role="button" class="text-dark" @click="authTabs.openTab(3)">
+      Forgot password?
+    </a>
   </div>
 </template>
 <script setup>
+import authTabs from "@/views/Auth/store/authTabs";
 import BaseInput from "@/views/components/BaseInput/index.vue";
 </script>
