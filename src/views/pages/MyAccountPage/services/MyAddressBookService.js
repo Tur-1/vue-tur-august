@@ -20,8 +20,7 @@ const storeAddress = async () =>
     addressForm.resetErrors();
     try
     {
-        let res = updateMode.value ? await useMyAccountPageApi.updateMyAddress(addressForm.fields) : await useMyAccountPageApi.storeNewAddress(addressForm.fields);
-
+        let res = await useMyAccountPageApi.storeNewAddress(addressForm.fields);
 
         accountPageContent.userAddresses = await (await useMyAccountPageApi.getUserAddresses()).data.data;
 
@@ -35,6 +34,28 @@ const storeAddress = async () =>
     }
 
     addressForm.onProgress = false;
+};
+const updateUserAddress = async () =>
+{
+    addressForm.onProgress = true;
+    addressForm.resetErrors();
+    try
+    {
+        let res = await useMyAccountPageApi.updateUserAddress(addressForm.fields)
+
+        accountPageContent.userAddresses = await (await useMyAccountPageApi.getUserAddresses()).data.data;
+
+        toastStore.open(res.data.data.message);
+
+        closeModal();
+    } catch (error)
+    {
+
+        addressForm.setErrors(error.response);
+    }
+
+    addressForm.onProgress = false;
+    updateMode.value = false;
 };
 const openConfirmModal = (id) =>
 {
@@ -67,11 +88,10 @@ const destroyAddress = async () =>
 };
 const openModal = (address = null) =>
 {
-
+    addressForm.resetFields();
+    addressForm.resetErrors();
     if (address)
     {
-
-
         updateMode.value = true;
 
         let field;
@@ -82,17 +102,14 @@ const openModal = (address = null) =>
             {
                 if (field == value)
                 {
-
                     addressForm.fields[field] = address[value];
                 }
             }
         }
     }
-
-
     isModalOpen.value = true;
-    // addressForm.resetFields();
-    // addressForm.resetErrors();
+
+
 };
 
 const closeModal = () =>
@@ -104,6 +121,7 @@ const closeModal = () =>
 
 export
 {
+    updateUserAddress,
     openConfirmModal,
     isModalOpen,
     storeAddress,

@@ -1,6 +1,10 @@
 <template>
   <Transition name="modal">
-    <div :id="id ?? 'confirm-modal'" class="confirm-modal-bg" v-if="isOpen">
+    <div
+      :id="id ?? 'confirm-modal'"
+      class="confirm-modal-bg"
+      v-if="ConfirmModelStore.isOpen"
+    >
       <div class="confirm-modal">
         <div class="confirm-modal-content">
           <div class="confirm-modal-body">
@@ -8,11 +12,7 @@
             <slot />
           </div>
           <div class="confirm-modal-footer">
-            <button
-              type="button"
-              class="cancel-btn"
-              @click="$emit('closeModal')"
-            >
+            <button type="button" class="cancel-btn" @click="$emit('cancel')">
               <span>Cancel</span>
             </button>
 
@@ -26,12 +26,13 @@
   </Transition>
 </template>
 <script setup>
+import ConfirmModelStore from "@/views/components/ConfirmModel/ConfirmModelStore";
+
 const props = defineProps({
-  isOpen: Boolean,
   id: String,
   title: String,
 });
-const emits = defineEmits(["closeModal", "submit", "confirm"]);
+const emits = defineEmits(["submit", "confirm", "cancel"]);
 </script>
 
 <style scoped>

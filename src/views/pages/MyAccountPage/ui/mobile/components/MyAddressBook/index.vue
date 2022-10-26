@@ -1,22 +1,14 @@
 <script setup>
 import RightOffcanvas from "@/views/components/RightOffcanvas/index.vue";
-
 import AddNewAddress from "@/views/pages/MyAccountPage/ui/mobile/components/MyAddressBook/AddNewAddress.vue";
 import MyAddressList from "@/views/pages/MyAccountPage/ui/mobile/components/MyAddressBook/MyAddressList.vue";
 import BaseModal from "@/views/components/BaseModal/index.vue";
 import MyAddressForm from "@/views/pages/MyAccountPage/ui/mobile/components/MyAddressBook/MyAddressForm.vue";
-import {
-  isModalOpen,
-  storeAddress,
-  openModal,
-  closeModal,
-  addressForm,
-  destroyAddress,
-  openConfirmModal,
-} from "@/views/pages/MyAccountPage/services/MyAddressBookService";
+import * as MyAddressBookService from "@/views/pages/MyAccountPage/services/MyAddressBookService";
 import ConfirmModel from "@/views/components/ConfirmModel/index.vue";
 import ConfirmModelStore from "@/views/components/ConfirmModel/ConfirmModelStore";
 </script>
+
 <template>
   <li>
     <button
@@ -36,28 +28,34 @@ import ConfirmModelStore from "@/views/components/ConfirmModel/ConfirmModelStore
     </button>
   </li>
   <RightOffcanvas title="Address Book" id="address-book-offcanvas">
-    <AddNewAddress @openModal="openModal" />
+    <AddNewAddress @openModal="MyAddressBookService.openModal" />
 
-    <MyAddressList @openModal="openModal" @destroyAddress="openConfirmModal" />
+    <MyAddressList
+      @openModal="MyAddressBookService.openModal"
+      @destroyAddress="MyAddressBookService.openConfirmModal"
+    />
 
     <BaseModal
       :withForm="true"
-      :onProgress="addressForm.onProgress"
-      :isOpen="isModalOpen"
+      :onProgress="MyAddressBookService.addressForm.onProgress"
+      :isOpen="MyAddressBookService.isModalOpen.value"
       id="address-book-modal"
       title="new address"
-      @closeModal="closeModal"
-      @submit="storeAddress()"
+      @closeModal="MyAddressBookService.closeModal()"
+      @submit="
+        MyAddressBookService.updateMode.value
+          ? MyAddressBookService.updateUserAddress()
+          : MyAddressBookService.storeAddress()
+      "
     >
-      <MyAddressForm :addressForm="addressForm" />
+      <MyAddressForm :addressForm="MyAddressBookService.addressForm" />
     </BaseModal>
 
     <ConfirmModel
-      :isOpen="ConfirmModelStore.isOpen"
-      @confirm="destroyAddress"
-      @closeModel="ConfirmModelStore.close()"
+      @confirm="MyAddressBookService.destroyAddress()"
+      @cancel="ConfirmModelStore.close()"
     >
-      <span>are you sure ? </span>
+      <span>are you sure you want to delete this address ? </span>
     </ConfirmModel>
   </RightOffcanvas>
 </template>

@@ -24,7 +24,7 @@ const updateMyAccountPassword = (fields) =>
     return api().post(BASE_URL + "/update-password", fields);
 }
 
-const updateMyAddress = (fields) =>
+const updateUserAddress = (fields) =>
 {
     return api().post(BASE_URL + "/update-address/", fields);
 }
@@ -43,6 +43,6 @@ export default {
     updateMyPhoneNumber,
     updateMyAccountPassword,
     storeNewAddress,
-    updateMyAddress,
+    updateUserAddress,
     destroyAddress
 }

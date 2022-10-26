@@ -10,6 +10,7 @@ const ConfirmModelStore = reactive({
     close()
     {
         this.isOpen = false;
+
     },
 });
 
