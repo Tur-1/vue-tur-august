@@ -38,6 +38,7 @@ const storeAddress = async () =>
 };
 const openConfirmModal = (id) =>
 {
+
     ConfirmModelStore.open();
     addressId.value = id;
 }
@@ -55,9 +56,10 @@ const destroyAddress = async () =>
 
     } catch (error)
     {
+
         if (error.response.data.success == false)
         {
-            toastStore.open(error.response.data.message);
+            toastStore.open(error.response.data.message, false);
         }
     }
     spinnerStore.hideSpinner();

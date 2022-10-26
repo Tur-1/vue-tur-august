@@ -12,11 +12,14 @@ let toastStore = reactive({
     time: 3500,
 
 
-    open(message, background)
+    open(message, success = true)
     {
         this.isOpen = true;
         this.message = message;
-        // this.background = background;
+
+        this.background = success ? backgroundSuccessColor : backgroundErrorColor;
+
+
         setTimeout(() =>
         {
             this.isOpen = false;
