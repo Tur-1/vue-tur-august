@@ -3,13 +3,7 @@ import BaseModal from "@/views/components/BaseModal/index.vue";
 import accountPageContent from "@/views/pages/MyAccountPage/store/accountPageContent";
 
 import ErrorMessage from "@/views/components/ErrorMessage/index.vue";
-import {
-  isModalOpen,
-  updateMyPhoneNumber,
-  openModal,
-  closeModal,
-  form,
-} from "@/views/pages/MyAccountPage/services/PhoneNumberService";
+import * as PhoneNumberService from "@/views/pages/MyAccountPage/services/PhoneNumberService";
 </script>
 <template>
   <div class="row mb-3">
@@ -19,7 +13,10 @@ import {
           <span class="card-title text-dark"
             ><strong>PHONE NUMBER </strong></span
           >
-          <button class="bg-transparent border-0" @click="openModal">
+          <button
+            class="bg-transparent border-0"
+            @click="PhoneNumberService.openModal"
+          >
             <i class="bi bi-pencil-square"></i>
           </button>
         </header>
@@ -36,12 +33,11 @@ import {
 
   <BaseModal
     :withForm="true"
-    :onProgress="form.onProgress"
-    :isOpen="isModalOpen"
+    :onProgress="PhoneNumberService.form.value.onProgress"
     id="account-phone-number-modal"
     title="update phone number"
-    @closeModal="closeModal"
-    @submit="updateMyPhoneNumber()"
+    @closeModal="PhoneNumberService.closeModal"
+    @submit="PhoneNumberService.updateMyPhoneNumber"
   >
     <div class="mb-3">
       <div class="input-group input-group-sm">
@@ -61,11 +57,11 @@ import {
           class="form-control form-control-sm"
           id="phone_number"
           type="tel"
-          v-model="form.phone_number"
+          v-model="PhoneNumberService.form.value.phone_number"
           placeholder="51 234 5678"
         />
       </div>
-      <ErrorMessage :message="form.error" />
+      <ErrorMessage :message="PhoneNumberService.form.value.error" />
     </div>
   </BaseModal>
 </template>

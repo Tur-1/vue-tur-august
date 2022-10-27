@@ -1,6 +1,6 @@
 <script setup>
 import BaseModal from "@/views/components/BaseModal/index.vue";
-import BaseInput from "@/views/components/BaseInput/index.vue";
+import FormInput from "@/views/components/FormInput/index.vue";
 import BaseSelect from "@/views/components/BaseSelect/index.vue";
 import accountPageContent from "@/views/pages/MyAccountPage/store/accountPageContent";
 
@@ -11,6 +11,7 @@ import {
   closeModal,
   userForm,
 } from "@/views/pages/MyAccountPage/services/AccountInformationService";
+import BaseModelStore from "@/views/components/BaseModal/BaseModelStore";
 </script>
 <template>
   <div class="row mb-1">
@@ -19,7 +20,10 @@ import {
         <header class="d-flex justify-content-between mb-2 align-items-center">
           <span class="card-title text-dark"
             ><strong>ACCOUNT INFO </strong></span
-          ><button class="bg-transparent border-0" @click="openModal">
+          ><button
+            class="bg-transparent border-0"
+            @click="BaseModelStore.open('account-info-modal')"
+          >
             <i class="bi bi-pencil-square"></i>
           </button>
         </header>
@@ -46,13 +50,12 @@ import {
   <BaseModal
     :withForm="true"
     :onProgress="userForm.onProgress"
-    :isOpen="isModalOpen"
     id="account-info-modal"
     title="update account information"
-    @closeModal="closeModal"
+    @closeModal="BaseModelStore.close('account-info-modal')"
     @submit="updateAccountInfo()"
   >
-    <BaseInput
+    <FormInput
       label="Name *"
       type="text"
       placeholder="name"
@@ -62,7 +65,7 @@ import {
       :error="userForm.errors.name"
     />
 
-    <BaseInput
+    <FormInput
       label="Email *"
       type="email"
       placeholder="email"

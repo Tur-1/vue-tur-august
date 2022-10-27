@@ -1,6 +1,6 @@
 <script setup>
 import BaseModal from "@/views/components/BaseModal/index.vue";
-import BaseInput from "@/views/components/BaseInput/index.vue";
+import FormInput from "@/views/components/FormInput/index.vue";
 import { ref } from "vue";
 
 let isPhoneNumberModalOpen = ref(false);

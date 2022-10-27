@@ -7,29 +7,32 @@ import useMyAccountPageApi from "@/views/pages/MyAccountPage/api/useMyAccountPag
 import ConfirmModelStore from "@/views/components/ConfirmModel/ConfirmModelStore";
 import spinnerStore from "@/views/components/PageSpinner/spinnerStore";
 
+import BaseModelStore from "@/views/components/BaseModal/BaseModelStore";
+import { isNotNull } from "@/helpers";
 
-let isModalOpen = ref(false);
+
 
 let updateMode = ref(false);
 
 let addressId = ref(0);
 
+
 const storeAddress = async () =>
 {
+
     addressForm.onProgress = true;
     addressForm.resetErrors();
     try
     {
-        let res = await useMyAccountPageApi.storeNewAddress(addressForm.fields);
+        let response = await useMyAccountPageApi.storeNewAddress(addressForm.fields);
 
         accountPageContent.userAddresses = await (await useMyAccountPageApi.getUserAddresses()).data.data;
 
-        toastStore.open(res.data.data.message);
+        toastStore.open(response.data.data.message);
 
         closeModal();
     } catch (error)
     {
-
         addressForm.setErrors(error.response);
     }
 
@@ -37,17 +40,20 @@ const storeAddress = async () =>
 };
 const updateUserAddress = async () =>
 {
+
+
     addressForm.onProgress = true;
     addressForm.resetErrors();
     try
     {
-        let res = await useMyAccountPageApi.updateUserAddress(addressForm.fields)
+        let response = await useMyAccountPageApi.updateUserAddress(addressForm.fields)
 
         accountPageContent.userAddresses = await (await useMyAccountPageApi.getUserAddresses()).data.data;
 
-        toastStore.open(res.data.data.message);
+        toastStore.open(response.data.data.message);
 
         closeModal();
+        updateMode.value = false;
     } catch (error)
     {
 
@@ -55,7 +61,7 @@ const updateUserAddress = async () =>
     }
 
     addressForm.onProgress = false;
-    updateMode.value = false;
+
 };
 const openConfirmModal = (id) =>
 {
@@ -69,15 +75,14 @@ const destroyAddress = async () =>
     ConfirmModelStore.close();
     try
     {
-        let res = await useMyAccountPageApi.destroyAddress(addressId.value);
+        let response = await useMyAccountPageApi.destroyAddress(addressId.value);
 
         accountPageContent.userAddresses = await (await useMyAccountPageApi.getUserAddresses()).data.data;
 
-        toastStore.open(res.data.data.message);
+        toastStore.open(response.data.data.message);
 
     } catch (error)
     {
-
         if (error.response.data.success == false)
         {
             toastStore.open(error.response.data.message, false);
@@ -86,44 +91,35 @@ const destroyAddress = async () =>
     spinnerStore.hideSpinner();
 
 };
+
 const openModal = (address = null) =>
 {
+    BaseModelStore.open('address-book-modal');
+
     addressForm.resetFields();
     addressForm.resetErrors();
-    if (address)
+
+    if (isNotNull(address))
     {
         updateMode.value = true;
-
-        let field;
-        let value;
-        for (field in addressForm.fields)
-        {
-            for (value in address)
-            {
-                if (field == value)
-                {
-                    addressForm.fields[field] = address[value];
-                }
-            }
-        }
+        addressForm.setFieldsValue(address);
+    } else
+    {
+        updateMode.value = false;
     }
-    isModalOpen.value = true;
-
 
 };
 
 const closeModal = () =>
 {
-
-    isModalOpen.value = false;
+    BaseModelStore.close('address-book-modal');
 };
 
 
-export
+export 
 {
     updateUserAddress,
     openConfirmModal,
-    isModalOpen,
     storeAddress,
     openModal,
     closeModal,

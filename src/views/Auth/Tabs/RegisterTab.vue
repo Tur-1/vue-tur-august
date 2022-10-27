@@ -1,5 +1,5 @@
 <script setup>
-import BaseInput from "@/views/components/BaseInput/index.vue";
+import FormInput from "@/views/components/FormInput/index.vue";
 import authTabs from "@/views/Auth/store/authTabs";
 import GendersFields from "@/views/Auth/components/GendersFields.vue";
 import SubmitButton from "@/views/components/SubmitButton/index.vue";
@@ -16,7 +16,7 @@ import { registerForm, register } from "@/views/Auth/services/RegisterService";
     aria-labelledby="register-form-tab"
   >
     <form @submit.prevent="register">
-      <BaseInput
+      <FormInput
         label="Name *"
         type="text"
         id="register_name"
@@ -24,7 +24,7 @@ import { registerForm, register } from "@/views/Auth/services/RegisterService";
         :class="{ 'is-invalid': registerForm.errors.register_name }"
         :error="registerForm.errors.register_name"
       />
-      <BaseInput
+      <FormInput
         label="Email *"
         type="email"
         id="register_email"
@@ -32,7 +32,7 @@ import { registerForm, register } from "@/views/Auth/services/RegisterService";
         :class="{ 'is-invalid': registerForm.errors.register_email }"
         :error="registerForm.errors.register_email"
       />
-      <BaseInput
+      <FormInput
         label="Password *"
         type="password"
         id="register_password"
@@ -40,7 +40,7 @@ import { registerForm, register } from "@/views/Auth/services/RegisterService";
         :class="{ 'is-invalid': registerForm.errors.register_password }"
         :error="registerForm.errors.register_password"
       />
-      <BaseInput
+      <FormInput
         label="confirm password *"
         type="password"
         id="password_confirmation"

@@ -3,10 +3,10 @@ import useMyAccountPageApi from "@/views/pages/MyAccountPage/api/useMyAccountPag
 import { ref } from "vue";
 import toastStore from "@/views/components/Toast/toastStore";
 import accountPageContent from "@/views/pages/MyAccountPage/store/accountPageContent";
+import BaseModelStore from "@/views/components/BaseModal/BaseModelStore";
 
 
 
-let isModalOpen = ref(false);
 
 let form = ref({
     onProgress: false,
@@ -23,7 +23,7 @@ const updateMyPhoneNumber = async () =>
         let res = await useMyAccountPageApi.updateMyPhoneNumber(form.value.phone_number);
 
         accountPageContent.user.phone_number = form.value.phone_number;
-        toastStore.open(res.data.message);
+        toastStore.open(res.data.data.message);
         closeModal();
     } catch (error)
     {
@@ -36,15 +36,17 @@ const updateMyPhoneNumber = async () =>
 };
 const openModal = () =>
 {
+    BaseModelStore.open('account-phone-number-modal');
+
     form.value.error = null;
     form.value.phone_number = accountPageContent.user.phone_number;
-    isModalOpen.value = true;
+
+
 };
 const closeModal = () =>
 {
-
-    isModalOpen.value = false;
+    BaseModelStore.close('account-phone-number-modal');
 };
 
 
-export { isModalOpen, updateMyPhoneNumber, openModal, closeModal, form }
+export { updateMyPhoneNumber, openModal, closeModal, form }

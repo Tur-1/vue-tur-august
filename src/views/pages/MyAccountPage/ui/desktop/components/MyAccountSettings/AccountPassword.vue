@@ -1,6 +1,6 @@
 <script setup>
 import BaseModal from "@/views/components/BaseModal/index.vue";
-import BaseInput from "@/views/components/BaseInput/index.vue";
+import FormInput from "@/views/components/FormInput/index.vue";
 import { ref } from "vue";
 
 let isPasswordModalOpen = ref(false);
@@ -46,17 +46,17 @@ const closeAccountPasswordModal = () => {
     @submit=""
   >
     <template #form>
-      <BaseInput
+      <FormInput
         label="current password *"
         type="password"
         id="accountCurrentPassword"
       />
-      <BaseInput
+      <FormInput
         label="new password *"
         type="password"
         id="accountNewPassword"
       />
-      <BaseInput
+      <FormInput
         label="confirm new password *"
         type="password"
         id="accountNewPasswordConfirmation"

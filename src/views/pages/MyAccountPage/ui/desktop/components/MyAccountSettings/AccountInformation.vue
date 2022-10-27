@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import BaseModal from "@/views/components/BaseModal/index.vue";
-import BaseInput from "@/views/components/BaseInput/index.vue";
+import FormInput from "@/views/components/FormInput/index.vue";
 import BaseSelect from "@/views/components/BaseSelect/index.vue";
 let isModalOpen = ref(false);
 
@@ -43,7 +43,7 @@ const closeAccountModal = () => {
     @submit=""
   >
     <template #form>
-      <BaseInput
+      <FormInput
         label="Name *"
         type="text"
         placeholder="name"
@@ -51,7 +51,7 @@ const closeAccountModal = () => {
         class="is-invalid"
         error="is-invalid"
       />
-      <BaseInput
+      <FormInput
         label="Email *"
         type="email"
         placeholder="email"

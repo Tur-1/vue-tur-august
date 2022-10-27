@@ -12,11 +12,15 @@
             <slot />
           </div>
           <div class="confirm-modal-footer">
-            <button type="button" class="cancel-btn" @click="$emit('cancel')">
+            <button type="button" class="cancel-btn" @click="$emit('onCancel')">
               <span>Cancel</span>
             </button>
 
-            <button type="button" class="confirm-btn" @click="$emit('confirm')">
+            <button
+              type="button"
+              class="confirm-btn"
+              @click="$emit('onConfirm')"
+            >
               <span>Confirm</span>
             </button>
           </div>
@@ -32,7 +36,7 @@ const props = defineProps({
   id: String,
   title: String,
 });
-const emits = defineEmits(["submit", "confirm", "cancel"]);
+const emits = defineEmits(["submit", "onConfirm", "onCancel"]);
 </script>
 
 <style scoped>

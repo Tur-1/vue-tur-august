@@ -13,7 +13,7 @@
 
     <div class="p-1">
       <form @submit.prevent="sendPasswordResetLink">
-        <BaseInput label="E-Mail Address *" type="email" id="reset_email" />
+        <FormInput label="E-Mail Address *" type="email" id="reset_email" />
         <div class="mt-3 mb-2 text-center">
           <button type="submit" class="btn btn-primary">
             Send Password Reset Link
@@ -31,5 +31,5 @@
 </template>
 <script setup>
 import authTabs from "@/views/Auth/store/authTabs";
-import BaseInput from "@/views/components/BaseInput/index.vue";
+import FormInput from "@/views/components/FormInput/index.vue";
 </script>

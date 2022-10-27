@@ -1,6 +1,6 @@
 <script setup>
 import BaseModal from "@/views/components/BaseModal/index.vue";
-import BaseInput from "@/views/components/BaseInput/index.vue";
+import FormInput from "@/views/components/FormInput/index.vue";
 
 import {
   isModalOpen,
@@ -9,6 +9,7 @@ import {
   closeModal,
   passwordForm,
 } from "@/views/pages/MyAccountPage/services/AccountPasswordService";
+import BaseModelStore from "@/views/components/BaseModal/BaseModelStore";
 </script>
 
 <template>
@@ -20,7 +21,10 @@ import {
             class="d-flex justify-content-between mb-2 align-items-center"
           >
             <span class="card-title text-dark"><strong>PASSWORD</strong></span>
-            <button class="bg-transparent border-0" @click="openModal">
+            <button
+              class="bg-transparent border-0"
+              @click="BaseModelStore.open('account-password-modal')"
+            >
               <i class="bi bi-pencil-square"></i>
             </button>
           </header>
@@ -34,13 +38,12 @@ import {
   <BaseModal
     :withForm="true"
     :onProgress="passwordForm.onProgress"
-    :isOpen="isModalOpen"
     id="account-password-modal"
     title="update account password"
-    @closeModal="closeModal"
+    @closeModal="BaseModelStore.close('account-password-modal')"
     @submit="updateMyAccountPassword()"
   >
-    <BaseInput
+    <FormInput
       label="current password *"
       type="password"
       v-model="passwordForm.fields.current_password"
@@ -48,7 +51,7 @@ import {
       :error="passwordForm.errors.current_password"
       id="accountCurrentPassword"
     />
-    <BaseInput
+    <FormInput
       label="new password *"
       type="password"
       id="accountNewPassword"
@@ -56,7 +59,7 @@ import {
       :class="{ 'is-invalid': passwordForm.errors.new_password }"
       :error="passwordForm.errors.new_password"
     />
-    <BaseInput
+    <FormInput
       label="confirm new password *"
       type="password"
       v-model="passwordForm.fields.new_password_confirmation"

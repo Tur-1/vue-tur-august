@@ -7,7 +7,7 @@
 
           <div class="card-body">
             <form @submit.prevent="updatePassword">
-              <BaseInput
+              <FormInput
                 label="E-Mail Address *"
                 v-model="updatePasswordForm.email"
                 type="email"
@@ -18,7 +18,7 @@
                 :errorMsg="updatePasswordForm.errors.email"
               />
 
-              <BaseInput
+              <FormInput
                 label="Password *"
                 v-model="updatePasswordForm.password"
                 type="password"
@@ -28,7 +28,7 @@
                 }"
                 :errorMsg="updatePasswordForm.errors.password"
               />
-              <BaseInput
+              <FormInput
                 label="confirm password *"
                 v-model="updatePasswordForm.password_confirmation"
                 type="password"
@@ -62,7 +62,7 @@
   </div>
 </template>
 <script setup>
-import BaseInput from "@/components/Base/BaseInput.vue";
+import FormInput from "@/components/Base/FormInput.vue";
 
 let updatePasswordForm = useForm({
   token: usePage().props.value.token,

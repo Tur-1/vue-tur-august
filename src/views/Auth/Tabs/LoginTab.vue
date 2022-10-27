@@ -1,5 +1,5 @@
 <script setup>
-import BaseInput from "@/views/components/BaseInput/index.vue";
+import FormInput from "@/views/components/FormInput/index.vue";
 
 import authTabs from "@/views/Auth/store/authTabs";
 import SubmitButton from "@/views/components/SubmitButton/index.vue";
@@ -14,7 +14,7 @@ import { loginForm, login } from "@/views/Auth/services/LoginService";
     aria-labelledby="login-tab"
   >
     <form @submit.prevent="login">
-      <BaseInput
+      <FormInput
         label="Email *"
         type="email"
         id="login_email"
@@ -22,7 +22,7 @@ import { loginForm, login } from "@/views/Auth/services/LoginService";
         :class="{ 'is-invalid': loginForm.errors.email }"
         :error="loginForm.errors.email"
       />
-      <BaseInput
+      <FormInput
         label="Password *"
         type="password"
         id="login_password"

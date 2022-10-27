@@ -1,6 +1,10 @@
 <template>
   <Transition name="modal">
-    <div :id="id" class="base-modal-bg" v-if="isOpen">
+    <div
+      :id="id"
+      class="base-modal-bg"
+      v-if="BaseModelStore.isOpen && BaseModelStore.id == props.id"
+    >
       <div class="base-modal">
         <div class="base-modal-content">
           <ModalHeader :title="title" @closeModal="$emit('closeModal')" />
@@ -22,12 +26,15 @@
 <script setup>
 import ModalHeader from "@/views/components/BaseModal/ModalHeader.vue";
 import BaseForm from "@/views/components/BaseForm/index.vue";
+import BaseModelStore from "@/views/components/BaseModal/BaseModelStore";
 
 const props = defineProps({
-  isOpen: Boolean,
   onProgress: Boolean,
   withForm: Boolean,
-  id: String,
+  id: {
+    type: String,
+    required: true,
+  },
   title: String,
 });
 const emits = defineEmits(["closeModal", "submit"]);

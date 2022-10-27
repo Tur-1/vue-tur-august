@@ -27,6 +27,7 @@ import ConfirmModelStore from "@/views/components/ConfirmModel/ConfirmModelStore
       </div>
     </button>
   </li>
+
   <RightOffcanvas title="Address Book" id="address-book-offcanvas">
     <AddNewAddress @openModal="MyAddressBookService.openModal" />
 
@@ -36,12 +37,13 @@ import ConfirmModelStore from "@/views/components/ConfirmModel/ConfirmModelStore
     />
 
     <BaseModal
+      id="address-book-modal"
       :withForm="true"
       :onProgress="MyAddressBookService.addressForm.onProgress"
-      :isOpen="MyAddressBookService.isModalOpen.value"
-      id="address-book-modal"
-      title="new address"
       @closeModal="MyAddressBookService.closeModal()"
+      :title="
+        MyAddressBookService.updateMode.value ? 'update address' : 'new address'
+      "
       @submit="
         MyAddressBookService.updateMode.value
           ? MyAddressBookService.updateUserAddress()
@@ -52,8 +54,8 @@ import ConfirmModelStore from "@/views/components/ConfirmModel/ConfirmModelStore
     </BaseModal>
 
     <ConfirmModel
-      @confirm="MyAddressBookService.destroyAddress()"
-      @cancel="ConfirmModelStore.close()"
+      @onConfirm="MyAddressBookService.destroyAddress()"
+      @onCancel="ConfirmModelStore.close()"
     >
       <span>are you sure you want to delete this address ? </span>
     </ConfirmModel>
