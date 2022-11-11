@@ -1,5 +1,5 @@
 <template>
-  <div class="filtered-items-card" v-for="(item, index) in FilteredItems">
+  <div class="filtered-items-card" v-for="(item, index) in props.items">
     <span class="name">{{ item }}</span>
     <button type="button">
       <i class="bi bi-x-lg"></i>
@@ -7,7 +7,7 @@
   </div>
 </template>
 <script setup>
-defineProps({
-  FilteredItems: Array,
+const props = defineProps({
+  items: Object,
 });
 </script>

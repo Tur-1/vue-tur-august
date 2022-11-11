@@ -24,7 +24,7 @@
 
 @import "@/views/components/BaseForm/base-form.scss";
 
-@import "@/views/components/BaseSelect/base-select.scss";
+@import "@/views/components/FormSelect/base-select.scss";
 
 @import "@/views/components/MobilePagination/mobile-pagination.scss";
 
@@ -49,7 +49,6 @@
 
 @import "@/views/pages/CategoriesPage/sass/categories-page.scss";
 
-@import "@/views/pages/MyAccountPage/sass/desktop-my-account-page.scss";
-@import "@/views/pages/MyAccountPage/sass/mobile-my-account-page.scss";
+@import "@/views/pages/MyAccountPage/sass/my-account-page.scss";
 
 @import "@/views/pages/ProductDetailPage/sass/product-detail-page.scss";

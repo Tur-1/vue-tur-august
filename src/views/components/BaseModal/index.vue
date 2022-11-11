@@ -3,7 +3,7 @@
     <div
       :id="id"
       class="base-modal-bg"
-      v-if="BaseModelStore.isOpen && BaseModelStore.id == props.id"
+      v-if="useBaseModel.isOpen && useBaseModel.id == props.id"
     >
       <div class="base-modal">
         <div class="base-modal-content">
@@ -26,7 +26,7 @@
 <script setup>
 import ModalHeader from "@/views/components/BaseModal/ModalHeader.vue";
 import BaseForm from "@/views/components/BaseForm/index.vue";
-import BaseModelStore from "@/views/components/BaseModal/BaseModelStore";
+import useBaseModel from "@/views/components/BaseModal/useBaseModel";
 
 const props = defineProps({
   onProgress: Boolean,

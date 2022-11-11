@@ -1,12 +1,11 @@
 
 import useMyAccountPageApi from "@/views/pages/MyAccountPage/api/useMyAccountPageApi";
-import { ref } from "vue";
+
 import toastStore from "@/views/components/Toast/toastStore";
 import passwordForm from "@/views/pages/MyAccountPage/store/passwordForm";
+import useBaseModel from "@/views/components/BaseModal/useBaseModel";
 
 
-
-let isModalOpen = ref(false);
 
 
 const updateMyAccountPassword = async () =>
@@ -17,7 +16,7 @@ const updateMyAccountPassword = async () =>
     {
         let res = await useMyAccountPageApi.updateMyAccountPassword(passwordForm.fields);
 
-        toastStore.open(res.data.message);
+        toastStore.open(res.data.data.message);
 
         closeModal();
     } catch (error)
@@ -31,13 +30,12 @@ const openModal = () =>
 {
     passwordForm.resetErrors();
     passwordForm.resetFields();
-    isModalOpen.value = true;
+    useBaseModel.open('account-password-modal');
 };
 const closeModal = () =>
 {
-
-    isModalOpen.value = false;
+    useBaseModel.close('account-password-modal');
 };
 
 
-export { isModalOpen, updateMyAccountPassword, openModal, closeModal, passwordForm }
+export { updateMyAccountPassword, openModal, closeModal, passwordForm }

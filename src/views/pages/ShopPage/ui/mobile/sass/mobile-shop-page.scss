@@ -22,7 +22,7 @@
     background-color: $bg-primary;
     display: flex;
     flex-wrap: wrap;
-    z-index: 10;
+    z-index: 999;
 }
 .mobile-shop-page-header .sort-filter-btns {
     background-color: transparent !important;

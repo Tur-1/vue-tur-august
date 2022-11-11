@@ -1,7 +1,7 @@
 import useAuthApi from "@/views/Auth/api/useAuthApi";
 import loginForm from "@/views/Auth/store/loginForm";
 
-import authModal from "@/views/Auth/store/authModal";
+import useAuthModal from "@/views/Auth/services/useAuthModal";
 import useRouterService from "@/router/RouterService";
 
 const login = async () =>
@@ -13,7 +13,7 @@ const login = async () =>
         let response = await useAuthApi.login(loginForm.fields);
 
 
-        authModal.close();
+        useAuthModal.close();
 
         useRouterService.redirectToIntendedPath();
     } catch (error)

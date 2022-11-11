@@ -3,7 +3,7 @@ import useMyAccountPageApi from "@/views/pages/MyAccountPage/api/useMyAccountPag
 import { ref } from "vue";
 import toastStore from "@/views/components/Toast/toastStore";
 import accountPageContent from "@/views/pages/MyAccountPage/store/accountPageContent";
-import BaseModelStore from "@/views/components/BaseModal/BaseModelStore";
+import useBaseModel from "@/views/components/BaseModal/useBaseModel";
 
 
 
@@ -36,7 +36,7 @@ const updateMyPhoneNumber = async () =>
 };
 const openModal = () =>
 {
-    BaseModelStore.open('account-phone-number-modal');
+    useBaseModel.open('account-phone-number-modal');
 
     form.value.error = null;
     form.value.phone_number = accountPageContent.user.phone_number;
@@ -45,7 +45,7 @@ const openModal = () =>
 };
 const closeModal = () =>
 {
-    BaseModelStore.close('account-phone-number-modal');
+    useBaseModel.close('account-phone-number-modal');
 };
 
 

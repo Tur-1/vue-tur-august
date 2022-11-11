@@ -1,8 +1,17 @@
+<script setup>
+import Brands from "@/views/pages/ShopPage/ui/mobile/components/ShopPageFilter/Brands.vue";
+import Colors from "@/views/pages/ShopPage/ui/mobile/components/ShopPageFilter/Colors.vue";
+import SizeOptions from "@/views/pages/ShopPage/ui/mobile/components/ShopPageFilter/SizeOptions.vue";
+import FilterItem from "@/views/pages/ShopPage/ui/mobile/components/ShopPageFilter/FilterItem.vue";
+import useBottomSheet from "@/views/components/BottomSheet/useBottomSheet";
+import BottomSheet from "@/views/components/BottomSheet/index.vue";
+</script>
+
 <template>
   <div class="col border-start">
     <button
       class="sort-filter-btns"
-      @click="isOpen = true"
+      @click="useBottomSheet.open('filter')"
       type="button"
       id="mobile-offcanvas-filter-btn"
     >
@@ -10,41 +19,28 @@
     </button>
   </div>
 
-  <swipe-modal v-model="isOpen" contents-height="55vh" border-top-radius="14px">
-    <div class="mobile-filter-products">
-      <div class="header">
+  <BottomSheet id="filter">
+    <template #header>
+      <div class="mobile-filter-header">
         <span class="title">Filter</span>
-        <button type="button" class="clear-filtered-items-btn">
-          clear All
-        </button>
+        <button type="button" class="clear-filter-btn">clear All</button>
       </div>
-      <div class="body">
-        <FilterItem name="Brands" :FilteredItems="BrandsFilteredItems">
-          <Brands />
-        </FilterItem>
-        <FilterItem name="Colors" :FilteredItems="ColorsFilteredItems">
-          <Colors />
-        </FilterItem>
-        <FilterItem name="Size" :FilteredItems="SizeFilteredItems">
-          <SizeOptions />
-        </FilterItem>
-        <FilterItem name="Price" />
-      </div>
-    </div>
-  </swipe-modal>
+    </template>
+    <template #body>
+      <FilterItem title="Brands">
+        <Brands />
+      </FilterItem>
+      <FilterItem title="Colors">
+        <Colors />
+      </FilterItem>
+      <FilterItem title="Size ">
+        <SizeOptions />
+      </FilterItem>
+    </template>
+    <template #footer>
+      <button type="button" class="btn btn-primary show-products-btn">
+        show products (56)
+      </button>
+    </template>
+  </BottomSheet>
 </template>
-
-<script setup>
-import swipeModal from "@takuma-ru/vue-swipe-modal";
-import { ref } from "vue";
-import Brands from "@/views/pages/ShopPage/ui/mobile/components/ShopPageFilter/Brands.vue";
-import Colors from "@/views/pages/ShopPage/ui/mobile/components/ShopPageFilter/Colors.vue";
-import SizeOptions from "@/views/pages/ShopPage/ui/mobile/components/ShopPageFilter/SizeOptions.vue";
-import FilterItem from "@/views/pages/ShopPage/ui/mobile/components/ShopPageFilter/FilterItem.vue";
-
-let isOpen = ref(false);
-
-let BrandsFilteredItems = ["puma", "nike"];
-let ColorsFilteredItems = ["black", "white"];
-let SizeFilteredItems = ["S", "M"];
-</script>

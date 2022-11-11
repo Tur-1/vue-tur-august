@@ -1,9 +1,22 @@
 import { reactive, ref } from "vue";
 
-export const useBottomSheet = reactive({
+
+
+
+const useBottomSheet = reactive({
     isOpen: false,
-    open(value, modalName)
+    id: String,
+    open(id)
     {
-        this.isOpen = value;
+        this.id = id;
+        this.isOpen = true;
+
+    },
+    close(id)
+    {
+        this.id = id;
+        this.isOpen = false;
+
     }
 });
+export default useBottomSheet;

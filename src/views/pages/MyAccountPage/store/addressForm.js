@@ -11,11 +11,21 @@ let addressForm = ref({
         phone_number: "",
         street: "",
     },
-    errors: {},
+    errors: {
+        address_id: null,
+        full_name: null,
+        address: null,
+        city: null,
+        phone_number: null,
+        street: null,
+    },
 
     resetErrors()
     {
-        this.errors = {};
+        for (let err in this.errors)
+        {
+            err = null;
+        }
     },
     resetFields()
     {
@@ -46,6 +56,22 @@ let addressForm = ref({
         {
             this.errors = response.data.errors;
 
+        }
+        if (response.status == 422)
+        {
+            let errors = response.data.errors;
+            let err;
+            let field;
+            for (err in errors)
+            {
+                for (field in this.errors)
+                {
+                    if (field == err)
+                    {
+                        this.errors[field] = errors[err][0];
+                    }
+                }
+            }
         }
     },
 });

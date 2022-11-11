@@ -1,7 +1,7 @@
 
-import { ref } from "vue";
+import { reactive } from "vue";
 
-export const Tab = ref({
+const Tab = reactive({
     id: 0,
     categoryId: 0,
     openSectionTab(id)
@@ -21,3 +21,4 @@ export const Tab = ref({
 
 
 
+export default Tab;

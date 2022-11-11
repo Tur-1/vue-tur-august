@@ -20,10 +20,11 @@ const useRouterService = reactive({
         document.body.style.backgroundColor = color ?? 'white';
 
     },
-    setPageTitle(to)
+    setPageTitle(metaTitle)
     {
-        let title = to.name == 'home' ? '' : ` - ${ to.params.title ?? to.name }`.toString().toUpperCase();
-        document.title = config.APP_NAME + title;
+
+        document.title = `${ config.APP_NAME }  ${ metaTitle != 'august' ? '- ' + metaTitle : '' }`.toString().toUpperCase();
+
     },
 });
 

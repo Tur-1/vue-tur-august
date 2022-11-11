@@ -10,19 +10,18 @@
               $page.props.products.meta.total >
               $page.props.products.meta.per_page
           "
-      /> -->
-    <!-- <div
+      />  <div
           v-show="$page.props.productsCount == 0"
           class="justify-content-center text-center"
       >
           <h5>No Products Found</h5>
       </div> -->
+
+    <NoProductsFound :show="false" />
   </div>
 </template>
 <script setup>
-import axios from "axios";
-import ProductCard from "@/views/components/ProductCard/index.vue";
+import NoProductsFound from "@/views/pages/ShopPage/ui/mobile/components/NoProductsFound/index.vue";
 
-const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
-const products = await res.data;
+import ProductCard from "@/views/components/ProductCard/index.vue";
 </script>

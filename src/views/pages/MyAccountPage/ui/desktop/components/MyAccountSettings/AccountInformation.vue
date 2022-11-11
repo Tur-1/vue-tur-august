@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import BaseModal from "@/views/components/BaseModal/index.vue";
 import FormInput from "@/views/components/FormInput/index.vue";
-import BaseSelect from "@/views/components/BaseSelect/index.vue";
+import FormSelect from "@/views/components/FormSelect/index.vue";
 let isModalOpen = ref(false);
 
 const openAccountModal = () => {
@@ -58,7 +58,7 @@ const closeAccountModal = () => {
         id="accountEmail"
         class="is-invalid"
       />
-      <BaseSelect
+      <FormSelect
         label="Gender *"
         id="accountGender"
         :options="['male', 'female']"

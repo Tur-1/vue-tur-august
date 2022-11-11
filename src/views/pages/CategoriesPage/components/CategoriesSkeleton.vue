@@ -1,4 +1,7 @@
 <template>
+  <div class="categories-page-header placeholder-wave">
+    <span class="section-tab placeholder" v-for="n in 3" />
+  </div>
   <div class="categories-page-body">
     <div class="section-content active_section_content">
       <div class="categories-sidebar placeholder-wave"></div>

@@ -1,15 +1,7 @@
 <script setup>
 import BaseModal from "@/views/components/BaseModal/index.vue";
 import FormInput from "@/views/components/FormInput/index.vue";
-
-import {
-  isModalOpen,
-  updateMyAccountPassword,
-  openModal,
-  closeModal,
-  passwordForm,
-} from "@/views/pages/MyAccountPage/services/AccountPasswordService";
-import BaseModelStore from "@/views/components/BaseModal/BaseModelStore";
+import * as passwordService from "@/views/pages/MyAccountPage/services/AccountPasswordService";
 </script>
 
 <template>
@@ -23,7 +15,7 @@ import BaseModelStore from "@/views/components/BaseModal/BaseModelStore";
             <span class="card-title text-dark"><strong>PASSWORD</strong></span>
             <button
               class="bg-transparent border-0"
-              @click="BaseModelStore.open('account-password-modal')"
+              @click="passwordService.openModal"
             >
               <i class="bi bi-pencil-square"></i>
             </button>
@@ -37,34 +29,41 @@ import BaseModelStore from "@/views/components/BaseModal/BaseModelStore";
 
   <BaseModal
     :withForm="true"
-    :onProgress="passwordForm.onProgress"
+    :onProgress="passwordService.passwordForm.onProgress"
     id="account-password-modal"
     title="update account password"
-    @closeModal="BaseModelStore.close('account-password-modal')"
-    @submit="updateMyAccountPassword()"
+    @closeModal="passwordService.closeModal"
+    @submit="passwordService.updateMyAccountPassword"
   >
     <FormInput
       label="current password *"
       type="password"
-      v-model="passwordForm.fields.current_password"
-      :class="{ 'is-invalid': passwordForm.errors.current_password }"
-      :error="passwordForm.errors.current_password"
+      v-model="passwordService.passwordForm.fields.current_password"
+      :class="{
+        'is-invalid': passwordService.passwordForm.errors.current_password,
+      }"
+      :error="passwordService.passwordForm.errors.current_password"
       id="accountCurrentPassword"
     />
     <FormInput
       label="new password *"
       type="password"
       id="accountNewPassword"
-      v-model="passwordForm.fields.new_password"
-      :class="{ 'is-invalid': passwordForm.errors.new_password }"
-      :error="passwordForm.errors.new_password"
+      v-model="passwordService.passwordForm.fields.new_password"
+      :class="{
+        'is-invalid': passwordService.passwordForm.errors.new_password,
+      }"
+      :error="passwordService.passwordForm.errors.new_password"
     />
     <FormInput
       label="confirm new password *"
       type="password"
-      v-model="passwordForm.fields.new_password_confirmation"
-      :class="{ 'is-invalid': passwordForm.errors.new_password_confirmation }"
-      :error="passwordForm.errors.new_password_confirmation"
+      v-model="passwordService.passwordForm.fields.new_password_confirmation"
+      :class="{
+        'is-invalid':
+          passwordService.passwordForm.errors.new_password_confirmation,
+      }"
+      :error="passwordService.passwordForm.errors.new_password_confirmation"
       id="accountNewPasswordConfirmation"
     />
   </BaseModal>

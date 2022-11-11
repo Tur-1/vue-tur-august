@@ -134,7 +134,7 @@ const swipeActions = (itemId) => {
     cartItems.forEach((items) => {
       items.firstElementChild.style.transform = "translateX(0px)";
     });
-    item.firstElementChild.style.transform = "translateX(-166px)";
+    item.firstElementChild.style.transform = "translateX(-140px)";
   }
   if (event.touches[0].clientX < 230) {
     item.firstElementChild.style.transform = "translateX(0px)";

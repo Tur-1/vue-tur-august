@@ -1,7 +1,7 @@
 import useAuthApi from "@/views/Auth/api/useAuthApi";
 import registerForm from "@/views/Auth/store/registerForm";
 
-import authModal from "@/views/Auth/store/authModal";
+import useAuthModal from "@/views/Auth/services/useAuthModal";
 import useRouterService from "@/router/RouterService";
 
 const register = async () =>
@@ -12,7 +12,7 @@ const register = async () =>
     {
         await useAuthApi.register(registerForm.fields);
 
-        authModal.close();
+        useAuthModal.close();
         useRouterService.redirectToIntendedPath();
     } catch (error)
     {

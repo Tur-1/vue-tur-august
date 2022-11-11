@@ -1,15 +1,10 @@
 
-import { ref } from "vue";
+
 import toastStore from "@/views/components/Toast/toastStore";
 import accountPageContent from "@/views/pages/MyAccountPage/store/accountPageContent";
 import userForm from "@/views/pages/MyAccountPage/store/userForm";
 import useMyAccountPageApi from "@/views/pages/MyAccountPage/api/useMyAccountPageApi";
-
-
-let isModalOpen = ref(false);
-
-
-
+import useBaseModel from "@/views/components/BaseModal/useBaseModel";
 
 const updateAccountInfo = async () =>
 {
@@ -35,16 +30,17 @@ const updateAccountInfo = async () =>
 
 const openModal = () =>
 {
-    isModalOpen.value = true;
-    userForm.resetFields();
+    useBaseModel.open('account-info-modal');
+    userForm.getUserInfo(accountPageContent.user);
+
     userForm.resetErrors();
 };
 
 const closeModal = () =>
 {
+    useBaseModel.close('account-info-modal');
 
-    isModalOpen.value = false;
 };
 
 
-export { isModalOpen, updateAccountInfo, openModal, closeModal, userForm }
+export { updateAccountInfo, openModal, closeModal, userForm }

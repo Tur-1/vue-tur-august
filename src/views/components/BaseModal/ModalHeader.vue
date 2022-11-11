@@ -1,5 +1,5 @@
 <template>
-  <div class="base-modal-header">
+  <div :class="{ withTitle: props.title }" class="base-modal-header">
     <button
       type="button"
       @click="$emit('closeModal')"
@@ -11,6 +11,6 @@
   </div>
 </template>
 <script setup>
-const porps = defineProps(["title"]);
+const props = defineProps(["title"]);
 const emit = defineEmits(["closeModal"]);
 </script>

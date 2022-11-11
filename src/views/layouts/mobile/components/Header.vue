@@ -7,7 +7,7 @@
         </Link>
       </div>
       <span class="page-title" v-if="!route.meta.hidePageTitle">
-        {{ route.name == "home" ? "AUGUST" : route.name }}
+        {{ route.meta.title }}
       </span>
       <SearchBar />
     </nav>

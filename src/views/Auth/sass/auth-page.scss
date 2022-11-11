@@ -8,7 +8,7 @@
     }
 }
 .auth-container {
-    padding: 7px;
+    padding: 0 7px;
     background-color: $bg-primary;
     border-radius: 10px;
 }
@@ -36,6 +36,7 @@
     border-bottom: 2px solid #51c0a9 !important;
     box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
     padding: 0.2rem !important;
+    border-radius: 0 !important;
 }
 .social-buttons {
     display: grid;
@@ -52,11 +53,6 @@
     text-transform: none;
     letter-spacing: 0;
     font-size: 14px;
-}
-
-.social-buttons li .btn-dark {
-    background-color: #24292d !important;
-    border: none !important;
 }
 
 .auth-form-content form .form-floating > .form-control {

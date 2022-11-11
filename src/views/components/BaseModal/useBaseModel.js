@@ -1,6 +1,6 @@
 import { reactive } from "vue";
 
-const BaseModelStore = reactive({
+const useBaseModel = reactive({
     isOpen: false,
     id: null,
     open(id)
@@ -15,4 +15,4 @@ const BaseModelStore = reactive({
     },
 });
 
-export default BaseModelStore;
+export default useBaseModel;

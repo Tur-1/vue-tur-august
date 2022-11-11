@@ -1,17 +1,18 @@
 <template>
-  <section>
-    <CategoriesHeader />
-
-    <Suspense>
-      <template #default>
+  <Suspense>
+    <template #default>
+      <section>
+        <CategoriesHeader />
         <CategoriesBody />
-      </template>
+      </section>
+    </template>
 
-      <template #fallback>
+    <template #fallback>
+      <section>
         <CategoriesSkeleton />
-      </template>
-    </Suspense>
-  </section>
+      </section>
+    </template>
+  </Suspense>
 </template>
 
 <script setup>

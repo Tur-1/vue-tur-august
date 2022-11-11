@@ -25,6 +25,10 @@
     box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%) !important;
     color: #51c0a9 !important;
 }
+.categories-page-header .section-tab.placeholder {
+    border-right: 1px solid #727272;
+    min-height: 37px;
+}
 
 .categories-page-body {
     background-color: #f9f9f9;

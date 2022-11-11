@@ -1,9 +1,8 @@
 <template>
   <BaseModal
     :withoutForm="true"
-    :isOpen="authModal.isOpen"
     id="auth-modal"
-    @closeModal="authModal.closeModal()"
+    @closeModal="useAuthModal.close()"
   >
     <Auth />
   </BaseModal>
@@ -11,5 +10,5 @@
 <script setup>
 import Auth from "@/views/Auth/index.vue";
 import BaseModal from "@/views/components/BaseModal/index.vue";
-import authModal from "@/views/Auth/store/authModal";
+import useAuthModal from "@/views/Auth/services/useAuthModal";
 </script>

@@ -1,17 +1,9 @@
 <script setup>
 import BaseModal from "@/views/components/BaseModal/index.vue";
 import FormInput from "@/views/components/FormInput/index.vue";
-import BaseSelect from "@/views/components/BaseSelect/index.vue";
+import FormSelect from "@/views/components/FormSelect/index.vue";
 import accountPageContent from "@/views/pages/MyAccountPage/store/accountPageContent";
-
-import {
-  isModalOpen,
-  updateAccountInfo,
-  openModal,
-  closeModal,
-  userForm,
-} from "@/views/pages/MyAccountPage/services/AccountInformationService";
-import BaseModelStore from "@/views/components/BaseModal/BaseModelStore";
+import * as accountService from "@/views/pages/MyAccountPage/services/AccountInformationService";
 </script>
 <template>
   <div class="row mb-1">
@@ -22,7 +14,7 @@ import BaseModelStore from "@/views/components/BaseModal/BaseModelStore";
             ><strong>ACCOUNT INFO </strong></span
           ><button
             class="bg-transparent border-0"
-            @click="BaseModelStore.open('account-info-modal')"
+            @click="accountService.openModal"
           >
             <i class="bi bi-pencil-square"></i>
           </button>
@@ -49,37 +41,37 @@ import BaseModelStore from "@/views/components/BaseModal/BaseModelStore";
 
   <BaseModal
     :withForm="true"
-    :onProgress="userForm.onProgress"
+    :onProgress="accountService.userForm.onProgress"
     id="account-info-modal"
     title="update account information"
-    @closeModal="BaseModelStore.close('account-info-modal')"
-    @submit="updateAccountInfo()"
+    @closeModal="accountService.closeModal"
+    @submit="accountService.updateAccountInfo"
   >
     <FormInput
       label="Name *"
       type="text"
       placeholder="name"
       id="accountName"
-      v-model="userForm.fields.name"
-      :class="{ 'is-invalid': userForm.errors.name }"
-      :error="userForm.errors.name"
+      v-model="accountService.userForm.fields.name"
+      :class="{ 'is-invalid': accountService.userForm.errors.name }"
+      :error="accountService.userForm.errors.name"
     />
 
     <FormInput
       label="Email *"
       type="email"
       placeholder="email"
-      v-model="userForm.fields.email"
+      v-model="accountService.userForm.fields.email"
       id="accountEmail"
-      :class="{ 'is-invalid': userForm.errors.email }"
-      :error="userForm.errors.email"
+      :class="{ 'is-invalid': accountService.userForm.errors.email }"
+      :error="accountService.userForm.errors.email"
     />
-    <BaseSelect
+    <FormSelect
       label="Gender *"
-      v-model="userForm.fields.gender"
+      v-model="accountService.userForm.fields.gender"
       id="accountGender"
-      :class="{ 'is-invalid': userForm.errors.gender }"
-      :error="userForm.errors.gender"
+      :class="{ 'is-invalid': accountService.userForm.errors.gender }"
+      :error="accountService.userForm.errors.gender"
       :options="['Male', 'Female']"
     />
   </BaseModal>

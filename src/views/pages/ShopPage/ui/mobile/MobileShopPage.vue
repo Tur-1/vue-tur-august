@@ -1,30 +1,32 @@
 <script setup>
-import ProductCardSkeleton from "@/views/components/ProductCard/ProductCardSkeleton.vue";
-import ShopPageHeader from "@/views/pages/ShopPage/ui/mobile/components/ShopPageHeader.vue";
-import ShopPageProducts from "@/views/pages/ShopPage/ui/mobile/components/ShopPageProducts.vue";
-import NoProductsFound from "@/views/pages/ShopPage/ui/mobile/components/NoProductsFound.vue";
+import ShopPageProducts from "@/views/pages/ShopPage/ui/mobile/components/ShopPageProducts/index.vue";
 import MobilePagination from "@/views/components/MobilePagination/index.vue";
+import ShopPageFilter from "@/views/pages/ShopPage/ui/mobile/components/ShopPageFilter/index.vue";
+import SortProducts from "@/views/pages/ShopPage/ui/mobile/components/SortProducts/index.vue";
+import ShopPageCategories from "@/views/pages/ShopPage/ui/mobile/components/ShopPageCategories/index.vue";
+import useShopPageService from "@/views/pages/ShopPage/services/useShopPageService";
+import ShopPageStore from "@/views/pages/ShopPage/stores/ShopPageStore";
+
+import useRouterService from "@/router/RouterService";
+
+await useShopPageService();
+
+useRouterService.setPageTitle(ShopPageStore.category.name);
 </script>
 
 <template>
   <section class="shop-page-mobile-section">
-    <ShopPageHeader />
+    <div class="mobile-shop-page-header">
+      <SortProducts />
+
+      <ShopPageFilter />
+    </div>
+    <div class="mobile-header-categories-warp">
+      <ShopPageCategories />
+    </div>
     <div class="container">
       <div class="row">
-        <Suspense>
-          <template #default>
-            <ShopPageProducts />
-          </template>
-
-          <template #fallback>
-            <div class="col-xl-10 col-lg-10 col-md-9 col-sm-12 col-12">
-              <div class="row">
-                <ProductCardSkeleton />
-              </div>
-            </div>
-          </template>
-        </Suspense>
-        <NoProductsFound :show="false" />
+        <ShopPageProducts />
       </div>
       <MobilePagination />
     </div>

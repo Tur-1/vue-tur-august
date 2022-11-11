@@ -7,7 +7,7 @@ import useMyAccountPageApi from "@/views/pages/MyAccountPage/api/useMyAccountPag
 import ConfirmModelStore from "@/views/components/ConfirmModel/ConfirmModelStore";
 import spinnerStore from "@/views/components/PageSpinner/spinnerStore";
 
-import BaseModelStore from "@/views/components/BaseModal/BaseModelStore";
+import useBaseModel from "@/views/components/BaseModal/useBaseModel";
 import { isNotNull } from "@/helpers";
 
 
@@ -94,7 +94,7 @@ const destroyAddress = async () =>
 
 const openModal = (address = null) =>
 {
-    BaseModelStore.open('address-book-modal');
+    useBaseModel.open('address-book-modal');
 
     addressForm.resetFields();
     addressForm.resetErrors();
@@ -112,7 +112,7 @@ const openModal = (address = null) =>
 
 const closeModal = () =>
 {
-    BaseModelStore.close('address-book-modal');
+    useBaseModel.close('address-book-modal');
 };
 
 

@@ -1,15 +1,12 @@
-import { computed, readonly, ref } from "vue";
-import accountPageContent from "@/views/pages/MyAccountPage/store/accountPageContent";
+import { ref } from "vue";
 
-
-let user = computed(() => readonly(accountPageContent.user));
 
 let userForm = ref({
     onProgress: false,
     fields: {
-        name: user.value.name,
-        email: user.value.email,
-        gender: user.value.gender,
+        name: '',
+        email: '',
+        gender: '',
     },
     errors: {
         name: null,
@@ -26,19 +23,9 @@ let userForm = ref({
         }
 
     },
-    resetFields()
+    getUserInfo(userInfo)
     {
-        let field;
-        for (field in this.fields)
-        {
-            for (let value in user.value)
-            {
-                if (field == value)
-                {
-                    this.fields[field] = user.value[value];
-                }
-            }
-        }
+        this.fields = userInfo;
     },
     setErrors(response)
     {
