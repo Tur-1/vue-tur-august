@@ -7,5 +7,5 @@
   </div>
 </template>
 <script setup>
-import ProductCard from "@/views/components/ProductCard/index.vue";
+import ProductCard from "@/components/ProductCard/index.vue";
 </script>

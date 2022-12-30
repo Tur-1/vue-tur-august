@@ -9,8 +9,8 @@
   </BottomSheet>
 </template>
 <script setup>
-import Auth from "@/views/Auth/index.vue";
-import BottomSheet from "@/views/components/BottomSheet/index.vue";
+import Auth from "@/Auth/index.vue";
+import BottomSheet from "@/components/BottomSheet/index.vue";
 </script>
 <style>
 .auth-title {

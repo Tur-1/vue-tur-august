@@ -22,7 +22,7 @@
   </Transition>
 </template>
 <script setup>
-import toastStore from "@/views/components/Toast/toastStore";
+import toastStore from "@/components/Toast/toastStore";
 </script>
 <style scoped>
 .slide-fade-enter-active {

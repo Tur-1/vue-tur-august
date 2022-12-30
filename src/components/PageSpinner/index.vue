@@ -7,5 +7,5 @@
 </template>
 
 <script setup>
-import spinnerStore from "@/views/components/PageSpinner/spinnerStore";
+import spinnerStore from "@/components/PageSpinner/spinnerStore";
 </script>

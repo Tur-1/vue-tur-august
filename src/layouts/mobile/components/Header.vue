@@ -15,7 +15,7 @@
 </template>
 <script setup>
 import { useRoute } from "vue-router";
-import SearchBar from "@/views/layouts/mobile/components/SearchBar/index.vue";
+import SearchBar from "@/layouts/mobile/components/SearchBar/index.vue";
 
 const route = useRoute();
 </script>

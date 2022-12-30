@@ -1,10 +1,10 @@
 <script setup>
 import { RouterView, useRoute } from "vue-router";
-import Footer from "@/views/layouts/mobile/components/Footer.vue";
-import Header from "@/views/layouts/mobile/components/Header.vue";
-import MobileAuth from "@/views/components/MobileAuth/index.vue";
-import Toast from "@/views/components/Toast/index.vue";
-import PageSpinner from "@/views/components/PageSpinner/index.vue";
+import Footer from "@/layouts/mobile/components/Footer.vue";
+import Header from "@/layouts/mobile/components/Header.vue";
+// import MobileAuth from "@/components/MobileAuth/index.vue";
+import Toast from "@/components/Toast/index.vue";
+import PageSpinner from "@/components/PageSpinner/index.vue";
 
 const route = useRoute();
 </script>
@@ -15,7 +15,7 @@ const route = useRoute();
     <RouterView :key="route.path" />
     <PageSpinner />
 
-    <MobileAuth />
+    <!-- <MobileAuth /> -->
   </main>
   <Toast />
   <Footer />

@@ -1,11 +1,11 @@
 <script setup>
 import { RouterView } from "vue-router";
-import Toast from "@/views/components/Toast/index.vue";
-import PageSpinner from "@/views/components/PageSpinner/index.vue";
+import Toast from "@/components/Toast/index.vue";
+import PageSpinner from "@/components/PageSpinner/index.vue";
 
-import Footer from "@/views/layouts/desktop/components/Footer.vue";
-import Header from "@/views/layouts/desktop/components/Header.vue";
-import DesktopAuth from "@/views/components/DesktopAuth/index.vue";
+import Footer from "@/layouts/desktop/components/Footer.vue";
+import Header from "@/layouts/desktop/components/Header.vue";
+// import DesktopAuth from "@/components/DesktopAuth/index.vue";
 </script>
 
 <template>
@@ -15,6 +15,7 @@ import DesktopAuth from "@/views/components/DesktopAuth/index.vue";
     <Footer />
     <PageSpinner />
     <Toast />
-    <DesktopAuth />
+   
+    <!-- <DesktopAuth /> -->
   </main>
 </template>

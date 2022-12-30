@@ -30,7 +30,7 @@
   </Transition>
 </template>
 <script setup>
-import ConfirmModelStore from "@/views/components/ConfirmModel/ConfirmModelStore";
+import ConfirmModelStore from "@/components/ConfirmModel/ConfirmModelStore";
 
 const props = defineProps({
   id: String,

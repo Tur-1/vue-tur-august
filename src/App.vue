@@ -1,6 +1,7 @@
 <script setup>
-import DesktopLayout from "@/views/layouts/desktop/DesktopLayout.vue";
-import MobileLayout from "@/views/layouts/mobile/MobileLayout.vue";
+import DesktopLayout from "@/layouts/desktop/DesktopLayout.vue";
+import MobileLayout from "@/layouts/mobile/MobileLayout.vue";
+
 import { ref } from "vue";
 let isDesktop = ref(true);
 let isMobile = ref(false);
