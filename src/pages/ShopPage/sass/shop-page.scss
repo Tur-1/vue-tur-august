@@ -1,2 +1,7 @@
-@import "@/pages/ShopPage/views/mobile/mobile-shop-page.scss";
-@import "@/pages/ShopPage/views/desktop/desktop-shop-page.scss";
+@import "@/pages/ShopPage/sass/mobile/header-categories.scss";
+@import "@/pages/ShopPage/sass/mobile/sort-products.scss";
+@import "@/pages/ShopPage/sass/mobile/filter-products.scss";
+
+@import "@/pages/ShopPage/sass/desktop/breadcrumb.scss";
+@import "@/pages/ShopPage/sass/desktop/sort-products.scss";
+@import "@/pages/ShopPage/sass/desktop/sidebar.scss";

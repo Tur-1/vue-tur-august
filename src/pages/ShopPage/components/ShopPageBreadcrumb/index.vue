@@ -1,29 +1,26 @@
 <template>
-  <!-- <ol class="breadcrumb" id="shop-desktop-breadcrumb">
-        <li class="breadcrumb-item">
-            <Link href="/"> Home </Link>
-            <i class="bi bi-chevron-right"></i>
-        </li>
-
-        <li
-            class="breadcrumb-item"
-            v-for="(breadcrumbItem, index) in $page.props.breadcrumb"
-            :key="breadcrumbItem.id"
-        >
-            <Link :href="breadcrumbItem.link">
-                {{ breadcrumbItem.name }}
-            </Link>
-            <i class="bi bi-chevron-right"></i>
-        </li>
-
-        <li class="breadcrumb-item" aria-current="page">
-            {{ $page.props.category.name }}
-        </li>
-    </ol> -->
   <ol class="breadcrumb" id="shop-desktop-breadcrumb">
     <li class="breadcrumb-item">
-      <a href="/"> Home </a><i class="bi bi-chevron-right"></i>
+      <Link to="/"> Home </Link>
+      <i class="bi bi-chevron-right"></i>
     </li>
-    <li class="breadcrumb-item" aria-current="page">Women</li>
+
+    <li
+      class="breadcrumb-item"
+      v-for="(parent, index) in ShopPageStore.categoryParents"
+      :key="parent.id"
+    >
+      <Link :to="{ name: 'shop', params: { slug: parent.slug } }">
+        {{ parent.name }}
+      </Link>
+      <i class="bi bi-chevron-right"></i>
+    </li>
+
+    <li class="breadcrumb-item" aria-current="page">
+      {{ ShopPageStore.category.name }}
+    </li>
   </ol>
 </template>
+<script setup>
+import ShopPageStore from "@/pages/ShopPage/stores/ShopPageStore";
+</script>

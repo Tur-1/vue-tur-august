@@ -7,7 +7,7 @@ import ShopPageCategories from "@/pages/ShopPage/views/mobile/components/ShopPag
 import useShopPageService from "@/pages/ShopPage/services/useShopPageService";
 import ShopPageStore from "@/pages/ShopPage/stores/ShopPageStore";
 
-import useRouterService from "@/router/RouterService";
+import useRouterService from "@/router/useRouterService";
 
 await useShopPageService();
 

@@ -1,21 +1,21 @@
 <script setup>
-import { RouterView } from "vue-router";
-import Toast from "@/components/Toast/index.vue";
-import PageSpinner from "@/components/PageSpinner/index.vue";
+import { RouterView, useRoute } from "vue-router";
 
 import Footer from "@/layouts/desktop/components/Footer.vue";
 import Header from "@/layouts/desktop/components/Header.vue";
+import { LoadingSpinner } from "@/components/LoadingSpinner";
+
+const route = useRoute();
 // import DesktopAuth from "@/components/DesktopAuth/index.vue";
 </script>
 
 <template>
   <main>
     <Header />
-    <RouterView />
+    <RouterView :key="route.path" />
     <Footer />
-    <PageSpinner />
-    <Toast />
-   
+    <LoadingSpinner />
+
     <!-- <DesktopAuth /> -->
   </main>
 </template>

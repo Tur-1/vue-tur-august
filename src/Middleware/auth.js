@@ -1,4 +1,4 @@
-import useRouterService from "@/router/RouterService";
+import useRouterService from "@/router/useRouterService";
 import useAuthApi from "@/views/Auth/api/useAuthApi";
 import useAuthModal from "@/views/Auth/services/useAuthModal";
 import spinnerStore from "@/views/components/PageSpinner/spinnerStore";

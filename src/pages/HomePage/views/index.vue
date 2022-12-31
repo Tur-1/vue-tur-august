@@ -1,13 +1,11 @@
 <script setup>
 import LargeBanners from "@/pages/HomePage/components/LargeBanners.vue";
 import BannersSkeleton from "@/pages/HomePage/components/BannersSkeleton.vue";
-import ProductCardSkeleton from "@/components/ProductCard/ProductCardSkeleton.vue";
 import LatestProducts from "@/pages/HomePage/components/LatestProducts.vue";
 import MediumBanners from "@/pages/HomePage/components/MediumBanners.vue";
 </script>
 <template>
   <section class="">
-  
     <div class="container">
       <div class="home-large-banners">
         <Suspense>
@@ -36,7 +34,8 @@ import MediumBanners from "@/pages/HomePage/components/MediumBanners.vue";
           </template>
         </Suspense>
       </div>
-      <Suspense>
+      <LatestProducts />
+      <!-- <Suspense>
         <template #default>
           <LatestProducts />
         </template>
@@ -49,7 +48,7 @@ import MediumBanners from "@/pages/HomePage/components/MediumBanners.vue";
             </div>
           </div>
         </template>
-      </Suspense>
+      </Suspense> -->
     </div>
   </section>
 </template>

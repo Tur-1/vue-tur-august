@@ -9,7 +9,7 @@
     visibility: visible;
     font-size: 0.875rem;
     pointer-events: auto;
-    background-color: $bg-primary;
+    background-color: #51c0a9;
     background-clip: padding-box;
     border: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
@@ -18,4 +18,8 @@
     -moz-border-radius: 0.25rem;
     -ms-border-radius: 0.25rem;
     -o-border-radius: 0.25rem;
+}
+.toast-body {
+    display: flex;
+    align-items: center;
 }

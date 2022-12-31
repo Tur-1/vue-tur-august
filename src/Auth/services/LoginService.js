@@ -2,7 +2,7 @@ import useAuthApi from "@/views/Auth/api/useAuthApi";
 import loginForm from "@/views/Auth/store/loginForm";
 
 import useAuthModal from "@/views/Auth/services/useAuthModal";
-import useRouterService from "@/router/RouterService";
+import useRouterService from "@/router/useRouterService";
 
 const login = async () =>
 {

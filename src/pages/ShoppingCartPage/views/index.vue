@@ -1,13 +1,13 @@
 <template>
-  <ShoppingCartPageMobile v-if="isMobile" />
-  <ShoppingCartPageDesktop v-if="isDesktop" />
+  <ShoppingCartMobileView v-if="isMobile" />
+  <ShoppingCartDesktopView v-if="isDesktop" />
 </template>
 
 <script setup>
 import { ref } from "vue";
 
-import ShoppingCartPageMobile from "@/pages/ShoppingCartPage/views/ShoppingCartPageMobile.vue";
-import ShoppingCartPageDesktop from "@/pages/ShoppingCartPage/views/desktop/ShoppingCartPageDesktop.vue";
+import ShoppingCartMobileView from "@/pages/ShoppingCartPage/views/ShoppingCartMobileView.vue";
+import ShoppingCartDesktopView from "@/pages/ShoppingCartPage/views/ShoppingCartDesktopView.vue";
 let isDesktop = ref(true);
 let isMobile = ref(false);
 

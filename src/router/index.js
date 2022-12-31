@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '@/pages/HomePage/views/index.vue'
 
 
- import useRouterService from '@/router/RouterService'
+import useRouterService from '@/router/useRouterService'
 // import auth from '@/Middleware/auth'
 // import ShopPageStore from "@/pages/ShopPage/stores/ShopPageStore";
 
@@ -23,40 +23,38 @@ const router = createRouter({
       name: 'wishlist',
       component: () => import('@/pages/WishlistPage/views/index.vue'),
       meta: {
-        requiresAuth: true,
+
         title: 'wishlist',
       },
-    // },
-    // {
-    //   path: '/cart',
-    //   name: 'shopping cart',
-    //   component: () => import('@/pages/ShoppingCartPage/views/index.vue'),
-    //   meta: {
-    //     backgroundColor: '#f9f9f9',
-    //     requiresAuth: true,
-    //     title: 'shopping cart',
-    //   }
-    // },
+    },
+    {
+      path: '/shop/:slug',
+      name: 'shop',
+      component: () => import('@/pages/ShopPage/views/index.vue'),
+
+      meta: {
+        previousPage: '/categories',
+        // hidePageTitle: true,
+        title: '',
+
+      }
+    },
+    {
+      path: '/404',
+      name: 'pageNotFound',
+      component: () => import('@/pages/Errors/404.vue'),
+
+    },
     // {
     //   path: '/my-account',
-    //   name: 'My Account',
+    //   name: 'myAccount',
     //   component: () => import('@/pages/MyAccountPage/views/index.vue'),
     //   meta: {
     //     requiresAuth: true,
     //     title: 'My Account',
     //   }
     // },
-    // {
-    //   path: '/shop/:categorySlug',
-    //   name: 'shop',
-    //   component: () => import('@/pages/ShopPage/views/index.vue'),
-    //   meta: {
-    //     previousPage: '/categories',
-    //     hidePageTitle: true,
-    //     title: '',
 
-    //   }
-    // },
     // {
     //   path: '/categories',
     //   name: 'categories',
@@ -79,14 +77,27 @@ const router = createRouter({
     //     title: 'checkout',
     //   }
     // },
+    {
+      path: '/product-detail/:productSlug',
+      name: 'productDetail',
+      component: () => import('@/pages/ProductDetailPage/views/index.vue'),
+      meta: {
+
+
+      }
+    },
     // {
-    //   path: '/product-detail',
-    //   name: 'Product Detail',
-    //   component: () => import('@/pages/ProductDetailPage/views/index.vue'),
+    //   path: '/cart',
+    //   name: 'shopping cart',
+    //   component: () => import('@/pages/ShoppingCartPage/views/index.vue'),
+    //   meta: {
+    //     backgroundColor: '#f9f9f9',
+    //     requiresAuth: true,
+    //     title: 'shopping cart',
+    //   }
+    // },
 
-    // }
-
- } ]
+  ]
 });
 
 

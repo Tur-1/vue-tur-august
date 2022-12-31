@@ -19,32 +19,44 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <Link class="active" to="/"> Home </Link>
+              <Link
+                :class="{ active: route.name == 'home' }"
+                :to="{ name: 'home' }"
+              >
+                Home
+              </Link>
             </li>
-            <li class="nav-item">
-              <Link class="" to="/"> women </Link>
-            </li>
-            <li class="nav-item">
-              <Link class="" to="/"> men </Link>
+            <li class="nav-item" v-for="section in SectionsStore.list">
+              <RouterLink
+                :to="{
+                  name: 'shop',
+                  params: {
+                    slug: section.slug,
+                  },
+                }"
+                :class="{ active: section.slug == route.params.slug }"
+              >
+                {{ section.name }}
+              </RouterLink>
             </li>
           </ul>
 
           <div class="nav-icons-container">
-            <Link to="my-account" class="nav-icons">
+            <Link to="/" class="nav-icons">
               <img
                 class="svgInject"
                 alt="Evara"
                 src="@/assets/icons/account.svg"
               />
             </Link>
-            <Link class="nav-icons" to="/wishlist">
+            <Link class="nav-icons" to="/">
               <img
                 class="svgInject"
                 alt="Evara"
                 src="@/assets/icons/icon-heart.svg"
               />
             </Link>
-            <Link class="nav-icons" to="/cart">
+            <Link class="nav-icons" to="/">
               <img alt="Evara" src="@/assets/icons/icon-cart.svg" />
               <span class="badge badge-circle"> 3 </span>
             </Link>
@@ -54,3 +66,14 @@
     </nav>
   </header>
 </template>
+<script setup>
+import useLayoutService from "@/layouts/services/useLayoutService";
+import SectionsStore from "@/layouts/stores/SectionsStore";
+
+import { onMounted } from "vue";
+import { useRoute, RouterLink } from "vue-router";
+const { getSections } = useLayoutService();
+
+const route = useRoute();
+onMounted(getSections);
+</script>

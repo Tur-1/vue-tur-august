@@ -16,7 +16,7 @@ const updateMyAccountPassword = async () =>
     {
         let res = await useMyAccountPageApi.updateMyAccountPassword(passwordForm.fields);
 
-        toastStore.open(res.data.data.message);
+        toastStore.open(res.data.message);
 
         closeModal();
     } catch (error)

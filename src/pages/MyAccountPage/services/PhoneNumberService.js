@@ -23,7 +23,7 @@ const updateMyPhoneNumber = async () =>
         let res = await useMyAccountPageApi.updateMyPhoneNumber(form.value.phone_number);
 
         accountPageContent.user.phone_number = form.value.phone_number;
-        toastStore.open(res.data.data.message);
+        toastStore.open(res.data.message);
         closeModal();
     } catch (error)
     {

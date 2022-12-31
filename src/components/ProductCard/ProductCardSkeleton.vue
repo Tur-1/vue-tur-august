@@ -4,7 +4,7 @@
     class="col-xl-3 col-lg-3 col-md-4 col-6 mb-4 product-item product-item-skeleton"
   >
     <div class="card product-card placeholder-wave" aria-hidden="true">
-      <div class="product-card-image">
+      <div class="product-card-image" style="min-height: 289px !important">
         <div class="placeholder bg-secondary"></div>
       </div>
 

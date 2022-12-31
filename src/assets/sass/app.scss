@@ -8,7 +8,7 @@
 @import "@/layouts/desktop/sass/navbar.scss";
 
 /******************  components   ********************/
-@import "@/components/PageSpinner/spinner.scss";
+@import "@/components/LoadingSpinner/loading-spinner.scss";
 
 @import "@/components/ConfirmModel/confirm-modal.scss";
 
@@ -37,6 +37,9 @@
 /******************  pages   ********************/
 @import "@/pages/HomePage/sass/home-page.scss";
 
+@import "@/pages/ShoppingCartPage/sass/shopping-cart-page.scss";
+
+@import "@/pages/ShopPage/sass/shop-page.scss";
 
 // @import "@/views/Auth/sass/auth-page.scss";
 
@@ -54,4 +57,4 @@
 
 // @import "@/pages/MyAccountPage/sass/my-account-page.scss";
 
-// @import "@/pages/ProductDetailPage/sass/product-detail-page.scss";
+@import "@/pages/ProductDetailPage/sass/product-detail-page.scss";

@@ -28,7 +28,7 @@ const storeAddress = async () =>
 
         accountPageContent.userAddresses = await (await useMyAccountPageApi.getUserAddresses()).data.data;
 
-        toastStore.open(response.data.data.message);
+        toastStore.open(response.data.message);
 
         closeModal();
     } catch (error)
@@ -50,7 +50,7 @@ const updateUserAddress = async () =>
 
         accountPageContent.userAddresses = await (await useMyAccountPageApi.getUserAddresses()).data.data;
 
-        toastStore.open(response.data.data.message);
+        toastStore.open(response.data.message);
 
         closeModal();
         updateMode.value = false;
@@ -79,7 +79,7 @@ const destroyAddress = async () =>
 
         accountPageContent.userAddresses = await (await useMyAccountPageApi.getUserAddresses()).data.data;
 
-        toastStore.open(response.data.data.message);
+        toastStore.open(response.data.message);
 
     } catch (error)
     {

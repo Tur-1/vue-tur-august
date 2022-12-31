@@ -139,18 +139,15 @@
 }
 
 .product-out-of-stock {
-    font-size: 13px;
-    color: rgb(220, 53, 69);
-    padding: 0 4px;
-    border-radius: 0 0 5px 5px;
-    background-color: #f8d7daf2;
-    border-color: #f5c2c7;
     position: absolute;
     bottom: 0px;
     right: 0;
     left: 0;
     width: 100%;
+    font-size: 13px;
     text-align: center !important;
+    border-radius: 0 0 5px 5px !important;
+    font-weight: 500;
 }
 .product-card .discount-amount-badge {
     position: absolute;

@@ -13,10 +13,12 @@
             :key="index"
             class="breadcrumb-item"
           >
-            <Link :to="category.link"> {{ category.name }}</Link>
+            <Link :to="{ name: 'shop', params: { slug: category.slug } }">
+              {{ category.name }}</Link
+            >
             <i class="bi bi-chevron-right"></i>
           </div>
-          <span class="current-breadcrumb-item"> {{ pageTitle }}</span>
+          <span class="current-breadcrumb-item"> {{ active }}</span>
         </div>
       </div>
     </div>
@@ -24,8 +26,10 @@
 </template>
 <script setup>
 defineProps({
-  pageTitle: String,
-
-  categories: [],
+  active: String,
+  categories: {
+    type: Array,
+    default: [],
+  },
 });
 </script>

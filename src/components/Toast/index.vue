@@ -1,20 +1,26 @@
 <template>
   <Transition name="slide-fade">
     <div
-      v-if="toastStore.isOpen"
+      v-if="useToastNotification.isOpen"
       id="toast-alert"
-      :class="toastStore.background"
+      :class="useToastNotification.background"
       class="toast show align-items-center border-0"
       role="alert"
       aria-live="assertive"
       aria-atomic="true"
     >
-      <div class="d-flex">
-        <div class="toast-body">{{ toastStore.message }}</div>
+      <div class="d-flex align-items-center justify-content-between">
+        <div class="toast-body">
+          <span style="margin-right: 10px; font-size: 18px">
+            <i class="fa-sharp fa-solid fa-circle-check" />
+          </span>
+
+          {{ useToastNotification.message }}
+        </div>
         <button
           type="button"
           class="btn-close btn-close-white me-2 m-auto"
-          @click="toastStore.close()"
+          @click="useToastNotification.close()"
           aria-label="Close"
         ></button>
       </div>
@@ -22,7 +28,7 @@
   </Transition>
 </template>
 <script setup>
-import toastStore from "@/components/Toast/toastStore";
+import useToastNotification from "@/components/Toast/useToastNotification";
 </script>
 <style scoped>
 .slide-fade-enter-active {

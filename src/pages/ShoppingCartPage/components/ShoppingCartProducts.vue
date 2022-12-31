@@ -1,6 +1,6 @@
 <template>
   <div class="col-lg-7">
-    <transition-group name="list" tag="div" class="mb-4">
+    <div class="mb-4">
       <div class="shopping-cart-product">
         <a
           class="shopping-cart-product-img me-2"
@@ -117,7 +117,7 @@
           </div>
         </div>
       </div>
-    </transition-group>
+    </div>
   </div>
 </template>
 <script setup></script>

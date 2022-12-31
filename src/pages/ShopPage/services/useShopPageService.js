@@ -1,18 +1,45 @@
 
 import useShopPageApi from '@/pages/ShopPage/api/useShopPageApi'
 import ShopPageStore from "@/pages/ShopPage/stores/ShopPageStore";
+import useRouterService from '@/router/useRouterService';
 
 import { useRoute } from "vue-router";
 
 
 
-const useShopPageService = async () =>
+export default function useShopPageService()
 {
-    const route = useRoute();
+    return {
+        async getCategoryPageContent()
+        {
 
-    let category = await useShopPageApi.getCategoryPageContent(route.params.categorySlug);
+            ShopPageStore.onProgress = true;
+            const route = useRoute();
 
-    ShopPageStore.category = category.data.data.category;
+            try
+            {
+
+                let response = await useShopPageApi.getCategoryPageContent(route.params.slug);
+                console.log(response.data);
+                ShopPageStore.category = response.data.category;
+                ShopPageStore.categoryChildren = response.data.categoryChildren;
+                ShopPageStore.categoryParents = response.data.categoryParents;
+                ShopPageStore.categoryParent = response.data.categoryParent;
+                ShopPageStore.brands = response.data.brands;
+                ShopPageStore.colors = response.data.colors;
+                ShopPageStore.sizeOptions = response.data.sizeOptions;
+                ShopPageStore.products.list = response.data.products.data;
+                ShopPageStore.products.pagination = response.data.products.meta.pagination;
+            } catch (error)
+            {
+                if (error.response.status == 404)
+                {
+                    useRouterService.redirectToRoute('pageNotFound');
+                }
+            }
+
+            ShopPageStore.onProgress = false;
+
+        }
+    }
 }
-
-export default useShopPageService;

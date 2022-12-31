@@ -3,6 +3,10 @@
     overflow-x: auto;
     padding-bottom: 15px;
     scroll-behavior: smooth;
+    cursor: grab;
+}
+.base-slider * {
+    cursor: grab;
 }
 .base-slider::-webkit-scrollbar {
     display: none !important;
