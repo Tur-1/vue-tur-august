@@ -1,6 +1,6 @@
 <template>
   <header class="mobile-header">
-    <nav class="navigation">
+    <!-- <nav class="navigation">
       <div class="nav-back-button" v-if="route.meta.previousPage">
         <Link :to="route.meta.previousPage">
           <i class="fa-solid fa-arrow-left-long"></i>
@@ -9,13 +9,13 @@
       <span class="page-title" v-if="!route.meta.hidePageTitle">
         {{ route.meta.title }}
       </span>
-      <SearchBar />
-    </nav>
+     <SearchBar /> 
+    </nav> -->
   </header>
 </template>
 <script setup>
 import { useRoute } from "vue-router";
-import SearchBar from "@/layouts/mobile/components/SearchBar/index.vue";
+// import SearchBar from "@/layouts/mobile/components/SearchBar/index.vue";
 
 const route = useRoute();
 </script>

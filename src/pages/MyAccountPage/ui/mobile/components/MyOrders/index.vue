@@ -1,5 +1,5 @@
 <script setup>
-import RightOffcanvas from "@/views/components/RightOffcanvas/index.vue";
+import RightOffcanvas from "@/components/RightOffcanvas/index.vue";
 </script>
 <template>
   <li>

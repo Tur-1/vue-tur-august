@@ -4,7 +4,7 @@
     :to="{
       name: 'shop',
       params: {
-        categorySlug: slug,
+        slug: `${slug}`,
       },
       meta: {
         title: name,

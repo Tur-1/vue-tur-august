@@ -1,10 +1,10 @@
 
 
-import toastStore from "@/views/components/Toast/toastStore";
+import toastStore from "@/components/Toast/toastStore";
 import accountPageContent from "@/pages/MyAccountPage/store/accountPageContent";
 import userForm from "@/pages/MyAccountPage/store/userForm";
 import useMyAccountPageApi from "@/pages/MyAccountPage/api/useMyAccountPageApi";
-import useBaseModel from "@/views/components/BaseModal/useBaseModel";
+import useBaseModel from "@/components/BaseModal/useBaseModel";
 
 const updateAccountInfo = async () =>
 {

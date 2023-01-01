@@ -8,24 +8,13 @@ import ShoppingCartEmpty from "@/pages/ShoppingCartPage/components/ShoppingCartE
 <template>
   <section>
     <div class="d-flex flex-column mt-3">
-      <Suspense>
-        <template #default>
-          <CartProductCardMobile />
-        </template>
+      <CartProductCardMobile />
 
-        <template #fallback>
-          <ShoppingCartProductsSkeleton />
-        </template>
-      </Suspense>
-      <Suspense>
-        <template #default>
-          <ShoppingCartDetails />
-        </template>
+      <!-- <ShoppingCartProductsSkeleton /> -->
 
-        <template #fallback>
-          <ShoppingCartDetailsSkeleton />
-        </template>
-      </Suspense>
+      <ShoppingCartDetails />
+
+      <!-- <ShoppingCartDetailsSkeleton /> -->
     </div>
     <ShoppingCartEmpty :show="false" />
   </section>

@@ -46,14 +46,14 @@ const addScale = (id) => {
       </li>
       <li class="footer-item" @click="addScale('#footer-item-cartPage')">
         <Link
-          :to="{ name: 'shopping cart' }"
+          :to="{ name: 'shoppingCart' }"
           id="footer-item-cartPage"
-          :class="{ 'active-footer-item': route.name == 'shopping cart' }"
+          :class="{ 'active-footer-item': route.name == 'shoppingCart' }"
         >
           <i
             class="position-relative"
             :class="
-              route.name == 'shopping cart' ? 'bi bi-bag-fill' : 'bi bi-bag'
+              route.name == 'shoppingCart' ? 'bi bi-bag-fill' : 'bi bi-bag'
             "
           >
             <span class="cart-counter">0</span>
@@ -77,8 +77,8 @@ const addScale = (id) => {
       </li>
       <li class="footer-item" @click="addScale('#footer-item-myAccountPage')">
         <Link
-          :to="{ name: 'My Account' }"
-          :class="{ 'active-footer-item': route.name == 'My Account' }"
+          :to="{ name: 'myAccount' }"
+          :class="{ 'active-footer-item': route.name == 'myAccount' }"
           id="footer-item-myAccountPage"
         >
           <i class="bi bi-person-circle"></i>

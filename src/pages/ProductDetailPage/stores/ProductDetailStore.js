@@ -6,6 +6,7 @@ const ProductDetailStore = reactive({
     sizeOptions: [],
     product: [],
     reviews: [],
+    relatedProducts: [],
     onProgress: false
 });
 

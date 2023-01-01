@@ -1,12 +1,10 @@
 <script setup>
 import { RouterView, useRoute } from "vue-router";
-
+import DesktopAuth from "@/components/DesktopAuth/index.vue";
 import Footer from "@/layouts/desktop/components/Footer.vue";
 import Header from "@/layouts/desktop/components/Header.vue";
-import { LoadingSpinner } from "@/components/LoadingSpinner";
 
 const route = useRoute();
-// import DesktopAuth from "@/components/DesktopAuth/index.vue";
 </script>
 
 <template>
@@ -14,8 +12,7 @@ const route = useRoute();
     <Header />
     <RouterView :key="route.path" />
     <Footer />
-    <LoadingSpinner />
 
-    <!-- <DesktopAuth /> -->
+    <DesktopAuth />
   </main>
 </template>

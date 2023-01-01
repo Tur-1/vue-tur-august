@@ -2,24 +2,29 @@
   <div class="category-swiper-slide">
     <Link
       class="category-link"
-      :class="{ 'active-category-link': ShopPageStore.category.active }"
+      :class="{
+        'active-category-link':
+          ShopPageStore.categoryParent.slug == useRoute().params.slug,
+      }"
       :to="{
         name: 'shop',
         params: {
-          categorySlug: ShopPageStore.category.slug,
+          slug: `${ShopPageStore.categoryParent.slug}`,
         },
       }"
     >
       All
     </Link>
     <Link
-      v-for="category in ShopPageStore.category.children"
+      v-for="category in ShopPageStore.categoryChildren"
       class="category-link"
-      :class="{ 'active-category-link': category.active }"
+      :class="{
+        'active-category-link': category.slug == useRoute().params.slug,
+      }"
       :to="{
         name: 'shop',
         params: {
-          categorySlug: category.slug,
+          slug: `${category.slug}`,
         },
       }"
     >
@@ -30,5 +35,5 @@
 
 <script setup>
 import ShopPageStore from "@/pages/ShopPage/stores/ShopPageStore";
-console.log(ShopPageStore.category);
+import { useRoute } from "vue-router";
 </script>

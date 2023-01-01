@@ -4,7 +4,10 @@
       <h3 class="text-uppercase">Wishlist</h3>
     </div>
     <div class="text-center">
-      <p class="text-uppercase">5 items</p>
+      <p class="text-uppercase">{{ WishlistStore.counter }} items</p>
     </div>
   </div>
 </template>
+<script setup>
+import WishlistStore from "@/pages/WishlistPage/stores/WishlistStore";
+</script>

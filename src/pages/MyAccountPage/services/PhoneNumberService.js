@@ -1,9 +1,9 @@
 
 import useMyAccountPageApi from "@/pages/MyAccountPage/api/useMyAccountPageApi";
 import { ref } from "vue";
-import toastStore from "@/views/components/Toast/toastStore";
+import toastStore from "@/components/Toast/toastStore";
 import accountPageContent from "@/pages/MyAccountPage/store/accountPageContent";
-import useBaseModel from "@/views/components/BaseModal/useBaseModel";
+import useBaseModel from "@/components/BaseModal/useBaseModel";
 
 
 

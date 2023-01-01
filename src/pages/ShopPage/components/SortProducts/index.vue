@@ -20,12 +20,14 @@
             <a
               v-for="(sort, index) in sortProducts"
               class="text-dark list-group-item"
-              href="https://tur-august.herokuapp.com/shop/women-clothing"
-              ><div><i :class="sort.icon"></i> Suggested</div>
+            >
+              <div>
+                <i :class="sort.icon"></i>
+                {{ sort.name }}
+              </div>
               <div class="circle-wrap">
                 <span :class="{ 'active-sort': index == 0 }"></span>
               </div>
-              {{ sort.name }}
             </a>
           </div>
         </div>
@@ -34,8 +36,8 @@
   </BottomSheet>
 </template>
 <script setup>
-import useBottomSheet from "@/views/components/BottomSheet/useBottomSheet";
-import BottomSheet from "@/views/components/BottomSheet/index.vue";
+import useBottomSheet from "@/components/BottomSheet/useBottomSheet";
+import BottomSheet from "@/components/BottomSheet/index.vue";
 import { reactive } from "vue";
 
 let sortProducts = reactive([

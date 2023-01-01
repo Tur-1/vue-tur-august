@@ -2,8 +2,8 @@
 import Toast from "@/components/Toast/index.vue";
 
 import DesktopLayout from "@/layouts/desktop/DesktopLayout.vue";
-// import MobileLayout from "@/layouts/mobile/MobileLayout.vue";
-
+import MobileLayout from "@/layouts/mobile/MobileLayout.vue";
+import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { ref } from "vue";
 let isDesktop = ref(true);
 let isMobile = ref(false);
@@ -17,8 +17,9 @@ if (mediaQueryWidth.matches) {
 </script>
 
 <template>
-  <DesktopLayout />
+  <DesktopLayout v-if="isDesktop" />
+  <MobileLayout v-if="isMobile" />
 
+  <LoadingSpinner />
   <Toast />
-  <!-- <MobileLayout v-if="isMobile" /> -->
 </template>

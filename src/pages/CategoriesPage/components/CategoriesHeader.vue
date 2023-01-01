@@ -1,7 +1,7 @@
 <template>
   <div class="categories-page-header">
     <button
-      v-for="(section, index) in Sections"
+      v-for="(section, index) in CategoriesPageStore.sections"
       :key="section.id"
       class="section-tab"
       @click="Tab.openSectionTab(section.id)"
@@ -16,10 +16,5 @@
 </template>
 <script setup>
 import Tab from "../store/Tab";
-import useCategoriesApi from "@/pages/CategoriesPage/api/useCategoriesPageApi";
-import Sections from "../store/Sections";
-
-let cats = await useCategoriesApi.getSectionsWithCategories();
-
-Sections.value = cats.data.data;
+import CategoriesPageStore from "../store/CategoriesPageStore";
 </script>

@@ -1,12 +1,12 @@
 <script setup>
-import RightOffcanvas from "@/views/components/RightOffcanvas/index.vue";
+import RightOffcanvas from "@/components/RightOffcanvas/index.vue";
 import AddNewAddress from "@/pages/MyAccountPage/views/mobile/components/MyAddressBook/AddNewAddress.vue";
 import MyAddressList from "@/pages/MyAccountPage/views/mobile/components/MyAddressBook/MyAddressList.vue";
-import BaseModal from "@/views/components/BaseModal/index.vue";
+import BaseModal from "@/components/BaseModal/index.vue";
 import MyAddressForm from "@/pages/MyAccountPage/views/mobile/components/MyAddressBook/MyAddressForm.vue";
 import * as MyAddressBookService from "@/pages/MyAccountPage/services/MyAddressBookService";
-import ConfirmModel from "@/views/components/ConfirmModel/index.vue";
-import ConfirmModelStore from "@/views/components/ConfirmModel/ConfirmModelStore";
+import ConfirmModel from "@/components/ConfirmModel/index.vue";
+import ConfirmModelStore from "@/components/ConfirmModel/ConfirmModelStore";
 </script>
 
 <template>

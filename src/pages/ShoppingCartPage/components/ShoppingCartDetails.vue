@@ -1,5 +1,5 @@
 <template>
-  <div class="col-lg-4 mb-5">
+  <div class="col-lg-4 cart-details-container">
     <div class="card border-0 p-0">
       <div class="card-body p-0 pt-2">
         <ul class="list-group list-group-flush p-2">

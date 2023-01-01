@@ -2,7 +2,7 @@
 import AccountInformation from "@/pages/MyAccountPage/views/mobile/components/MyAccountSettings/AccountInformation.vue";
 import AccountPassword from "@/pages/MyAccountPage/views/mobile/components/MyAccountSettings/AccountPassword.vue";
 import AccountPhoneNumber from "@/pages/MyAccountPage/views/mobile/components/MyAccountSettings/AccountPhoneNumber.vue";
-import RightOffcanvas from "@/views/components/RightOffcanvas/index.vue";
+import RightOffcanvas from "@/components/RightOffcanvas/index.vue";
 </script>
 <template>
   <li>

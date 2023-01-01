@@ -13,6 +13,7 @@
           name="brand[]"
           :id="'brand-' + brand.id"
           :value="brand.slug"
+          v-model="ProductsFilterStore.brand"
         />
         <span>{{ brand.name }} ({{ brand.products_count }})</span>
       </label>
@@ -21,9 +22,5 @@
 </template>
 <script setup>
 import ShopPageStore from "@/pages/ShopPage/stores/ShopPageStore";
-
-defineProps({
-  filters: Object,
-});
+import ProductsFilterStore from "@/pages/ShopPage/stores/ProductsFilterStore";
 </script>
-<style lang=""></style>

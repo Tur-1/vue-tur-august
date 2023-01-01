@@ -1,9 +1,9 @@
 
 import useMyAccountPageApi from "@/pages/MyAccountPage/api/useMyAccountPageApi";
 
-import toastStore from "@/views/components/Toast/toastStore";
+import toastStore from "@/components/Toast/toastStore";
 import passwordForm from "@/pages/MyAccountPage/store/passwordForm";
-import useBaseModel from "@/views/components/BaseModal/useBaseModel";
+import useBaseModel from "@/components/BaseModal/useBaseModel";
 
 
 

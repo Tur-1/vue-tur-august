@@ -1,23 +1,11 @@
 <script setup>
 import ShopPageHeader from "@/pages/ShopPage/components/ShopPageHeader/index.vue";
 import ShopPageSidebar from "@/pages/ShopPage/components/ShopPageSidebar/index.vue";
-import ShopPageProducts from "@/pages/ShopPage/components/ShopPageProducts/index.vue";
-import useShopPageService from "@/pages/ShopPage/services/useShopPageService";
-import { onMounted } from "vue";
 import ShopPageSidebarSkeleton from "@/pages/ShopPage/components/ShopPageSidebar/ShopPageSidebarSkeleton.vue";
 import ShopPageStore from "@/pages/ShopPage/stores/ShopPageStore";
-import useRouterService from "@/router/useRouterService";
 import ProductCardSkeleton from "@/components/ProductCard/ProductCardSkeleton.vue";
 import NoProductsFound from "@/pages/ShopPage/components/NoProductsFound/index.vue";
 import ProductCard from "@/components/ProductCard/index.vue";
-
-const { getCategoryPageContent } = useShopPageService();
-
-onMounted(async () => {
-  await getCategoryPageContent();
-
-  useRouterService.setPageTitle(ShopPageStore.category.name);
-});
 </script>
 <template>
   <section class="container">

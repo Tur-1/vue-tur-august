@@ -1,7 +1,7 @@
-import useAuthApi from "@/views/Auth/api/useAuthApi";
-import registerForm from "@/views/Auth/store/registerForm";
+import useAuthApi from "@/Auth/api/useAuthApi";
+import registerForm from "@/Auth/store/registerForm";
 
-import useAuthModal from "@/views/Auth/services/useAuthModal";
+import useAuthModal from "@/Auth/services/useAuthModal";
 import useRouterService from "@/router/useRouterService";
 
 const register = async () =>

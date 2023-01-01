@@ -1,7 +1,7 @@
-import useAuthApi from "@/views/Auth/api/useAuthApi";
-import loginForm from "@/views/Auth/store/loginForm";
+import useAuthApi from "@/Auth/api/useAuthApi";
+import loginForm from "@/Auth/store/loginForm";
 
-import useAuthModal from "@/views/Auth/services/useAuthModal";
+import useAuthModal from "@/Auth/services/useAuthModal";
 import useRouterService from "@/router/useRouterService";
 
 const login = async () =>

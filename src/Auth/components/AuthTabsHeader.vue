@@ -32,5 +32,5 @@
   </ul>
 </template>
 <script setup>
-import authTabs from "@/views/Auth/store/authTabs";
+import authTabs from "@/Auth/store/authTabs";
 </script>

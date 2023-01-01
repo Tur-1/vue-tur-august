@@ -6,8 +6,4 @@
     </button>
   </div>
 </template>
-<script setup>
-const props = defineProps({
-  items: Object,
-});
-</script>
+<script setup></script>

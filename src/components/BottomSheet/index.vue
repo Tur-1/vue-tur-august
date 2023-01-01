@@ -1,5 +1,5 @@
 <script setup>
-import useBottomSheet from "@/views/components/BottomSheet/useBottomSheet";
+import useBottomSheet from "@/components/BottomSheet/useBottomSheet";
 import { watch } from "vue";
 
 const props = defineProps({

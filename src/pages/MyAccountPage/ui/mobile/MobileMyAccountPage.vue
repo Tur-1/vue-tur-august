@@ -6,7 +6,7 @@ import MyOrders from "@/pages/MyAccountPage/views/mobile/components/MyOrders/ind
 import Logout from "@/pages/MyAccountPage/views/mobile/components/Logout/index.vue";
 import accountPageContent from "@/pages/MyAccountPage/store/accountPageContent";
 import useMyAccountPageApi from "@/pages/MyAccountPage/api/useMyAccountPageApi";
-import ConfirmModel from "@/views/components/ConfirmModel/index.vue";
+import ConfirmModel from "@/components/ConfirmModel/index.vue";
 
 let user = await useMyAccountPageApi.getUserInformation();
 let userAddresses = await useMyAccountPageApi.getUserAddresses();

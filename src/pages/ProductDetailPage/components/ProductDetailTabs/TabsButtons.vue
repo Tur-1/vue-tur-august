@@ -20,8 +20,11 @@
     </li>
     <li class="nav-item">
       <a class="nav-link" id="Reviews-tab" data-bs-toggle="tab" href="#Reviews"
-        >Reviews (2)</a
+        >Reviews ({{ ProductDetailStore.reviews.length }})</a
       >
     </li>
   </ul>
 </template>
+<script setup>
+import ProductDetailStore from "@/pages/ProductDetailPage/stores/ProductDetailStore";
+</script>

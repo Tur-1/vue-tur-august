@@ -27,13 +27,13 @@ export default function useProductPageService()
             {
 
                 let response = await useProductPageApi.getProductDetail(route.params.productSlug);
-                console.log(response.data);
+
                 ProductDetailStore.product = response.data.product;
                 ProductDetailStore.categories = response.data.categories;
                 ProductDetailStore.images = response.data.images;
                 ProductDetailStore.sizeOptions = response.data.sizeOptions;
                 ProductDetailStore.reviews = response.data.reviews;
-
+                ProductDetailStore.relatedProducts = response.data.relatedProducts;
 
             } catch (error)
             {

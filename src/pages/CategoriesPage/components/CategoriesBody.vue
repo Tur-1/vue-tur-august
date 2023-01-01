@@ -1,7 +1,7 @@
 <template>
   <div class="categories-page-body">
     <div
-      v-for="(section, sectionIndex) in Sections"
+      v-for="(section, sectionIndex) in CategoriesPageStore.sections"
       :key="section.id"
       class="section-content"
       :class="{
@@ -50,6 +50,6 @@
 </template>
 <script setup>
 import Tab from "../store/Tab";
-import Sections from "../store/Sections";
+import CategoriesPageStore from "../store/CategoriesPageStore";
 import CategoryCard from "@/pages/CategoriesPage/components/CategoryCard.vue";
 </script>

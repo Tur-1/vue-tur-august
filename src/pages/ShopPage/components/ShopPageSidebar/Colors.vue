@@ -13,6 +13,7 @@
           name="color[]"
           :id="'color-' + color.id"
           :value="color.slug"
+          v-model="ProductsFilterStore.color"
         />
         <span>{{ color.name }} ({{ color.products_count }})</span>
       </div>
@@ -22,8 +23,5 @@
 </template>
 <script setup>
 import ShopPageStore from "@/pages/ShopPage/stores/ShopPageStore";
-
-defineProps({
-  filters: Object,
-});
+import ProductsFilterStore from "@/pages/ShopPage/stores/ProductsFilterStore";
 </script>

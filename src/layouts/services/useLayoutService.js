@@ -14,7 +14,6 @@ export default function useLayoutService()
 
             SectionsStore.list = res.data.sections;
 
-            console.log(SectionsStore.list);
         }
 
 

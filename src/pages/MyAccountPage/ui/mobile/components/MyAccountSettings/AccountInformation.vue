@@ -1,7 +1,7 @@
 <script setup>
-import BaseModal from "@/views/components/BaseModal/index.vue";
-import FormInput from "@/views/components/FormInput/index.vue";
-import FormSelect from "@/views/components/FormSelect/index.vue";
+import BaseModal from "@/components/BaseModal/index.vue";
+import FormInput from "@/components/FormInput/index.vue";
+import FormSelect from "@/components/FormSelect/index.vue";
 import accountPageContent from "@/pages/MyAccountPage/store/accountPageContent";
 import * as accountService from "@/pages/MyAccountPage/services/AccountInformationService";
 </script>

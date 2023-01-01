@@ -6,7 +6,8 @@
 <script setup>
 import WishlistPageMobile from "@/pages/WishlistPage/views/WishlistPageMobile.vue";
 import WishlistPageDesktop from "@/pages/WishlistPage/views/WishlistPageDesktop.vue";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import useWishlistService from "@/pages/WishlistPage/services/useWishlistService";
 let isDesktop = ref(true);
 let isMobile = ref(false);
 
@@ -16,4 +17,7 @@ if (mediaQueryWidth.matches) {
   isMobile.value = true;
   isDesktop.value = false;
 }
+
+const { getUserWishlist } = useWishlistService();
+onMounted(getUserWishlist);
 </script>

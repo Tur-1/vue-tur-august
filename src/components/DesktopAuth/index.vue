@@ -8,7 +8,7 @@
   </BaseModal>
 </template>
 <script setup>
-import Auth from "@/views/Auth/index.vue";
-import BaseModal from "@/views/components/BaseModal/index.vue";
-import useAuthModal from "@/views/Auth/services/useAuthModal";
+import Auth from "@/Auth/index.vue";
+import BaseModal from "@/components/BaseModal/index.vue";
+import useAuthModal from "@/Auth/services/useAuthModal";
 </script>

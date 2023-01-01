@@ -1,5 +1,5 @@
 <script setup>
-import Breadcrumb from "@/views/components/Breadcrumb/index.vue";
+import Breadcrumb from "@/components/Breadcrumb/index.vue";
 import CheckoutHeader from "@/pages/CheckoutPage/views/desktop/components/CheckoutHeader.vue";
 import CheckoutAddresses from "@/pages/CheckoutPage/views/desktop/components/CheckoutAddresses.vue";
 import CheckoutProducts from "@/pages/CheckoutPage/views/desktop/components/CheckoutProducts.vue";

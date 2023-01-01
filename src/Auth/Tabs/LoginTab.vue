@@ -1,9 +1,9 @@
 <script setup>
-import FormInput from "@/views/components/FormInput/index.vue";
+import FormInput from "@/components/FormInput/index.vue";
 
-import authTabs from "@/views/Auth/store/authTabs";
-import SubmitButton from "@/views/components/SubmitButton/index.vue";
-import { loginForm, login } from "@/views/Auth/services/LoginService";
+import authTabs from "@/Auth/store/authTabs";
+import SubmitButton from "@/components/SubmitButton/index.vue";
+import { loginForm, login } from "@/Auth/services/LoginService";
 </script>
 <template>
   <div

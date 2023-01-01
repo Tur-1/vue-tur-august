@@ -1,8 +1,8 @@
 <script setup>
-import BaseModal from "@/views/components/BaseModal/index.vue";
+import BaseModal from "@/components/BaseModal/index.vue";
 import accountPageContent from "@/pages/MyAccountPage/store/accountPageContent";
 
-import ErrorMessage from "@/views/components/ErrorMessage/index.vue";
+import ErrorMessage from "@/components/ErrorMessage/index.vue";
 import * as PhoneNumberService from "@/pages/MyAccountPage/services/PhoneNumberService";
 </script>
 <template>

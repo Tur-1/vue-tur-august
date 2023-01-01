@@ -1,10 +1,10 @@
 <script setup>
-import Brands from "@/pages/ShopPage/views/mobile/components/ShopPageFilter/Brands.vue";
-import Colors from "@/pages/ShopPage/views/mobile/components/ShopPageFilter/Colors.vue";
-import SizeOptions from "@/pages/ShopPage/views/mobile/components/ShopPageFilter/SizeOptions.vue";
-import FilterItem from "@/pages/ShopPage/views/mobile/components/ShopPageFilter/FilterItem.vue";
-import useBottomSheet from "@/views/components/BottomSheet/useBottomSheet";
-import BottomSheet from "@/views/components/BottomSheet/index.vue";
+import Brands from "@/pages/ShopPage/components/ShopPageFilter/Brands.vue";
+import Colors from "@/pages/ShopPage/components/ShopPageFilter/Colors.vue";
+import SizeOptions from "@/pages/ShopPage/components/ShopPageFilter/SizeOptions.vue";
+import FilterItem from "@/pages/ShopPage/components/ShopPageFilter/FilterItem.vue";
+import useBottomSheet from "@/components/BottomSheet/useBottomSheet";
+import BottomSheet from "@/components/BottomSheet/index.vue";
 </script>
 
 <template>

@@ -68,6 +68,7 @@ const swipeActions = (itemId) => {
   let cartItems = [
     ...document.querySelectorAll(".mobile-shopping-cart-product"),
   ];
+
   let item = document.getElementById(itemId);
   if (event.touches[0].clientX > 330) {
     cartItems.forEach((items) => {
@@ -78,6 +79,7 @@ const swipeActions = (itemId) => {
   if (event.touches[0].clientX < 230) {
     item.firstElementChild.style.transform = "translateX(0px)";
   }
+  console.log(cartItems);
 };
 
 const removeCartItem = () => {

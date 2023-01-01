@@ -10,17 +10,17 @@ import { useRoute } from "vue-router";
 export default function useShopPageService()
 {
     return {
-        async getCategoryPageContent()
+        async getCategoryPageContent({ categorySlug, query } = {})
         {
 
             ShopPageStore.onProgress = true;
-            const route = useRoute();
+
 
             try
             {
 
-                let response = await useShopPageApi.getCategoryPageContent(route.params.slug);
-                console.log(response.data);
+                let response = await useShopPageApi.getCategoryPageContent(categorySlug, query);
+
                 ShopPageStore.category = response.data.category;
                 ShopPageStore.categoryChildren = response.data.categoryChildren;
                 ShopPageStore.categoryParents = response.data.categoryParents;
@@ -32,6 +32,7 @@ export default function useShopPageService()
                 ShopPageStore.products.pagination = response.data.products.meta.pagination;
             } catch (error)
             {
+                console.log(error);
                 if (error.response.status == 404)
                 {
                     useRouterService.redirectToRoute('pageNotFound');

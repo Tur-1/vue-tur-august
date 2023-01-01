@@ -24,9 +24,9 @@
   </Transition>
 </template>
 <script setup>
-import ModalHeader from "@/views/components/BaseModal/ModalHeader.vue";
-import BaseForm from "@/views/components/BaseForm/index.vue";
-import useBaseModel from "@/views/components/BaseModal/useBaseModel";
+import ModalHeader from "@/components/BaseModal/ModalHeader.vue";
+import BaseForm from "@/components/BaseForm/index.vue";
+import useBaseModel from "@/components/BaseModal/useBaseModel";
 
 const props = defineProps({
   onProgress: Boolean,

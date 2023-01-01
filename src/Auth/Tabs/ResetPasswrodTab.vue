@@ -30,6 +30,6 @@
   </div>
 </template>
 <script setup>
-import authTabs from "@/views/Auth/store/authTabs";
-import FormInput from "@/views/components/FormInput/index.vue";
+import authTabs from "@/Auth/store/authTabs";
+import FormInput from "@/components/FormInput/index.vue";
 </script>

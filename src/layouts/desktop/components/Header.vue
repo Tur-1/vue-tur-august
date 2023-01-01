@@ -49,7 +49,7 @@
                 src="@/assets/icons/account.svg"
               />
             </Link>
-            <Link class="nav-icons" to="/">
+            <Link class="nav-icons" :to="{ name: 'wishlist' }">
               <img
                 class="svgInject"
                 alt="Evara"

@@ -1,17 +1,11 @@
 <script setup>
-import ShopPageProducts from "@/pages/ShopPage/views/mobile/components/ShopPageProducts/index.vue";
-import MobilePagination from "@/views/components/MobilePagination/index.vue";
-import ShopPageFilter from "@/pages/ShopPage/views/mobile/components/ShopPageFilter/index.vue";
-import SortProducts from "@/pages/ShopPage/views/mobile/components/SortProducts/index.vue";
-import ShopPageCategories from "@/pages/ShopPage/views/mobile/components/ShopPageCategories/index.vue";
-import useShopPageService from "@/pages/ShopPage/services/useShopPageService";
+import ShopPageFilter from "@/pages/ShopPage/components/ShopPageFilter/index.vue";
+import SortProducts from "@/pages/ShopPage/components/SortProducts/index.vue";
+import ShopPageCategories from "@/pages/ShopPage/components/ShopPageCategories/index.vue";
 import ShopPageStore from "@/pages/ShopPage/stores/ShopPageStore";
-
-import useRouterService from "@/router/useRouterService";
-
-await useShopPageService();
-
-useRouterService.setPageTitle(ShopPageStore.category.name);
+import ProductCardSkeleton from "@/components/ProductCard/ProductCardSkeleton.vue";
+import ProductCard from "@/components/ProductCard/index.vue";
+import MobilePagination from "@/components/MobilePagination/index.vue";
 </script>
 
 <template>
@@ -26,7 +20,11 @@ useRouterService.setPageTitle(ShopPageStore.category.name);
     </div>
     <div class="container">
       <div class="row">
-        <ShopPageProducts />
+        <ProductCard
+          :products="ShopPageStore.products.list"
+          v-if="!ShopPageStore.onProgress"
+        />
+        <ProductCardSkeleton v-if="ShopPageStore.onProgress" />
       </div>
       <MobilePagination />
     </div>

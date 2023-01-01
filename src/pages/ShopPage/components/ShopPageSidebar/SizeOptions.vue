@@ -9,9 +9,10 @@
       <input
         class="form-check-input me-1"
         type="checkbox"
-        name="brand[]"
-        :id="'brand-' + size.id"
+        name="size[]"
+        :id="'size-' + size.id"
         :value="size.slug"
+        v-model="ProductsFilterStore.size"
       />
       <span> {{ size.name }} ({{ size.products_count }}) </span>
     </label>
@@ -20,7 +21,5 @@
 
 <script setup>
 import ShopPageStore from "@/pages/ShopPage/stores/ShopPageStore";
-defineProps({
-  filters: Object,
-});
+import ProductsFilterStore from "@/pages/ShopPage/stores/ProductsFilterStore";
 </script>

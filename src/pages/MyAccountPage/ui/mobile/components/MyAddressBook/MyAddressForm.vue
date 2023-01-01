@@ -43,7 +43,7 @@
 </template>
 
 <script setup>
-import FormInput from "@/views/components/FormInput/index.vue";
+import FormInput from "@/components/FormInput/index.vue";
 defineProps({
   addressForm: Object,
 });

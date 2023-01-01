@@ -1,10 +1,10 @@
 <script setup>
-import FormInput from "@/views/components/FormInput/index.vue";
-import authTabs from "@/views/Auth/store/authTabs";
-import GendersFields from "@/views/Auth/components/GendersFields.vue";
-import SubmitButton from "@/views/components/SubmitButton/index.vue";
+import FormInput from "@/components/FormInput/index.vue";
+import authTabs from "@/Auth/store/authTabs";
+import GendersFields from "@/Auth/components/GendersFields.vue";
+import SubmitButton from "@/components/SubmitButton/index.vue";
 
-import { registerForm, register } from "@/views/Auth/services/RegisterService";
+import { registerForm, register } from "@/Auth/services/RegisterService";
 </script>
 
 <template>

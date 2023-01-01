@@ -1,5 +1,5 @@
 <script setup>
-import FilteredItems from "@/pages/ShopPage/views/mobile/components/ShopPageFilter/FilteredItems.vue";
+import FilteredItems from "@/pages/ShopPage/components/ShopPageFilter/FilteredItems.vue";
 import { COffcanvas } from "@coreui/vue";
 import { ref } from "vue";
 

@@ -17,7 +17,7 @@
   </form>
 </template>
 <script setup>
-import SubmitSpinner from "@/views/components/SubmitSpinner/index.vue";
+import SubmitSpinner from "@/components/SubmitSpinner/index.vue";
 defineEmits(["submit", "closeModal"]);
 defineProps({
   onProgress: Boolean,
