@@ -7,13 +7,13 @@
             class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0"
           >
             cart subtotal
-            <span>534 SAR</span>
+            <span>{{ CartStore.cartDetails.subTotal }} SAR</span>
           </li>
           <li
             class="list-group-item d-flex justify-content-between align-items-center px-0"
           >
             shipment fees
-            <span> Free </span>
+            <span> {{ CartStore.cartDetails.shipmentFees }} </span>
           </li>
 
           <li
@@ -25,7 +25,9 @@
                 <p class="mb-0">(including VAT)</p>
               </strong>
             </div>
-            <span><strong>534 SAR</strong></span>
+            <span
+              ><strong>{{ CartStore.cartDetails.total }} SAR</strong></span
+            >
           </li>
         </ul>
         <Link
@@ -39,4 +41,6 @@
     </div>
   </div>
 </template>
-<script setup></script>
+<script setup>
+import CartStore from "@/pages/ShoppingCartPage/stores/CartStore";
+</script>

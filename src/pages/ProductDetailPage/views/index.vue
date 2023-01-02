@@ -41,5 +41,7 @@ if (mediaQueryWidth.matches) {
 }
 
 const { getProductDetail } = useProductPageService();
-onMounted(getProductDetail);
+onMounted(async () => {
+  await getProductDetail();
+});
 </script>

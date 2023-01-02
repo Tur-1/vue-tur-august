@@ -8,6 +8,4 @@ export default {
         return api().get('/get-sections');
     }
 
-
-
 }

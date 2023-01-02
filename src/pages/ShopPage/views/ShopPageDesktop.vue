@@ -6,6 +6,10 @@ import ShopPageStore from "@/pages/ShopPage/stores/ShopPageStore";
 import ProductCardSkeleton from "@/components/ProductCard/ProductCardSkeleton.vue";
 import NoProductsFound from "@/pages/ShopPage/components/NoProductsFound/index.vue";
 import ProductCard from "@/components/ProductCard/index.vue";
+import Pagination from "@/components/Pagination/index.vue";
+import useShopPageService from "@/pages/ShopPage/services/useShopPageService";
+
+const { getCategoryPageContent } = useShopPageService();
 </script>
 <template>
   <section class="container">
@@ -23,6 +27,12 @@ import ProductCard from "@/components/ProductCard/index.vue";
             v-if="!ShopPageStore.onProgress"
           />
           <ProductCardSkeleton v-if="ShopPageStore.onProgress" />
+        </div>
+        <div class="d-flex justify-content-center">
+          <Pagination
+            :links="ShopPageStore.products.pagination"
+            @onPageChange="getCategoryPageContent"
+          />
         </div>
         <NoProductsFound :show="false" />
       </div>

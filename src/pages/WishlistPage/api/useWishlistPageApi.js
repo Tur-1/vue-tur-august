@@ -8,7 +8,7 @@ const getUserWishlist = () =>
 }
 const addToWishlist = (productId) =>
 {
-    return api().get(`${ BASE_URL }/${ productId }/store`);
+    return api().post(`${ BASE_URL }/${ productId }/store`);
 }
 export default {
     getUserWishlist,

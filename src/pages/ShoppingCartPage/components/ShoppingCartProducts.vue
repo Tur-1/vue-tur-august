@@ -1,39 +1,56 @@
 <template>
   <div class="col-lg-7">
-    <div class="mb-4">
-      <div class="shopping-cart-product">
-        <a
+    <transition-group name="list" tag="div" class="mb-4">
+      <div
+        class="shopping-cart-product"
+        v-for="(product, index) in CartStore.products"
+        :key="product.cart_item_id"
+      >
+        <Link
           class="shopping-cart-product-img me-2"
-          href="https://tur-august.herokuapp.com/product-detail/power-seamless-tights-IF-41-O"
-          ><img
-            src="https://august-images.s3.amazonaws.com/images/products/product_52/1660101615-screenshot_2021_07_04_232016.webp"
-            class="img-fluid"
-        /></a>
+          :to="{ name: 'productDetail', params: { productSlug: product.slug } }"
+        >
+          <img :src="product.main_image_url" class="img-fluid" />
+        </Link>
         <div class="shopping-cart-product-detail">
           <div class="shopping-cart-product-info">
             <div class="d-flex flex-column justify-content-between">
-              <a
+              <Link
                 class="shopping-cart-product-brand"
-                href="https://tur-august.herokuapp.com/product-detail/power-seamless-tights-IF-41-O"
-                >Womens Best</a
-              ><a
+                :to="{
+                  name: 'productDetail',
+                  params: { productSlug: product.slug },
+                }"
+              >
+                {{ product.brand_name }}
+              </Link>
+              <Link
                 class="shopping-cart-product-description"
-                href="https://tur-august.herokuapp.com/product-detail/power-seamless-tights-IF-41-O"
-                >Power Seamless Tights</a
-              ><span class="shopping-cart-product-size"> size: L</span>
+                :to="{
+                  name: 'productDetail',
+                  params: { productSlug: product.slug },
+                }"
+              >
+                {{ product.name }}
+              </Link>
+              <span class="shopping-cart-product-size">
+                size: {{ product.size }}
+              </span>
               <div class="shopping-cart-product-quantity">
                 <button
-                  disabled=""
+                  :disabled="product.quantity == 1"
                   class="quantity-btn rounded-start"
                   type="button"
                   id="button-addon1"
+                  @click="decrementItemQuantity(product.cart_item_id)"
                 >
                   <i class="bi bi-dash"></i></button
-                ><small class="quantity">1</small
+                ><small class="quantity">{{ product.quantity }}</small
                 ><button
                   class="quantity-btn rounded-end"
                   type="button"
                   id="button-addon1"
+                  @click="incrementItemQuantity(product.cart_item_id)"
                 >
                   <i class="bi bi-plus"></i>
                 </button>
@@ -41,86 +58,51 @@
             </div>
           </div>
           <div class="shopping-cart-product-price--actions">
-            <a class="shopping-cart-product-actions remove-action"
+            <a
+              role="button"
+              class="shopping-cart-product-actions remove-action"
+              @click="removeCartItem(product.cart_item_id)"
               ><i class="bi bi-x"></i
             ></a>
             <div class="shopping-cart-product-price">
-              <span class="cart-discounted-product-price">287.00 SAR</span
-              ><span class="text-primary">258 SAR</span>
+              <span class="cart-discounted-product-price">
+                {{ product.price_before_discount }}</span
+              ><span class="text-primary"> {{ product.price }}</span>
             </div>
-            <a class="shopping-cart-product-actions save-action">
+            <a
+              role="button"
+              class="shopping-cart-product-actions save-action"
+              @click="
+                saveForLater({
+                  productId: product.id,
+                  cartItemId: product.cart_item_id,
+                })
+              "
+            >
               save for later </a
             ><span
               class="shopping-cart-product-out-of-stock"
-              style="display: none"
+              v-show="!product.in_stock"
             >
               out of stock
             </span>
           </div>
         </div>
       </div>
-      <div class="shopping-cart-product">
-        <a
-          class="shopping-cart-product-img me-2"
-          href="https://tur-august.herokuapp.com/product-detail/power-seamless-tights-IF-41-O"
-          ><img
-            src="https://august-images.s3.amazonaws.com/images/products/product_52/1660101615-screenshot_2021_07_04_232016.webp"
-            class="img-fluid"
-        /></a>
-        <div class="shopping-cart-product-detail">
-          <div class="shopping-cart-product-info">
-            <div class="d-flex flex-column justify-content-between">
-              <a
-                class="shopping-cart-product-brand"
-                href="https://tur-august.herokuapp.com/product-detail/power-seamless-tights-IF-41-O"
-                >Womens Best</a
-              ><a
-                class="shopping-cart-product-description"
-                href="https://tur-august.herokuapp.com/product-detail/power-seamless-tights-IF-41-O"
-                >Power Seamless Tights</a
-              ><span class="shopping-cart-product-size"> size: L</span>
-              <div class="shopping-cart-product-quantity">
-                <button
-                  disabled=""
-                  class="quantity-btn rounded-start"
-                  type="button"
-                  id="button-addon1"
-                >
-                  <i class="bi bi-dash"></i></button
-                ><small class="quantity">1</small
-                ><button
-                  class="quantity-btn rounded-end"
-                  type="button"
-                  id="button-addon1"
-                >
-                  <i class="bi bi-plus"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="shopping-cart-product-price--actions">
-            <a class="shopping-cart-product-actions remove-action"
-              ><i class="bi bi-x"></i
-            ></a>
-            <div class="shopping-cart-product-price">
-              <span class="cart-discounted-product-price">287.00 SAR</span
-              ><span class="text-primary">258 SAR</span>
-            </div>
-            <a class="shopping-cart-product-actions save-action">
-              save for later </a
-            ><span
-              class="shopping-cart-product-out-of-stock"
-              style="display: none"
-            >
-              out of stock
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
+    </transition-group>
   </div>
 </template>
-<script setup></script>
+<script setup>
+import useShoppingCartService from "@/pages/ShoppingCartPage/services/useShoppingCartService";
+import CartStore from "@/pages/ShoppingCartPage/stores/CartStore";
+
+const {
+  removeCartItem,
+  saveForLater,
+  incrementItemQuantity,
+  decrementItemQuantity,
+} = useShoppingCartService();
+</script>
 <style scoped>
 .list-enter-active,
 .list-leave-active {

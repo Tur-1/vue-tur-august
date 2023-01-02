@@ -8,6 +8,9 @@ import useToastNotification from '@/components/Toast/useToastNotification';
 
 import { useRoute } from "vue-router";
 import { ref } from 'vue';
+import { isNotNull } from '@/helpers';
+import CartCounter from '@/pages/ShoppingCartPage/stores/CartCounter';
+import useShoppingCartService from '@/pages/ShoppingCartPage/services/useShoppingCartService';
 
 
 const review = ref({
@@ -70,6 +73,28 @@ export default function useProductPageService()
 
 
             useLoadingSpinner.hide();
+
+        },
+        async addToShoppingCart()
+        {
+
+            if (isNotNull(ProductDetailStore.selectedSize.size_id) || isNotNull(ProductDetailStore.selectedSize.product_id))
+            {
+                useLoadingSpinner.show();
+
+                let response = await useProductPageApi.addToShoppingCart(ProductDetailStore.selectedSize);
+
+                if (response.data.message)
+                {
+                    const { getCartCount } = useShoppingCartService();
+
+                    await getCartCount();
+                    useToastNotification.open(response.data.message);
+                }
+
+
+                useLoadingSpinner.hide();
+            }
 
         }
 

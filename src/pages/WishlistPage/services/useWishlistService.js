@@ -20,7 +20,6 @@ export default function useWishlistService()
                 let response = await useWishlistPageApi.getUserWishlist();
 
                 WishlistStore.products = response.data.products;
-                WishlistStore.counter = response.data.wishlistCount;
             } catch (error)
             {
                 console.log(error);
@@ -36,13 +35,12 @@ export default function useWishlistService()
 
             useLoadingSpinner.show();
 
-
             try
             {
 
                 let response = await useWishlistPageApi.addToWishlist(productId);
 
-                console.log(response.data);
+                WishlistStore.productsIds = response.data;
             } catch (error)
             {
                 console.log(error);

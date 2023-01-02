@@ -22,8 +22,16 @@
           out of stock
         </span>
       </Link>
-      <button type="button" tabindex="-1" class="wishlist-btn text-center">
+      <button
+        type="button"
+        tabindex="-1"
+        class="wishlist-btn text-center"
+        @click="addToWishList(product.id)"
+      >
         <svg
+          :class="{
+            'in-wishlist': product.inWishlist,
+          }"
           xmlns="http://www.w3.org/2000/svg"
           class="wishlist-icon"
           width="22"
@@ -46,19 +54,35 @@
           </span>
           <span class="product-description">{{ product.name }}</span>
           <div class="product-price">
-            <span>{{ product.price }} SAR</span>
-            <span class="discounted-product-price"></span>
+            <span>{{ product.price }} </span>
+            <span class="discounted-product-price">
+              {{ product.price_before_discount }}
+            </span>
           </div>
         </div>
       </a>
-      <span class="discount-amount-badge" style="display: none">% OFF</span>
+
+      <span class="discount-amount-badge" v-show="product.discount_amount">
+        {{ product.discount_amount }}
+      </span>
     </div>
   </div>
 </template>
 
 <script setup>
+import useWishlistService from "@/pages/WishlistPage/services/useWishlistService";
+import WishlistStore from "@/pages/WishlistPage/stores/WishlistStore";
+
 const props = defineProps({
   class: String,
   products: Object,
 });
+
+const { addProductToWishlist } = useWishlistService();
+
+const addToWishList = async (productid) => {
+  await addProductToWishlist(productid);
+  let s = props.products.find((ele) => ele.id == productid);
+  s.inWishlist = WishlistStore.isInWishlist(productid);
+};
 </script>

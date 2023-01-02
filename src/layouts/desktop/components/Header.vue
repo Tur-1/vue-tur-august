@@ -56,9 +56,9 @@
                 src="@/assets/icons/icon-heart.svg"
               />
             </Link>
-            <Link class="nav-icons" to="/">
+            <Link class="nav-icons" :to="{ name: 'shoppingCart' }">
               <img alt="Evara" src="@/assets/icons/icon-cart.svg" />
-              <span class="badge badge-circle"> 3 </span>
+              <span class="badge badge-circle"> {{ CartCounter }} </span>
             </Link>
           </div>
         </div>
@@ -68,12 +68,19 @@
 </template>
 <script setup>
 import useLayoutService from "@/layouts/services/useLayoutService";
+
 import SectionsStore from "@/layouts/stores/SectionsStore";
+import useShoppingCartService from "@/pages/ShoppingCartPage/services/useShoppingCartService";
+import CartCounter from "@/pages/ShoppingCartPage/stores/CartCounter";
 
 import { onMounted } from "vue";
 import { useRoute, RouterLink } from "vue-router";
 const { getSections } = useLayoutService();
+const { getCartCount } = useShoppingCartService();
 
 const route = useRoute();
-onMounted(getSections);
+onMounted(async () => {
+  await getSections();
+  await getCartCount();
+});
 </script>

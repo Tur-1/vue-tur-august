@@ -1,7 +1,5 @@
 import useLayoutApi from "@/layouts/api/useLayoutApi"
-import { useLoadingSpinner } from "@/components/LoadingSpinner";
 import SectionsStore from "@/layouts/stores/SectionsStore";
-
 
 
 export default function useLayoutService()
@@ -15,8 +13,6 @@ export default function useLayoutService()
             SectionsStore.list = res.data.sections;
 
         }
-
-
 
     }
 }

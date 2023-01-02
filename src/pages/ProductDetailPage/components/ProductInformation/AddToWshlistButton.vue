@@ -2,26 +2,25 @@
   <div class="wishlist-btn-wrraper">
     <button
       class="add-wishlist-btn"
-      @click="addProductToWishlist(ProductDetailStore.product.id)"
-      :disabled="form.processing"
+      @click="addToWishList(ProductDetailStore.product.id)"
       :class="{
-        'product-in-wishlist': $page.props.productDetail.inWishlist,
+        'product-in-wishlist': ProductDetailStore.product.inWishlist,
       }"
     >
-      <i v-if="!form.processing" class="bi bi-heart"></i>
-      <div
-        class="spinner-border spinner-border-sm"
-        role="status"
-        v-if="form.processing"
-      >
-        <span class="visually-hidden">Loading...</span>
-      </div>
+      <i class="bi bi-heart"></i>
     </button>
   </div>
 </template>
 <script setup>
 import ProductDetailStore from "@/pages/ProductDetailPage/stores/ProductDetailStore";
 import useWishlistService from "@/pages/WishlistPage/services/useWishlistService";
+import WishlistStore from "@/pages/WishlistPage/stores/WishlistStore";
 
 const { addProductToWishlist } = useWishlistService();
+
+const addToWishList = async (productid) => {
+  await addProductToWishlist(productid);
+
+  ProductDetailStore.product.inWishlist = WishlistStore.isInWishlist(productid);
+};
 </script>

@@ -10,7 +10,7 @@ import { useRoute } from "vue-router";
 export default function useShopPageService()
 {
     return {
-        async getCategoryPageContent({ categorySlug, query } = {})
+        async getCategoryPageContent({ categorySlug, query, url } = {})
         {
 
             ShopPageStore.onProgress = true;
@@ -19,7 +19,7 @@ export default function useShopPageService()
             try
             {
 
-                let response = await useShopPageApi.getCategoryPageContent(categorySlug, query);
+                let response = await useShopPageApi.getCategoryPageContent(categorySlug, query, url);
 
                 ShopPageStore.category = response.data.category;
                 ShopPageStore.categoryChildren = response.data.categoryChildren;
@@ -29,7 +29,9 @@ export default function useShopPageService()
                 ShopPageStore.colors = response.data.colors;
                 ShopPageStore.sizeOptions = response.data.sizeOptions;
                 ShopPageStore.products.list = response.data.products.data;
-                ShopPageStore.products.pagination = response.data.products.meta.pagination;
+                ShopPageStore.products.pagination = response.data.products.meta.pagination.links;
+
+
             } catch (error)
             {
                 console.log(error);

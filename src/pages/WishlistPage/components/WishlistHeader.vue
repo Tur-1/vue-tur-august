@@ -4,7 +4,7 @@
       <h3 class="text-uppercase">Wishlist</h3>
     </div>
     <div class="text-center">
-      <p class="text-uppercase">{{ WishlistStore.counter }} items</p>
+      <p class="text-uppercase">{{ WishlistStore.products.length }} items</p>
     </div>
   </div>
 </template>
