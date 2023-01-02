@@ -7,6 +7,12 @@ const props = defineProps(["onProgress", "title", "class"]);
   <button type="submit" class="btn btn-primary" :class="class">
     <span :class="{ 'me-3': onProgress }">{{ title }}</span>
 
-    <SubmitSpinner :onProgress="onProgress" />
+    <div
+      class="spinner-border spinner-border-sm opacity-0"
+      role="status"
+      :class="{ 'opacity-100': onProgress }"
+    >
+      <span class="visually-hidden">Loading...</span>
+    </div>
   </button>
 </template>

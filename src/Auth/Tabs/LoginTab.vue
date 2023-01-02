@@ -1,6 +1,5 @@
 <script setup>
-import FormInput from "@/components/FormInput/index.vue";
-
+import { FormInput } from "@/components/BaseForm";
 import authTabs from "@/Auth/store/authTabs";
 import SubmitButton from "@/components/SubmitButton/index.vue";
 import { loginForm, login } from "@/Auth/services/LoginService";
@@ -31,11 +30,11 @@ import { loginForm, login } from "@/Auth/services/LoginService";
         :error="loginForm.errors.password"
       />
 
-      <SubmitButton
+      <!-- <SubmitButton
         :onProgress="loginForm.onProgress"
         title="sign in"
         class="w-100 mt-3 mb-1 auth-submit"
-      />
+      /> -->
     </form>
   </div>
 </template>

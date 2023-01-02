@@ -6,9 +6,9 @@ const getUserInformation = () =>
 {
     return api().get(BASE_URL + "/get-user-info");
 }
-const getUserAddresses = () =>
+const getAccountPageContent = () =>
 {
-    return api().get(BASE_URL + "/get-user-addresses");
+    return api().get(BASE_URL);
 }
 const updateAccountInfo = (fields) =>
 {
@@ -37,7 +37,7 @@ const destroyAddress = (id) =>
     return api().delete(BASE_URL + "/delete-address/" + id);
 }
 export default {
-    getUserAddresses,
+    getAccountPageContent,
     getUserInformation,
     updateAccountInfo,
     updateMyPhoneNumber,

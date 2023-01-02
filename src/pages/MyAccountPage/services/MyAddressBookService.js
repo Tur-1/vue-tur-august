@@ -1,13 +1,13 @@
 
 import { ref } from "vue";
 import toastStore from "@/components/Toast/toastStore";
-import accountPageContent from "@/pages/MyAccountPage/store/accountPageContent";
+import accountPageContent from "@/pages/MyAccountPage/store/MyAccountStore";
 import addressForm from "@/pages/MyAccountPage/store/addressForm";
 import useMyAccountPageApi from "@/pages/MyAccountPage/api/useMyAccountPageApi";
 import ConfirmModelStore from "@/components/ConfirmModel/ConfirmModelStore";
 import spinnerStore from "@/components/PageSpinner/spinnerStore";
 
-import useBaseModel from "@/components/BaseModal/useBaseModel";
+import { useBaseModel } from "@/components/BaseModal";
 import { isNotNull } from "@/helpers";
 
 

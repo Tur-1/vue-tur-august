@@ -19,22 +19,17 @@ export default function useShoppingCartService()
     {
 
         // CartStore.onProgress = true;
-
-        try
-        {
-
-            let response = await useShoppingCartApi.getCartProducts();
-
-            CartStore.products = response.data.products;
-            CartCounter.value = CartStore.products.length;
-            CartStore.cartDetails = response.data.cartDetails;
+        useLoadingSpinner.show();
 
 
-        } catch (error)
-        {
-            console.log(error);
-        }
+        let response = await useShoppingCartApi.getCartProducts();
 
+        CartStore.products = response.data.products;
+        CartCounter.value = CartStore.products.length;
+        CartStore.cartDetails = response.data.cartDetails;
+
+
+        useLoadingSpinner.hide();
         // CartStore.onProgress = false;
     }
     const removeCartItem = async (itemId) =>

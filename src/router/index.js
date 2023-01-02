@@ -70,7 +70,7 @@ const router = createRouter({
     {
       path: '/my-account',
       name: 'myAccount',
-
+      component: () => import('@/pages/MyAccountPage/views/index.vue'),
       meta: {
         requiresAuth: true,
         title: 'My Account',
@@ -81,7 +81,7 @@ const router = createRouter({
     {
       path: '/checkout',
       name: 'checkout',
-
+      component: () => import('@/pages/CheckoutPage/views/index.vue'),
       meta: {
         backgroundColor: '#f9f9f9',
         previousPage: '/cart',
@@ -107,15 +107,14 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) =>
 {
-
+  useRouterService.setPageBackgroundColor(to.meta.backgroundColor);
+  useRouterService.setPageTitle(to.meta.title);
   if (to.meta.requiresAuth)
   {
     return auth({ to, from, next });
   }
 
-  useRouterService.setPageTitle(to.meta.title);
 
-  useRouterService.setPageBackgroundColor(to.meta.backgroundColor);
   next();
 
 })

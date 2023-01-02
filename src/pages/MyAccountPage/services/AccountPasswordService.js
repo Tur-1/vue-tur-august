@@ -3,7 +3,7 @@ import useMyAccountPageApi from "@/pages/MyAccountPage/api/useMyAccountPageApi";
 
 import toastStore from "@/components/Toast/toastStore";
 import passwordForm from "@/pages/MyAccountPage/store/passwordForm";
-import useBaseModel from "@/components/BaseModal/useBaseModel";
+import { useBaseModel } from "@/components/BaseModal";
 
 
 

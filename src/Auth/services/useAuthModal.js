@@ -1,6 +1,6 @@
 import { reactive } from "vue";
 import useBottomSheet from "@/components/BottomSheet/useBottomSheet";
-import useBaseModel from "@/components/BaseModal/useBaseModel";
+import { useBaseModel } from "@/components/BaseModal";
 
 const useAuthModal = reactive({
     isOpen: false,

@@ -4,10 +4,4 @@
     <div class="base-slider"></div>
   </div>
 </template>
-<script setup>
-import axios from "axios";
-import ProductCard from "@/components/ProductCard/index.vue";
-
-const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
-const latestProducts = await res.data;
-</script>
+<script setup></script>

@@ -42,7 +42,7 @@
           </ul>
 
           <div class="nav-icons-container">
-            <Link to="/" class="nav-icons">
+            <Link :to="{ name: 'myAccount' }" class="nav-icons">
               <img
                 class="svgInject"
                 alt="Evara"

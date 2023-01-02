@@ -10,21 +10,21 @@
 /******************  components   ********************/
 @import "@/components/LoadingSpinner/loading-spinner.scss";
 
-@import "@/components/ConfirmModel/confirm-modal.scss";
+@import "@/components/ConfirmModel/sass/confirm-modal.scss";
 
 @import "@/components/Slider/base-slider.scss";
 
 @import "@/components/Toast/toast.scss";
 
-@import "@/components/FormInput/form-input.scss";
+@import "@/components/BaseForm/sass/form-input.scss";
+
+@import "@/components/BaseForm/sass/base-form.scss";
+
+@import "@/components/BaseForm/sass/base-select.scss";
 
 @import "@/components/ProductCard/product-card.scss";
 
-@import "@/components/BaseModal/base-modal.scss";
-
-@import "@/components/BaseForm/base-form.scss";
-
-@import "@/components/FormSelect/base-select.scss";
+@import "@/components/BaseModal/sass/base-modal.scss";
 
 @import "@/components/MobilePagination/mobile-pagination.scss";
 
