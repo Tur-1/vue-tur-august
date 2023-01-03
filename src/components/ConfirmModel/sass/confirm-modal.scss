@@ -50,5 +50,8 @@
 }
 
 .confirm-modal-footer .confirm-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: $bg-green;
 }

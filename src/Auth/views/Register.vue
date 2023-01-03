@@ -1,10 +1,12 @@
 <script setup>
-import FormInput from "@/components/FormInput/index.vue";
+import { FormInput } from "@/components/BaseForm";
 import authTabs from "@/Auth/store/authTabs";
 import GendersFields from "@/Auth/components/GendersFields.vue";
 import SubmitButton from "@/components/SubmitButton/index.vue";
+import registerForm from "@/Auth/store/registerForm";
+import useAuthService from "@/Auth/services/useAuthService";
 
-import { registerForm, register } from "@/Auth/services/RegisterService";
+const { register } = useAuthService();
 </script>
 
 <template>
@@ -21,7 +23,6 @@ import { registerForm, register } from "@/Auth/services/RegisterService";
         type="text"
         id="register_name"
         v-model="registerForm.fields.register_name"
-        :class="{ 'is-invalid': registerForm.errors.register_name }"
         :error="registerForm.errors.register_name"
       />
       <FormInput
@@ -29,7 +30,6 @@ import { registerForm, register } from "@/Auth/services/RegisterService";
         type="email"
         id="register_email"
         v-model="registerForm.fields.register_email"
-        :class="{ 'is-invalid': registerForm.errors.register_email }"
         :error="registerForm.errors.register_email"
       />
       <FormInput
@@ -37,7 +37,6 @@ import { registerForm, register } from "@/Auth/services/RegisterService";
         type="password"
         id="register_password"
         v-model="registerForm.fields.register_password"
-        :class="{ 'is-invalid': registerForm.errors.register_password }"
         :error="registerForm.errors.register_password"
       />
       <FormInput
@@ -45,7 +44,6 @@ import { registerForm, register } from "@/Auth/services/RegisterService";
         type="password"
         id="password_confirmation"
         v-model="registerForm.fields.password_confirmation"
-        :class="{ 'is-invalid': registerForm.errors.password_confirmation }"
         :error="registerForm.errors.password_confirmation"
       />
 

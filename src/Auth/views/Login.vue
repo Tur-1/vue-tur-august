@@ -2,7 +2,10 @@
 import { FormInput } from "@/components/BaseForm";
 import authTabs from "@/Auth/store/authTabs";
 import SubmitButton from "@/components/SubmitButton/index.vue";
-import { loginForm, login } from "@/Auth/services/LoginService";
+import loginForm from "@/Auth/store/loginForm";
+import useAuthService from "@/Auth/services/useAuthService";
+
+const { login } = useAuthService();
 </script>
 <template>
   <div
@@ -18,7 +21,6 @@ import { loginForm, login } from "@/Auth/services/LoginService";
         type="email"
         id="login_email"
         v-model="loginForm.fields.email"
-        :class="{ 'is-invalid': loginForm.errors.email }"
         :error="loginForm.errors.email"
       />
       <FormInput
@@ -26,15 +28,14 @@ import { loginForm, login } from "@/Auth/services/LoginService";
         type="password"
         id="login_password"
         v-model="loginForm.fields.password"
-        :class="{ 'is-invalid': loginForm.errors.password }"
         :error="loginForm.errors.password"
       />
 
-      <!-- <SubmitButton
+      <SubmitButton
         :onProgress="loginForm.onProgress"
         title="sign in"
         class="w-100 mt-3 mb-1 auth-submit"
-      /> -->
+      />
     </form>
   </div>
 </template>

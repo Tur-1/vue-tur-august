@@ -11,6 +11,12 @@
           :to="{ name: 'productDetail', params: { productSlug: product.slug } }"
         >
           <img :src="product.main_image_url" class="img-fluid" />
+          <span
+            class="badge text-bg-danger discount-badge"
+            v-show="product.discount_amount"
+          >
+            {{ product.discount_amount }}
+          </span>
         </Link>
         <div class="shopping-cart-product-detail">
           <div class="shopping-cart-product-info">

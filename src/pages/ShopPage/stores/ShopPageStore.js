@@ -9,6 +9,7 @@ const ShopPageStore = reactive({
     brands: [],
     colors: [],
     sizeOptions: [],
+    pagination: [],
     onProgress: false
 });
 

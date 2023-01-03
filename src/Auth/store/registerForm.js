@@ -1,6 +1,7 @@
-import { ref } from "vue";
 
-let registerForm = ref({
+import { reactive } from 'vue';
+
+let registerForm = reactive({
     fields: {
         register_name: "",
         register_email: "",
@@ -8,7 +9,6 @@ let registerForm = ref({
         password_confirmation: "",
         gender: "Male",
     },
-    onProgress: false,
     errors: {
         register_name: null,
         register_email: null,
@@ -16,35 +16,61 @@ let registerForm = ref({
         gender: null,
     },
 
-    resetErrors()
+    onProgress: false,
+    showProgress()
     {
-        let erorr;
-        for (erorr in this.errors)
+        this.onProgress = true;
+
+
+    },
+
+    hideProgress()
+    {
+        this.onProgress = false;
+    },
+    clearErrors()
+    {
+        this.errors = {};
+    },
+
+    addValuesToField()
+    {
+
+    },
+    setFields(fields)
+    {
+        this.fields = fields;
+    },
+    appendFields(newFields)
+    {
+
+        let field;
+        for (field in newFields)
         {
-            this.errors[erorr] = null;
+            if (!this.fields.hasOwnProperty(newFields))
+            {
+                this.fields[field] = newFields[field];
+            }
+
+        }
+    },
+    clearFields()
+    {
+
+        let field;
+        for (field in this.fields)
+        {
+            this.fields[field] = '';
         }
     },
     setErrors(response) 
     {
         if (response.status == 422)
         {
-            let errors = response.data.errors;
-            let err;
-            let field;
-            for (err in errors)
-            {
-
-                for (field in this.errors)
-                {
-                    if (field == err)
-                    {
-                        this.errors[field] = errors[err][0];
-                    }
-                }
-            }
+            this.errors = response.data.errors;
         }
     }
-});
+})
 
 
-export default registerForm.value;
+export default registerForm;

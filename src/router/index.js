@@ -107,8 +107,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) =>
 {
-  useRouterService.setPageBackgroundColor(to.meta.backgroundColor);
-  useRouterService.setPageTitle(to.meta.title);
+
   if (to.meta.requiresAuth)
   {
     return auth({ to, from, next });
@@ -118,6 +117,10 @@ router.beforeEach((to, from, next) =>
   next();
 
 })
-
+router.afterEach((to) =>
+{
+  useRouterService.setPageBackgroundColor(to.meta.backgroundColor);
+  useRouterService.setPageTitle(to.meta.title);
+})
 
 export default router

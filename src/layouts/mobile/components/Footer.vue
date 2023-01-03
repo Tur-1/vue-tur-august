@@ -1,7 +1,10 @@
 <script setup>
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
+import useShoppingCartService from "@/pages/ShoppingCartPage/services/useShoppingCartService";
+import CartCounter from "@/pages/ShoppingCartPage/stores/CartCounter";
 
 const route = useRoute();
+const router = useRouter();
 
 const addScale = (id) => {
   $(id).addClass("scaleFooterItem");
@@ -9,6 +12,11 @@ const addScale = (id) => {
     $(id).removeClass("scaleFooterItem");
   }, 100);
 };
+
+const { getCartCount } = useShoppingCartService();
+router.afterEach(async () => {
+  await getCartCount();
+});
 </script>
 <template>
   <footer id="mobile-footer" class="footer safari">
@@ -56,7 +64,7 @@ const addScale = (id) => {
               route.name == 'shoppingCart' ? 'bi bi-bag-fill' : 'bi bi-bag'
             "
           >
-            <span class="cart-counter">0</span>
+            <span class="cart-counter">{{ CartCounter }}</span>
           </i>
           <span>Cart</span>
         </Link>

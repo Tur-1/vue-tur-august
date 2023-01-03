@@ -31,5 +31,5 @@
 </template>
 <script setup>
 import authTabs from "@/Auth/store/authTabs";
-import FormInput from "@/components/FormInput/index.vue";
+import { FormInput } from "@/components/BaseForm";
 </script>

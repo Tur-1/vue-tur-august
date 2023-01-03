@@ -9,7 +9,7 @@
   </BottomSheet>
 </template>
 <script setup>
-import Auth from "@/Auth/index.vue";
+import Auth from "@/Auth/views/index.vue";
 import BottomSheet from "@/components/BottomSheet/index.vue";
 </script>
 <style>

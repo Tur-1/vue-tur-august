@@ -17,10 +17,17 @@
           </li>
 
           <li
-            class="list-group-item justify-content-between align-items-center px-0"
+            class="list-group-item px-0"
             v-show="CheckoutStore.cartDetails.coupon"
           >
-            Discount: () <span> SAR </span>
+            <div class="d-flex justify-content-between align-items-center">
+              <span>
+                Discount: ({{ CheckoutStore.cartDetails.coupon?.code }})
+              </span>
+              <span
+                >{{ CheckoutStore.cartDetails.coupon?.discounted_value }} SAR
+              </span>
+            </div>
           </li>
 
           <li
@@ -38,7 +45,7 @@
           </li>
         </ul>
 
-        <button class="btn btn-primary buy-now-btn">
+        <button class="btn btn-primary buy-now-btn" @click="buyNow">
           <i class="bi bi-credit-card me-2"></i>
           Buy Now
         </button>
@@ -47,5 +54,8 @@
   </div>
 </template>
 <script setup>
+import useCheckoutService from "@/pages/CheckoutPage/services/useCheckoutService";
 import CheckoutStore from "@/pages/CheckoutPage/stores/CheckoutStore";
+
+const { buyNow } = useCheckoutService();
 </script>

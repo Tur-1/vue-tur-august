@@ -1,15 +1,18 @@
 <script setup>
 import MyAddressList from "@/pages/MyAccountPage/views/desktop/components/MyAddressBook/MyAddressList.vue";
+import AddNewAddress from "@/pages/MyAccountPage/views/desktop/components/MyAddressBook/AddNewAddress.vue";
 import { FormInput, FormStore } from "@/components/BaseForm";
 import { BaseModal, useBaseModel } from "@/components/BaseModal";
 import useMyAccountService from "@/pages/MyAccountPage/services/useMyAccountService";
 import { ref } from "vue";
 import { ConfirmModal, useConfirmModal } from "@/components/ConfirmModel";
+import { isNotNull, isNull } from "@/helpers";
 
 const { storeNewAddress, updateAddress, deleteAddress } = useMyAccountService();
 
 let editMode = ref(false);
-let address = ref({
+
+let addressId = ref({
   address_id: null,
   index: null,
 });
@@ -18,10 +21,12 @@ const openModal = (address = null) => {
   FormStore.clearErrors();
   useBaseModel.open("account-address-modal");
 
-  if (!address) {
+  if (isNotNull(address)) {
     editMode.value = true;
     FormStore.setFields(address);
-  } else {
+  }
+  if (isNull(address)) {
+    editMode.value = false;
     FormStore.setFields({
       address_id: "",
       full_name: "",
@@ -30,26 +35,17 @@ const openModal = (address = null) => {
       phone_number: "",
       street: "",
     });
-    editMode.value = false;
   }
 };
 
 const openConfirmModal = ({ address_id, index }) => {
   useConfirmModal.open();
-  address.value.address_id = address_id;
-  address.value.index = index;
+  addressId.value.address_id = address_id;
+  addressId.value.index = index;
 };
 </script>
 <template>
-  <div class="p-1 mb-4">
-    <button
-      @click="openModal"
-      class="border-0 bg-transparent d-flex align-items-center text-secondary"
-    >
-      <i class="bi bi-plus-circle me-2"></i
-      ><span class="text-bold"> new address</span>
-    </button>
-  </div>
+  <AddNewAddress @openModal="openModal" />
   <MyAddressList @onEditAddress="openModal" @onDelete="openConfirmModal" />
 
   <!-- Modal -->
@@ -98,7 +94,7 @@ const openConfirmModal = ({ address_id, index }) => {
   </BaseModal>
 
   <ConfirmModal
-    @onConfirm="deleteAddress(address)"
+    @onConfirm="deleteAddress(addressId)"
     @onCancel="useConfirmModal.close()"
   />
 </template>

@@ -62,15 +62,5 @@
   </div>
 </template>
 <script setup>
-import FormInput from "@/components/Base/FormInput.vue";
-
-let updatePasswordForm = useForm({
-  token: usePage().props.value.token,
-  email: usePage().props.value.email,
-  password: "",
-  password_confirmation: "",
-});
-const updatePassword = () => {
-  updatePasswordForm.post(route("password.update"));
-};
+import { FormInput } from "@/components/BaseForm";
 </script>

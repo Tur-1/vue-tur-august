@@ -13,7 +13,6 @@ import Brands from "@/pages/ShopPage/components/ShopPageSidebar/Brands.vue";
 import Categories from "@/pages/ShopPage/components/ShopPageSidebar/Categories.vue";
 import SizeOptions from "@/pages/ShopPage/components/ShopPageSidebar/SizeOptions.vue";
 import { watch } from "vue";
-import useShopPageApi from "@/pages/ShopPage/api/useShopPageApi";
 
 import ProductsFilterStore from "@/pages/ShopPage/stores/ProductsFilterStore";
 import { useRoute, useRouter } from "vue-router";

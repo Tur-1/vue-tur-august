@@ -1,19 +1,17 @@
 <script setup>
-const props = defineProps({
-  userName: String,
-});
+import MyAccountStore from "@/pages/MyAccountPage/store/MyAccountStore";
 </script>
 
 <template>
   <div class="account-image-wrap">
     <div class="account-image">
       <img
-        src="https://tur-august.herokuapp.com/assets/images/avatars/avatar_male.png"
+        src="@/assets/images/avatars/avatar_male.png"
         class="rounded-circle"
       />
     </div>
     <div class="account-user-name">
-      <span>Hi,</span><span>{{ props.userName }}</span>
+      <span>Hi,</span><span>{{ MyAccountStore.userInfo.name }}</span>
     </div>
   </div>
 </template>

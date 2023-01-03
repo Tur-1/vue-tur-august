@@ -6,8 +6,8 @@ import useRouterService from "@/router/useRouterService";
 
 const login = async () =>
 {
-    loginForm.onProgress = true;
-    loginForm.resetErrors();
+    loginForm.showProgress(true);
+    loginForm.clearErrors();
     try
     {
         let response = await useAuthApi.login(loginForm.fields);
@@ -22,7 +22,7 @@ const login = async () =>
         loginForm.setErrors(error.response);
     }
 
-    loginForm.onProgress = false;
+    loginForm.showProgress(false);
 };
 
 

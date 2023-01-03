@@ -28,7 +28,7 @@
                 class="spinner-border spinner-border-sm opacity-0"
                 role="status"
                 :class="{
-                  'opacity-100 onProgress': useConfirmModal.isOnProgress,
+                  'opacity-100 ms-3': useConfirmModal.isOnProgress,
                 }"
               >
                 <span class="visually-hidden">Loading...</span>

@@ -74,13 +74,16 @@ import useShoppingCartService from "@/pages/ShoppingCartPage/services/useShoppin
 import CartCounter from "@/pages/ShoppingCartPage/stores/CartCounter";
 
 import { onMounted } from "vue";
-import { useRoute, RouterLink } from "vue-router";
+import { useRoute, RouterLink, useRouter } from "vue-router";
 const { getSections } = useLayoutService();
-const { getCartCount } = useShoppingCartService();
 
 const route = useRoute();
-onMounted(async () => {
-  await getSections();
+
+const router = useRouter();
+onMounted(getSections);
+
+const { getCartCount } = useShoppingCartService();
+router.afterEach(async () => {
   await getCartCount();
 });
 </script>

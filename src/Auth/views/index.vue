@@ -1,9 +1,9 @@
 <script setup>
 import AuthTabsHeader from "@/Auth/components/AuthTabsHeader.vue";
 
-import LoginTab from "@/Auth/Tabs/LoginTab.vue";
-import RegisterTab from "@/Auth/Tabs/RegisterTab.vue";
-import ResetPasswrodTab from "@/Auth/Tabs/ResetPasswrodTab.vue";
+import Login from "@/Auth/views/Login.vue";
+import Register from "@/Auth/views/Register.vue";
+import ResetPasswrod from "@/Auth/views/ResetPasswrod.vue";
 </script>
 <template>
   <div class="auth-container">
@@ -24,9 +24,9 @@ import ResetPasswrodTab from "@/Auth/Tabs/ResetPasswrodTab.vue";
           </a>
         </li>
       </ul>
-      <LoginTab />
-      <RegisterTab />
-      <ResetPasswrodTab />
+      <Login />
+      <Register />
+      <ResetPasswrod />
     </div>
   </div>
 </template>

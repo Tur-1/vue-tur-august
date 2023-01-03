@@ -1,6 +1,4 @@
 <script setup>
-import SubmitSpinner from "@/components/SubmitSpinner/index.vue";
-
 const props = defineProps(["onProgress", "title", "class"]);
 </script>
 <template>

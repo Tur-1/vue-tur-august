@@ -1,6 +1,8 @@
-import { ref } from "vue";
 
-let loginForm = ref({
+
+import { reactive } from 'vue';
+
+let loginForm = reactive({
     fields: {
         email: "",
         password: "",
@@ -10,41 +12,60 @@ let loginForm = ref({
         password: null,
     },
     onProgress: false,
-    resetErrors()
+    showProgress()
     {
-        let erorr;
-        for (erorr in this.errors)
-        {
-            this.errors[erorr] = null;
-        }
+        this.onProgress = true;
+
 
     },
 
+    hideProgress()
+    {
+        this.onProgress = false;
+    },
+    clearErrors()
+    {
+        this.errors = {};
+    },
+
+    addValuesToField()
+    {
+
+    },
+    setFields(fields)
+    {
+        this.fields = fields;
+    },
+    appendFields(newFields)
+    {
+
+        let field;
+        for (field in newFields)
+        {
+            if (!this.fields.hasOwnProperty(newFields))
+            {
+                this.fields[field] = newFields[field];
+            }
+
+        }
+    },
+    clearFields()
+    {
+
+        let field;
+        for (field in this.fields)
+        {
+            this.fields[field] = '';
+        }
+    },
     setErrors(response) 
     {
         if (response.status == 422)
         {
-            let errors = response.data.errors;
-
-            let err;
-            let field;
-            for (err in errors)
-            {
-
-                for (field in this.errors)
-                {
-
-                    if (field == err)
-                    {
-                        this.errors[field] = errors[err][0];
-
-                    }
-                }
-            }
-
+            this.errors = response.data.errors;
         }
     }
-});
+})
 
 
-export default loginForm.value;
+export default loginForm;

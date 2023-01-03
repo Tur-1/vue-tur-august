@@ -5,6 +5,35 @@ import SizeOptions from "@/pages/ShopPage/components/ShopPageFilter/SizeOptions.
 import FilterItem from "@/pages/ShopPage/components/ShopPageFilter/FilterItem.vue";
 import useBottomSheet from "@/components/BottomSheet/useBottomSheet";
 import BottomSheet from "@/components/BottomSheet/index.vue";
+
+import ProductsFilterStore from "@/pages/ShopPage/stores/ProductsFilterStore";
+import { useRoute, useRouter } from "vue-router";
+import useShopPageService from "@/pages/ShopPage/services/useShopPageService";
+import ShopPageStore from "@/pages/ShopPage/stores/ShopPageStore";
+import { watch } from "vue";
+const router = useRouter();
+const route = useRoute();
+watch(
+  () => ProductsFilterStore,
+  async (value) => {
+    router.push({
+      query: {
+        "color[]": value.color,
+        "brand[]": value.brand,
+        "size[]": value.size,
+      },
+    });
+  },
+  { deep: true }
+);
+const { getCategoryPageContent } = useShopPageService();
+
+const getFilteredProducts = async () => {
+  await getCategoryPageContent({
+    categorySlug: route.params.slug,
+    query: route.query,
+  });
+};
 </script>
 
 <template>
@@ -38,8 +67,12 @@ import BottomSheet from "@/components/BottomSheet/index.vue";
       </FilterItem>
     </template>
     <template #footer>
-      <button type="button" class="btn btn-primary show-products-btn">
-        show products (56)
+      <button
+        type="button"
+        @click="getFilteredProducts"
+        class="btn btn-primary show-products-btn"
+      >
+        show products ({{ ShopPageStore.products.pagination.total }})
       </button>
     </template>
   </BottomSheet>
