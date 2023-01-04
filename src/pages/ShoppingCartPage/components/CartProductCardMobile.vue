@@ -46,6 +46,7 @@
                 class="quantity-btn rounded-end"
                 type="button"
                 id="button-addon1"
+                :disabled="product.quantity >= product.stock_size"
                 @click="incrementItemQuantity(product.cart_item_id)"
               >
                 <i class="bi bi-plus"></i>

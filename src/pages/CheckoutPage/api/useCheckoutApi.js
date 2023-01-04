@@ -11,9 +11,9 @@ export default {
     {
         return api().post(`checkout/apply-coupon`, { couponCode: code, cartTotal: cartTotal });
     },
-    buyNow(addressId)
+    buyNow(address_id)
     {
-        return api().post(`checkout/buy-now`, { addressId: addressId });
+        return api().post(`checkout/buy-now`, { address_id: address_id });
     }
 
 }

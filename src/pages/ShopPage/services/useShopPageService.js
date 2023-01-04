@@ -30,7 +30,7 @@ export default function useShopPageService()
                 ShopPageStore.sizeOptions = response.data.sizeOptions;
                 ShopPageStore.products.list = response.data.products.data;
                 ShopPageStore.products.pagination = response.data.products.meta.pagination;
-
+                ShopPageStore.products.paginationLinks = response.data.products.meta.pagination.links;
 
             } catch (error)
             {

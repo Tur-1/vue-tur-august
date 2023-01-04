@@ -3,7 +3,11 @@
     margin-bottom: 6px;
     position: relative;
 }
-
+@media (max-width: 995px) {
+    .shopping-cart-product-out-of-stock {
+        font-size: 11.8px !important;
+    }
+}
 .mobile-shopping-cart-product .cart-item {
     position: relative;
     display: flex;

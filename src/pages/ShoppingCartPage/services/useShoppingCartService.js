@@ -53,26 +53,64 @@ export default function useShoppingCartService()
 
         useLoadingSpinner.hide();
     }
-    const incrementItemQuantity = async (cartItemId) =>
+    const incrementItemQuantity = async (cart_item_id) =>
     {
+        if (isCartItemStockSizeLessThanQty(cart_item_id))
+        {
+            return;
+        }
+
         useLoadingSpinner.show();
-        let response = await useShoppingCartApi.incrementItemQuantity(cartItemId);
+        await useShoppingCartApi.incrementItemQuantity(cart_item_id);
 
         await getCartProducts();
 
         useLoadingSpinner.hide();
     }
-    const decrementItemQuantity = async (cartItemId) =>
+    const decrementItemQuantity = async (cart_item_id) =>
     {
+
+        if (isQuantityNotLessThanZero(cart_item_id))
+        {
+            return;
+        }
+
         useLoadingSpinner.show();
-        let response = await useShoppingCartApi.decrementItemQuantity(cartItemId);
+        await useShoppingCartApi.decrementItemQuantity(cart_item_id);
 
         await getCartProducts();
 
         useLoadingSpinner.hide();
     }
 
+    const isCartItemStockSizeLessThanQty = (cart_item_id) =>
+    {
 
+        let cartItem = getCartItem(cart_item_id);
+        if (cartItem.quantity >= cartItem.stock_size)
+        {
+            return true;
+        }
+
+        return false;
+    }
+    const isQuantityNotLessThanZero = (cart_item_id) =>
+    {
+        let cartItem = getCartItem(cart_item_id);
+        if (cartItem.quantity == 1)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    const getCartItem = (cart_item_id) =>
+    {
+        let cartItem = CartStore.products.find(product => cart_item_id == product.cart_item_id);
+
+        return cartItem;
+    }
     return {
         getCartCount,
         getCartProducts,

@@ -1,8 +1,10 @@
 
 import { useLoadingSpinner } from "@/components/LoadingSpinner";
+import useToastNotification from "@/components/Toast/useToastNotification";
 import useCheckoutApi from "@/pages/CheckoutPage/api/useCheckoutApi";
 import CheckoutStore from "@/pages/CheckoutPage/stores/CheckoutStore";
 import MyAccountStore from "@/pages/MyAccountPage/store/MyAccountStore";
+import useRouterService from "@/router/useRouterService";
 
 export default function useCheckoutService()
 {
@@ -61,10 +63,14 @@ export default function useCheckoutService()
         {
             let res = await useCheckoutApi.buyNow(CheckoutStore.selectedAddress);
 
-            console.log(res.data);
+            useToastNotification.open(res.data.message);
+            useRouterService.redirectToRoute('home');
         } catch (error)
         {
-            console.log(error.response.data);
+            if (!error.response.data.success)
+            {
+                useToastNotification.open(error.response.data.message, false);
+            }
 
         }
 

@@ -13,7 +13,7 @@
             class="list-group-item d-flex justify-content-between align-items-center px-0"
           >
             shipment fees
-            <span> {{ CartStore.cartDetails.shipmentFees }} </span>
+            <span> {{ CartStore.cartDetails.shipping_fees }} </span>
           </li>
 
           <li

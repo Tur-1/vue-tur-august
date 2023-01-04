@@ -13,7 +13,7 @@
             class="list-group-item d-flex justify-content-between align-items-center px-0"
           >
             shipment fees
-            <span> {{ CheckoutStore.cartDetails.shipmentFees }} </span>
+            <span> {{ CheckoutStore.cartDetails.shipping_fees }} </span>
           </li>
 
           <li
@@ -25,7 +25,7 @@
                 Discount: ({{ CheckoutStore.cartDetails.coupon?.code }})
               </span>
               <span
-                >{{ CheckoutStore.cartDetails.coupon?.discounted_value }} SAR
+                >{{ CheckoutStore.cartDetails.coupon?.discounted_amount }} SAR
               </span>
             </div>
           </li>
