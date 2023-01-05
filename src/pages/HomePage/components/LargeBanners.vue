@@ -6,20 +6,10 @@
   >
     <div class="carousel-inner">
       <div class="carousel-item w-100 h-100 active">
-        <a href=""
-          ><img
-            src=""
-            class="d-block w-100 h-100"
-            alt="..."
-        /></a>
+        <a href=""><img src="" class="d-block w-100 h-100" alt="..." /></a>
       </div>
       <div class="carousel-item w-100 h-100">
-        <a href=""
-          ><img
-            src=".."
-            class="d-block w-100 h-100"
-            alt="..."
-        /></a>
+        <a href=""><img src=".." class="d-block w-100 h-100" alt="..." /></a>
       </div>
     </div>
     <button
@@ -41,9 +31,4 @@
     </button>
   </div>
 </template>
-<script setup>
-import axios from "axios";
-
-const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
-const posts = await res.data;
-</script>
+<script setup></script>
