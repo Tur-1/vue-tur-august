@@ -4,6 +4,7 @@ import registerForm from "@/Auth/store/registerForm";
 
 import useAuthModal from "@/Auth/services/useAuthModal";
 import useRouterService from "@/router/useRouterService";
+import authUser from "@/Auth/store/authUser";
 
 export default function useAuthService()
 {
@@ -14,6 +15,9 @@ export default function useAuthService()
         try
         {
             let response = await useAuthApi.login(loginForm.fields);
+
+            authUser.setAuthUser(response.data.user);
+            authUser.setAuthUser(response.data.access_token);
 
             useAuthModal.close();
 

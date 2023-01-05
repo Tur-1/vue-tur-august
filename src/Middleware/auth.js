@@ -2,6 +2,7 @@ import useRouterService from "@/router/useRouterService";
 import useAuthApi from "@/Auth/api/useAuthApi";
 import useAuthModal from "@/Auth/services/useAuthModal";
 import { useLoadingSpinner } from "@/components/LoadingSpinner";
+import authUser from "@/Auth/store/authUser";
 
 
 const auth = async ({ to, from, next }) =>
@@ -19,6 +20,7 @@ const auth = async ({ to, from, next }) =>
         return next(false);
     }
 
+    authUser.setAuthUser(isNotAuthenticated.data);
     return next();
 }
 

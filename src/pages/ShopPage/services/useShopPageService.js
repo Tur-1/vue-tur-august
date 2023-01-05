@@ -29,8 +29,8 @@ export default function useShopPageService()
                 ShopPageStore.colors = response.data.colors;
                 ShopPageStore.sizeOptions = response.data.sizeOptions;
                 ShopPageStore.products.list = response.data.products.data;
-                ShopPageStore.products.pagination = response.data.products.meta.pagination;
-                ShopPageStore.products.paginationLinks = response.data.products.meta.pagination.links;
+                ShopPageStore.pagination = response.data.products.meta.pagination.links;
+                ShopPageStore.mobilePagination = response.data.products.meta.pagination
 
             } catch (error)
             {

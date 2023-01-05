@@ -6,6 +6,11 @@ import ShopPageStore from "@/pages/ShopPage/stores/ShopPageStore";
 import ProductCardSkeleton from "@/components/ProductCard/ProductCardSkeleton.vue";
 import ProductCard from "@/components/ProductCard/index.vue";
 import MobilePagination from "@/components/MobilePagination/index.vue";
+import NoProductsFound from "@/pages/ShopPage/components/NoProductsFound/index.vue";
+
+import useShopPageService from "@/pages/ShopPage/services/useShopPageService";
+
+const { getCategoryPageContent } = useShopPageService();
 </script>
 
 <template>
@@ -26,7 +31,11 @@ import MobilePagination from "@/components/MobilePagination/index.vue";
         />
         <ProductCardSkeleton v-if="ShopPageStore.onProgress" />
       </div>
-      <MobilePagination />
+      <MobilePagination
+        :pagination="ShopPageStore.mobilePagination"
+        @onPageChange="getCategoryPageContent"
+      />
+      <NoProductsFound />
     </div>
   </section>
 </template>

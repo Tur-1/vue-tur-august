@@ -10,6 +10,11 @@ const ShopPageStore = reactive({
     colors: [],
     sizeOptions: [],
     pagination: [],
+    mobilePagination: {
+        current_page: '',
+        prev_page_url: '',
+        next_page_url: '',
+    },
     onProgress: false
 });
 

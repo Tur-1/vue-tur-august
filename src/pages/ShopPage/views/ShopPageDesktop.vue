@@ -30,11 +30,11 @@ const { getCategoryPageContent } = useShopPageService();
         </div>
         <div class="d-flex justify-content-center">
           <Pagination
-            :links="ShopPageStore.products.paginationLinks"
+            :links="ShopPageStore.pagination"
             @onPageChange="getCategoryPageContent"
           />
         </div>
-        <NoProductsFound :show="false" />
+        <NoProductsFound />
       </div>
     </div>
   </section>

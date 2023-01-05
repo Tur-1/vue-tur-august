@@ -2,7 +2,8 @@
 import { useRouter } from "vue-router";
 import useAuthApi from "@/Auth/api/useAuthApi";
 import MyAccountStore from "@/pages/MyAccountPage/store/MyAccountStore";
-
+import config from "@/config/app";
+import authUser from "@/Auth/store/authUser";
 const router = useRouter();
 
 const logout = async () => {
@@ -18,7 +19,10 @@ const logout = async () => {
 <template>
   <div class="d-flex justify-content-between mb-4">
     <div>
-      <a> Dashboard </a>
+      <a v-if="authUser.user.role_id" :href="config.DASHBOARD_URL">
+        Dashboard
+      </a>
+      <span v-if="!authUser.user.role_id">Dashboard</span>
     </div>
 
     <div>
