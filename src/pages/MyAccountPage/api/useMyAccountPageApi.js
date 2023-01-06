@@ -10,6 +10,11 @@ const getAccountPageContent = () =>
 {
     return api().get(BASE_URL);
 }
+const showOrder = (id) =>
+{
+    return api().get(BASE_URL + "/orders/" + id);
+}
+
 const updateAccountInfo = (fields) =>
 {
     return api().post(BASE_URL + "/update-info", fields);
@@ -44,5 +49,6 @@ export default {
     updateMyAccountPassword,
     storeNewAddress,
     updateUserAddress,
-    destroyAddress
+    destroyAddress,
+    showOrder
 }

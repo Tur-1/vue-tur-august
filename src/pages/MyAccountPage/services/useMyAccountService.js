@@ -6,6 +6,7 @@ import useToastNotification from "@/components/Toast/useToastNotification";
 import { FormStore } from "@/components/BaseForm";
 import { useBaseModel } from "@/components/BaseModal";
 import { useConfirmModal } from "@/components/ConfirmModel";
+import { useRoute } from "vue-router";
 
 
 export default function useMyAccountService()
@@ -20,6 +21,8 @@ export default function useMyAccountService()
 
         MyAccountStore.userInfo = response.data.userInfo;
         MyAccountStore.userAddresses = response.data.userAddresses;
+        MyAccountStore.orders = response.data.orders;
+
 
         useLoadingSpinner.hide();
     }
@@ -148,6 +151,25 @@ export default function useMyAccountService()
 
 
     };
+
+
+    const showOrder = async () =>
+    {
+        useLoadingSpinner.show();
+        FormStore.clearErrors();
+
+        const route = useRoute();
+
+        let response = await useMyAccountPageApi.showOrder(route.params.id);
+
+        MyAccountStore.orderDetail.order = response.data.order.order;
+        MyAccountStore.orderDetail.products = response.data.order.products;
+        MyAccountStore.orderDetail.coupon = response.data.order.coupon;
+        MyAccountStore.orderDetail.address = response.data.order.address;
+
+        useLoadingSpinner.hide();
+
+    };
     return {
         getAccountPageContent,
         updateAccountInformation,
@@ -155,6 +177,7 @@ export default function useMyAccountService()
         updateMyAccountPassword,
         storeNewAddress,
         updateAddress,
-        deleteAddress
+        deleteAddress,
+        showOrder
     }
 }

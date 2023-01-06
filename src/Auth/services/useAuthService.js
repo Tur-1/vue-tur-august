@@ -5,6 +5,7 @@ import registerForm from "@/Auth/store/registerForm";
 import useAuthModal from "@/Auth/services/useAuthModal";
 import useRouterService from "@/router/useRouterService";
 import authUser from "@/Auth/store/authUser";
+import { isNotNull } from "@/helpers";
 
 export default function useAuthService()
 {
@@ -21,7 +22,10 @@ export default function useAuthService()
 
             useAuthModal.close();
 
+
             useRouterService.redirectToIntendedPath();
+
+
         } catch (error)
         {
 

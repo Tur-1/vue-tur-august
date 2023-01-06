@@ -7,6 +7,7 @@ import authUser from "@/Auth/store/authUser";
 
 const auth = async ({ to, from, next }) =>
 {
+    authUser.setAuthUser(null);
     useLoadingSpinner.show();
 
     let isNotAuthenticated = await useAuthApi.isAuthenticated();

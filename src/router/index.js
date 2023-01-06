@@ -39,7 +39,7 @@ const router = createRouter({
 
       meta: {
         previousPage: '/categories',
-        // hidePageTitle: true,
+        hidePageTitle: true,
         title: '',
 
       }
@@ -74,9 +74,20 @@ const router = createRouter({
       meta: {
         requiresAuth: true,
         title: 'My Account',
-      }
-    },
+      },
 
+    },
+    {
+      path: '/my-account/orders/:id',
+      name: 'orderPage',
+      component: () => import('@/pages/MyAccountPage/views/orderPage/index.vue'),
+      meta: {
+        backgroundColor: '#f9f9f9',
+        previousPage: '/my-account',
+        requiresAuth: true,
+        title: 'order',
+      },
+    },
 
     {
       path: '/checkout',

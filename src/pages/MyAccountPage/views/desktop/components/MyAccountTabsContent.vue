@@ -14,7 +14,9 @@
       role="tabpanel"
       aria-labelledby="my-orders-tab"
     >
-      <div class="row d-flex justify-content-center"></div>
+      <div class="row d-flex justify-content-center">
+        <MyOrders />
+      </div>
     </div>
     <div
       class="tab-pane fade p-3"
@@ -29,5 +31,7 @@
 
 <script setup>
 import MyAccountSettings from "@/pages/MyAccountPage/views/desktop/components/MyAccountSettings/index.vue";
+import MyOrders from "@/pages/MyAccountPage/views/desktop/components/MyOrders/index.vue";
+
 import MyAddressBook from "@/pages/MyAccountPage/views/desktop/components/MyAddressBook/index.vue";
 </script>

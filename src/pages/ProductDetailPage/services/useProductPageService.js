@@ -11,6 +11,8 @@ import { ref } from 'vue';
 import { isNotNull } from '@/helpers';
 import CartCounter from '@/pages/ShoppingCartPage/stores/CartCounter';
 import useShoppingCartService from '@/pages/ShoppingCartPage/services/useShoppingCartService';
+import useAuthModal from '@/Auth/services/useAuthModal';
+import GuestStore from '@/pages/ProductDetailPage/stores/GuestStore';
 
 
 const review = ref({
@@ -59,11 +61,20 @@ export default function useProductPageService()
             try
             {
                 let response = await useProductPageApi.sendComment(productSlug, review.value);
+
                 useToastNotification.open(response.data.message);
 
                 review.value.comment = '';
+
             } catch (error)
             {
+                if (error.response.status == 401)
+                {
+
+
+                    useAuthModal.open();
+
+                }
                 if (error.response.status == 422)
                 {
                     review.value.errors = error.response.data.errors.comment;

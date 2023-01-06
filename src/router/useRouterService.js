@@ -1,18 +1,23 @@
 import { reactive } from "vue";
 import router from '@/router'
 import config from "@/config/app";
+import { isNotNull } from "@/helpers";
 
 
 
 const useRouterService = reactive({
-    intendedPath: '/',
+    intendedPath: null,
     setIntendedPath(path)
     {
         this.intendedPath = path;
     },
     redirectToIntendedPath()
     {
-        return router.push(this.intendedPath);
+        if (isNotNull(this.intendedPath))
+        {
+            return router.push(this.intendedPath);
+        }
+
     },
     redirectToRoute(routeName)
     {

@@ -4,8 +4,15 @@ import { reactive } from "vue";
 
 const MyAccountStore = reactive({
     userInfo: [],
-    myOrders: [],
+    orders: [],
     userAddresses: [],
+    orderDetail: {
+        order: [],
+        products: [],
+        address: [],
+        coupon: [],
+
+    },
 });
 
 export default MyAccountStore;
