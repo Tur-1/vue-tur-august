@@ -7,10 +7,41 @@ import ProductCardSkeleton from "@/components/ProductCard/ProductCardSkeleton.vu
 import ProductCard from "@/components/ProductCard/index.vue";
 import MobilePagination from "@/components/MobilePagination/index.vue";
 import NoProductsFound from "@/pages/ShopPage/components/NoProductsFound/index.vue";
-
 import useShopPageService from "@/pages/ShopPage/services/useShopPageService";
+import ProductsFilterStore from "@/pages/ShopPage/stores/ProductsFilterStore";
+import { useRoute, useRouter } from "vue-router";
+import { watch } from "vue";
 
 const { getCategoryPageContent } = useShopPageService();
+const router = useRouter();
+const route = useRoute();
+
+watch(
+  () => ProductsFilterStore,
+  async (value) => {
+    router.push({
+      query: {
+        "color[]": value.color,
+        "brand[]": value.brand,
+        "size[]": value.size,
+        sort: value.sort,
+      },
+    });
+  },
+  { deep: true }
+);
+
+watch(
+  () => route.query,
+  async (value) => {
+    if (value) {
+      await getCategoryPageContent({
+        categorySlug: route.params.slug,
+        query: value,
+      });
+    }
+  }
+);
 </script>
 
 <template>
@@ -35,7 +66,7 @@ const { getCategoryPageContent } = useShopPageService();
         :pagination="ShopPageStore.mobilePagination"
         @onPageChange="getCategoryPageContent"
       />
-      <NoProductsFound />
+      <NoProductsFound :show="ShopPageStore.products?.list?.length == 0" />
     </div>
   </section>
 </template>

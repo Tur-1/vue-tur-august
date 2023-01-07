@@ -47,11 +47,11 @@ import BottomSheet from "@/components/BottomSheet/index.vue";
 import { reactive } from "vue";
 import ProductsFilterStore from "@/pages/ShopPage/stores/ProductsFilterStore";
 
-const emits = defineEmits(["onFilter"]);
+const emits = defineEmits(["onFilterProducts"]);
 const filterProducts = (slug) => {
   ProductsFilterStore.sort = slug;
   useBottomSheet.close("sort-products");
-  emits("onFilter");
+  emits("onFilterProducts");
 };
 
 let sortProducts = reactive([

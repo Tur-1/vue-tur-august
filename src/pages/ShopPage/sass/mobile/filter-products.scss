@@ -65,32 +65,18 @@
     color: #939393;
 }
 
-.offcanvas-end:has(.filter-item-offcanvas-header) {
-    width: 100% !important;
-    border: none !important;
-    height: 55vh !important;
-    bottom: 0 !important;
-    top: unset !important;
-}
-
-.filter-item-offcanvas-header.offcanvas-header {
-    justify-content: unset !important;
-    border-bottom: 1px solid #e8e8e86e;
-    padding: 1rem 10px 10px 10px !important;
-}
-.filter-item-offcanvas-header.offcanvas-header .offcanvas-title {
-    font-weight: 600;
-    margin-left: 8px;
-}
-.filter-item-offcanvas-body {
+.right-offcanvas-body {
     padding: 0 !important;
 }
-.filter-item-offcanvas-body .list-group label {
+.right-offcanvas-body .list-group label {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
     border-bottom: 1px solid rgba(127, 127, 127, 0.282);
+}
+.right-offcanvas-body .list-group label:last-child {
+    margin-bottom: 50px;
 }
 .filter-checkbox-input {
     display: flex;

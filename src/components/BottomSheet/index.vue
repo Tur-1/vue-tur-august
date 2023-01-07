@@ -1,5 +1,6 @@
 <script setup>
 import useBottomSheet from "@/components/BottomSheet/useBottomSheet";
+
 import { watch } from "vue";
 
 const props = defineProps({
@@ -28,6 +29,11 @@ watch(useBottomSheet, (value) => {
     setTimeout(() => {
       document.querySelector(".bottom-sheet-container").classList.add("show");
     }, 100);
+
+    document.documentElement.style.overflow = "hidden";
+  }
+  if (value.isOpen == false) {
+    document.documentElement.style.overflow = "auto";
   }
 });
 </script>

@@ -3,8 +3,7 @@
     <Link
       class="category-link"
       :class="{
-        'active-category-link':
-          ShopPageStore.categoryParent.slug == useRoute().params.slug,
+        'active-category-link': ShopPageStore.category.children?.length != 0,
       }"
       :to="{
         name: 'shop',

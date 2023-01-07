@@ -8,8 +8,11 @@ import NoProductsFound from "@/pages/ShopPage/components/NoProductsFound/index.v
 import ProductCard from "@/components/ProductCard/index.vue";
 import Pagination from "@/components/Pagination/index.vue";
 import useShopPageService from "@/pages/ShopPage/services/useShopPageService";
+import { useRoute } from "vue-router";
 
 const { getCategoryPageContent } = useShopPageService();
+
+const route = useRoute();
 </script>
 <template>
   <section class="container">
@@ -30,11 +33,11 @@ const { getCategoryPageContent } = useShopPageService();
         </div>
         <div class="d-flex justify-content-center">
           <Pagination
-            :links="ShopPageStore.pagination"
+            :links="ShopPageStore.pagination.links"
             @onPageChange="getCategoryPageContent"
           />
         </div>
-        <NoProductsFound />
+        <NoProductsFound :show="ShopPageStore.products?.list?.length == 0" />
       </div>
     </div>
   </section>

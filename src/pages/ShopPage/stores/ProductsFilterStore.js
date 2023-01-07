@@ -4,7 +4,7 @@ const ProductsFilterStore = reactive({
     brand: [],
     color: [],
     size: [],
-    sort: '',
+    sort: [],
 });
 
 

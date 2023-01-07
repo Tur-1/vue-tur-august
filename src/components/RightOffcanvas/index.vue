@@ -1,32 +1,41 @@
 <script setup>
-const porps = defineProps({
+import useOffcanvas from "@/components/RightOffcanvas/useOffcanvas";
+
+import { watch } from "vue";
+const props = defineProps({
   id: String,
   title: String,
 });
+const emits = defineEmits(["onClose"]);
+const closeOffcanvas = () => {
+  useOffcanvas.close(props.id);
+
+  emits("onClose");
+};
 </script>
 <template>
   <div
-    class="offcanvas offcanvas-end right-offcanvas"
-    tabindex="-1"
-    :id="id"
-    aria-labelledby="staticBackdropLabel"
+    :id="props.id"
+    class="right-offcanvas"
+    :class="{ show: useOffcanvas.isOpen && props.id == useOffcanvas.id }"
   >
-    <div class="right-offcanvas-header">
-      <button
-        type="button"
-        class="right-offcanvas-close-btn"
-        data-bs-dismiss="offcanvas"
-        aria-label="Close"
-      >
-        <i class="fa-solid fa-arrow-left-long"></i>
-      </button>
-
-      <span class="page-title" :id="'staticBackdropLabel-' + id">
-        {{ title }}
-      </span>
-    </div>
-    <div class="offcanvas-body bg-light">
-      <slot />
+    <div class="right-offcanvas-container">
+      <div class="right-offcanvas-header">
+        <button
+          class="right-offcanvas-header-close-btn"
+          type="button"
+          @click="closeOffcanvas"
+        >
+          <i class="bi bi-chevron-left fa-lg me-2"></i>
+          <strong>{{ props.title }}</strong>
+        </button>
+      </div>
+      <div class="right-offcanvas-body">
+        <slot name="body"> </slot>
+      </div>
+      <div class="right-offcanvas-footer">
+        <slot name="footer"> </slot>
+      </div>
     </div>
   </div>
 </template>

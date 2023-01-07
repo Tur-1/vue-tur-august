@@ -6,8 +6,20 @@ import FilterItem from "@/pages/ShopPage/components/ShopPageFilter/FilterItem.vu
 import useBottomSheet from "@/components/BottomSheet/useBottomSheet";
 import BottomSheet from "@/components/BottomSheet/index.vue";
 import ShopPageStore from "@/pages/ShopPage/stores/ShopPageStore";
+import ProductsFilterStore from "@/pages/ShopPage/stores/ProductsFilterStore";
 
-defineEmits(["onFilter"]);
+const emits = defineEmits(["onFilterProducts"]);
+
+function filterProducts() {
+  emits("onFilterProducts");
+}
+
+function clearAll() {
+  for (const iterator in ProductsFilterStore) {
+    ProductsFilterStore[iterator] = [];
+  }
+  useBottomSheet.close("filter");
+}
 </script>
 
 <template>
@@ -26,27 +38,41 @@ defineEmits(["onFilter"]);
     <template #header>
       <div class="mobile-filter-header">
         <span class="title">Filter</span>
-        <button type="button" class="clear-filter-btn">clear All</button>
+        <button type="button" class="clear-filter-btn" @click="clearAll">
+          clear All
+        </button>
       </div>
     </template>
     <template #body>
-      <FilterItem title="Brands">
+      <FilterItem
+        title="brands"
+        offcanvasId="brands-filter"
+        @onClose="filterProducts"
+      >
         <Brands />
       </FilterItem>
-      <FilterItem title="Colors">
+      <FilterItem
+        title="Colors"
+        offcanvasId="colors-filter"
+        @onClose="filterProducts"
+      >
         <Colors />
       </FilterItem>
-      <FilterItem title="Size ">
+      <FilterItem
+        title="Size"
+        offcanvasId="sizes-filter"
+        @onClose="filterProducts"
+      >
         <SizeOptions />
       </FilterItem>
     </template>
     <template #footer>
       <button
         type="button"
-        @click="$emit('onFilter')"
+        @click="useBottomSheet.close('filter')"
         class="btn btn-primary show-products-btn"
       >
-        show products ({{ ShopPageStore.pagination.total }})
+        show products ({{ ShopPageStore.pagination?.total }})
       </button>
     </template>
   </BottomSheet>

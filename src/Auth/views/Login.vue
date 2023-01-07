@@ -15,6 +15,15 @@ const { login } = useAuthService();
     role="tabpanel"
     aria-labelledby="login-tab"
   >
+    <div class="d-flex flex-column text-dark mb-3">
+      <span class="mb-3 text-center">You can log in with :</span>
+      <span class="mb-1"> Email: <strong>admin@admin.com</strong> </span>
+
+      <span>
+        Password:
+        <strong>123456</strong>
+      </span>
+    </div>
     <form @submit.prevent="login">
       <FormInput
         label="Email *"

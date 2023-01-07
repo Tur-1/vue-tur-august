@@ -1,10 +1,6 @@
 <template>
   <div class="list-group">
-    <label
-      class="mb-2"
-      v-for="(size, index) in ShopPageStore.sizeOptions"
-      :key="index"
-    >
+    <label v-for="(size, index) in ShopPageStore.sizeOptions" :key="index">
       <span class="ms-2"> {{ size.name }} ({{ size.products_count }}) </span>
 
       <div class="filter-checkbox-input">
