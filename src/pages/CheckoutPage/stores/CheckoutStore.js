@@ -5,7 +5,7 @@ const CheckoutStore = reactive({
     userAddresses: [],
     cartDetails: [],
     coupon: [],
-    couponCode: '',
+    couponCode: 'august',
     onProgress: false,
     selectedAddress: null,
     setAddressId(address_id)

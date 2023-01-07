@@ -8,7 +8,7 @@
         }"
       />
       <Title :price="ProductDetailStore.product.name" />
-      <Price :price="ProductDetailStore.product.price" />
+      <Price :product="ProductDetailStore.product" />
       <QualityInfo />
     </div>
 
