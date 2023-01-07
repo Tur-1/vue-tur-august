@@ -8,13 +8,12 @@ import useToastNotification from '@/components/Toast/useToastNotification';
 
 import { useRoute } from "vue-router";
 import { ref } from 'vue';
-import { isNotNull } from '@/helpers';
+import { isNull } from '@/helpers';
 import CartCounter from '@/pages/ShoppingCartPage/stores/CartCounter';
 import useShoppingCartService from '@/pages/ShoppingCartPage/services/useShoppingCartService';
 import useAuthModal from '@/Auth/services/useAuthModal';
-import GuestStore from '@/pages/ProductDetailPage/stores/GuestStore';
 
-
+let product_id = ref('');
 const review = ref({
     comment: "",
     errors: null,
@@ -55,26 +54,26 @@ export default function useProductPageService()
         async sendComment(productSlug)
         {
 
-
             useLoadingSpinner.show();
 
             try
             {
                 let response = await useProductPageApi.sendComment(productSlug, review.value);
 
-                useToastNotification.open(response.data.message);
+                if (response.data.requireAuth)
+                {
+                    useAuthModal.open();
 
-                review.value.comment = '';
+                } else
+                {
+                    review.value.comment = '';
+                }
+
+                useToastNotification.open(response.data.message);
 
             } catch (error)
             {
-                if (error.response.status == 401)
-                {
 
-
-                    useAuthModal.open();
-
-                }
                 if (error.response.status == 422)
                 {
                     review.value.errors = error.response.data.errors.comment;
@@ -88,14 +87,18 @@ export default function useProductPageService()
         },
         async addToShoppingCart()
         {
+            if (isNull(ProductDetailStore.selectedSize.size_id) || isNull(ProductDetailStore.selectedSize.product_id)) return;
 
-            if (isNotNull(ProductDetailStore.selectedSize.size_id) || isNotNull(ProductDetailStore.selectedSize.product_id))
+            useLoadingSpinner.show();
+
+            try
             {
-                useLoadingSpinner.show();
-
                 let response = await useProductPageApi.addToShoppingCart(ProductDetailStore.selectedSize);
-
-                if (response.data.message)
+                if (response.data.requireAuth)
+                {
+                    useAuthModal.open();
+                }
+                if (!response.data.requireAuth)
                 {
                     const { getCartCount } = useShoppingCartService();
 
@@ -103,11 +106,34 @@ export default function useProductPageService()
                     useToastNotification.open(response.data.message);
                 }
 
+            } catch (error)
+            {
 
-                useLoadingSpinner.hide();
             }
 
+
+            useLoadingSpinner.hide();
+        },
+
+        async getProductReviews()
+        {
+
+            try
+            {
+
+                let response = await useProductPageApi.getProductReviews(ProductDetailStore.product.id);
+
+                ProductDetailStore.reviews = response.data.reviews;
+                review.value.comment = '';
+            } catch (error)
+            {
+                if (error.response.status == 404)
+                {
+                    useRouterService.redirectToRoute('pageNotFound');
+                }
+            }
         }
+
 
 
     }

@@ -4,6 +4,7 @@ import { useBaseModel } from "@/components/BaseModal";
 
 const useAuthModal = reactive({
     isOpen: false,
+
     open()
     {
         this.isOpen = true;

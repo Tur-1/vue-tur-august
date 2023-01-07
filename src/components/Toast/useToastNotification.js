@@ -14,7 +14,11 @@ let useToastNotification = reactive({
 
     open(message, success = true)
     {
-        this.isOpen = true;
+        if (message)
+        {
+            this.isOpen = true;
+        }
+
         this.message = message;
 
         this.background = success ? backgroundSuccessColor : backgroundErrorColor;

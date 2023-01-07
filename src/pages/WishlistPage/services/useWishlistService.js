@@ -1,5 +1,8 @@
 
+import useAuthModal from '@/Auth/services/useAuthModal';
+import authUser from '@/Auth/store/authUser';
 import { useLoadingSpinner } from '@/components/LoadingSpinner';
+
 import useWishlistPageApi from '@/pages/WishlistPage/api/useWishlistPageApi';
 import WishlistStore from '@/pages/WishlistPage/stores/WishlistStore';
 import useRouterService from '@/router/useRouterService';
@@ -33,6 +36,7 @@ export default function useWishlistService()
         async addProductToWishlist(productId)
         {
 
+
             useLoadingSpinner.show();
 
             try
@@ -40,7 +44,18 @@ export default function useWishlistService()
 
                 let response = await useWishlistPageApi.addToWishlist(productId);
 
-                WishlistStore.productsIds = response.data;
+                if (response.data.requireAuth)
+                {
+                    useAuthModal.open();
+
+                } else
+                {
+                    WishlistStore.productsIds = response.data;
+
+                }
+
+
+
             } catch (error)
             {
                 console.log(error);

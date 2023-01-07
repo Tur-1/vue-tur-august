@@ -9,35 +9,55 @@
       </div>
     </div>
     <ul class="sort-by-dropdown">
-      <li>
-        <a class="active" href="https://tur-august.herokuapp.com/shop/women"
-          ><i class="bi bi-card-list me-2"></i> Suggested</a
-        >
-      </li>
-      <li>
-        <a class="" href="https://tur-august.herokuapp.com/shop/women?sort=new"
-          ><i class="bi bi-fire me-2"></i> new</a
-        >
-      </li>
-      <li>
+      <li v-for="(sort, index) in sortProducts">
         <a
-          class=""
-          href="https://tur-august.herokuapp.com/shop/women?sort=price-high-to-low"
-          ><i class="bi bi-sort-up me-2"></i> Price: High to Low</a
+          role="button"
+          @click="filterProducts(sort.slug)"
+          :class="{
+            active: ProductsFilterStore.sort == sort.slug,
+          }"
         >
-      </li>
-      <li>
-        <a
-          class=""
-          href="https://tur-august.herokuapp.com/shop/women?sort=price-low-to-high"
-          ><i class="bi bi-sort-down-alt me-2"></i> Price: Low to High</a
+          <i :class="sort.icon"></i> {{ sort.name }}</a
         >
       </li>
     </ul>
   </div>
 </template>
 <script setup>
+import ProductsFilterStore from "@/pages/ShopPage/stores/ProductsFilterStore";
+import { reactive } from "vue";
+
 const showSortDropdown = () => {
   $(".sort-by-dropdown").slideToggle();
 };
+const filterProducts = (slug) => {
+  ProductsFilterStore.sort = slug;
+  showSortDropdown();
+};
+let sortProducts = reactive([
+  {
+    id: "1",
+    name: "Suggested",
+    slug: "",
+    icon: "bi bi-card-list me-2",
+  },
+  {
+    id: "2",
+    name: "new",
+    slug: "new",
+    icon: "bi bi-fire me-2",
+  },
+  {
+    id: "3",
+    name: "Price: High to Low",
+    slug: "price-high-to-low",
+    icon: "bi bi-sort-up me-2",
+  },
+  {
+    id: "4",
+    name: "Price: Low to High",
+    slug: "price-low-to-high",
+    icon: "bi bi-sort-down-alt me-2",
+  },
+]);
 </script>

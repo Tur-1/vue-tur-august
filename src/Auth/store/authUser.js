@@ -2,7 +2,7 @@ import { reactive, ref } from "vue";
 
 
 const authUser = reactive({
-    user: {},
+    user: null,
     access_token: null,
     setAuthUser(user)
     {
