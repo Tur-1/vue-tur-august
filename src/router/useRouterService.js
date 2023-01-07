@@ -21,6 +21,7 @@ const useRouterService = reactive({
     },
     redirectToRoute(routeName)
     {
+
         return router.push({ name: routeName });
     },
     setPageBackgroundColor(color)

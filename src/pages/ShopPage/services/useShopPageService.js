@@ -34,7 +34,7 @@ export default function useShopPageService()
 
             } catch (error)
             {
-                console.log(error);
+
                 if (error.response.status == 404)
                 {
                     useRouterService.redirectToRoute('pageNotFound');

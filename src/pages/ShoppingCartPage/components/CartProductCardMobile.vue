@@ -59,9 +59,13 @@
             </span>
             <div class="price">
               <span class="discounted-product-price">
-                {{ product.price_before_discount }}
+                {{
+                  product.price_before_discount
+                    ? product.price_before_discount + " SAR"
+                    : ""
+                }}
               </span>
-              <span class="text-primary">{{ product.price }}</span>
+              <span class="text-primary">{{ product.price }} SAR</span>
             </div>
           </div>
         </div>

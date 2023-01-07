@@ -63,6 +63,7 @@ export default function useCheckoutService()
         {
             let res = await useCheckoutApi.buyNow(CheckoutStore.selectedAddress);
 
+            console.log(res.data);
             useToastNotification.open(res.data.message);
             useRouterService.redirectToRoute('home');
         } catch (error)

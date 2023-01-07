@@ -73,8 +73,12 @@
             ></a>
             <div class="shopping-cart-product-price">
               <span class="cart-discounted-product-price">
-                {{ product.price_before_discount }}</span
-              ><span class="text-primary"> {{ product.price }}</span>
+                {{
+                  product.price_before_discount
+                    ? product.price_before_discount + " SAR"
+                    : ""
+                }}</span
+              ><span class="text-primary"> {{ product.price }} SAR</span>
             </div>
             <a
               role="button"
