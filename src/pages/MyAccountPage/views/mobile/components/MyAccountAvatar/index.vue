@@ -11,7 +11,7 @@ import MyAccountStore from "@/pages/MyAccountPage/store/MyAccountStore";
       />
     </div>
     <div class="account-user-name">
-      <span>Hi,</span><span>{{ MyAccountStore.userInfo.name }}</span>
+      <span>Hi,</span><span>{{ MyAccountStore.userInfo?.name }}</span>
     </div>
   </div>
 </template>

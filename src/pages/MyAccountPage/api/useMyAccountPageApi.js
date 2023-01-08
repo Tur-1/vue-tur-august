@@ -39,7 +39,7 @@ const storeNewAddress = (fields) =>
 }
 const destroyAddress = (id) =>
 {
-    return api().delete(BASE_URL + "/delete-address/" + id);
+    return api().post(BASE_URL + "/delete-address/" + id);
 }
 export default {
     getAccountPageContent,

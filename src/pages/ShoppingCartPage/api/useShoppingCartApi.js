@@ -14,7 +14,7 @@ export default {
     },
     removeCartItem(cartItemId)
     {
-        return api().delete(`/cart/remove-item/${ cartItemId }`);
+        return api().post(`/cart/remove-item/${ cartItemId }`);
     },
     saveForLater({ productId, cartItemId })
     {
