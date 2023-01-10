@@ -32,7 +32,7 @@ npm run dev
 <a href="https://ibb.co/44bmMVq"><img src="https://i.ibb.co/gt0jwR2/Screenshot-20230110-101406.png" width="500" alt="Screenshot-20230110-101406" border="0"></a>
 <a href="https://ibb.co/8DhG7Xj"><img src="https://i.ibb.co/C5r4HWn/Screenshot-20230110-101433.png" width="500" alt="Screenshot-20230110-101433" border="0"></a>
 <a href="https://ibb.co/JrCH5Fm"><img src="https://i.ibb.co/p4ndJrb/Screenshot-20230110-101820.png" width="500" alt="Screenshot-20230110-101820" border="0"></a>
-<a href="https://ibb.co/9nb4WZh"><img src="https://i.ibb.co/xh1g6FY/Screenshot-20230110-101838.png" width="500" alt="Screenshot-20230110-101838" border="0"></a>
-<a href="https://ibb.co/VWYRbJb"><img src="https://i.ibb.co/hRFbrLr/Screenshot-20230110-101858.png" width="500" alt="Screenshot-20230110-101858" border="0"></a>
-<a href="https://ibb.co/BN9xQPQ"><img src="https://i.ibb.co/Qd4RTcT/Screenshot-20230110-101910.png" width="500" alt="Screenshot-20230110-101910" border="0"></a>
-<a href="https://ibb.co/Jqghs8D"><img src="https://i.ibb.co/r3NWwqD/Screenshot-20230110-102059.png" width="500" alt="Screenshot-20230110-102059" border="0"></a>
+<a href="https://ibb.co/9nb4WZh"><img src="https://i.ibb.co/xh1g6FY/Screenshot-20230110-101838.png" width="200" alt="Screenshot-20230110-101838" border="0"></a>
+<a href="https://ibb.co/VWYRbJb"><img src="https://i.ibb.co/hRFbrLr/Screenshot-20230110-101858.png" width="200" alt="Screenshot-20230110-101858" border="0"></a>
+<a href="https://ibb.co/BN9xQPQ"><img src="https://i.ibb.co/Qd4RTcT/Screenshot-20230110-101910.png" width="200" alt="Screenshot-20230110-101910" border="0"></a>
+<a href="https://ibb.co/Jqghs8D"><img src="https://i.ibb.co/r3NWwqD/Screenshot-20230110-102059.png" width="200" alt="Screenshot-20230110-102059" border="0"></a>
