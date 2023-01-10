@@ -26,7 +26,7 @@ npm run dev
 
 
 #  desktop :
-<a href="https://ibb.co/3RgrBmj"><img src="https://i.ibb.co/Hh5FnTb/Screenshot-2023-01-10-221518.png" alt="Screenshot-2023-01-10-221518" border="0"  width="500"  /></a>
+<a href="https://ibb.co/3RgrBmj"><img src="https://i.ibb.co/Hh5FnTb/Screenshot-2023-01-10-221518.png" alt="Screenshot-2023-01-10-221518" border="0"  width="500" height="300"  /></a>
 <a href="https://ibb.co/mhXGCkc"><img src="https://i.ibb.co/Yfy37mL/Screenshot-2023-01-10-221600.png" width="500" alt="Screenshot-2023-01-10-221600" border="0"></a>
 <a href="https://ibb.co/Thtsx33"><img src="https://i.ibb.co/s3qZdYY/Screenshot-2023-01-10-221619.png" width="500" alt="Screenshot-2023-01-10-221619" border="0"></a>
 <a href="https://ibb.co/DQTsHbW"><img src="https://i.ibb.co/Wfjq435/Screenshot-2023-01-10-221727.png" width="500" alt="Screenshot-2023-01-10-221727" border="0"></a>
